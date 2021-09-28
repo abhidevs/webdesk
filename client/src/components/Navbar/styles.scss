@@ -1,0 +1,89 @@
+@import "../../App.scss";
+
+.navbar {
+  width: 96%;
+  background: var(--secondary-color);
+  font-size: 14px;
+  position: fixed;
+  top: 13px;
+  left: 2%;
+  z-index: 999;
+  // border: 2px solid #000;
+  box-shadow: 0px 0px 2px 2px #eeeeee;
+
+  .container {
+    padding: 0px 50px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .left {
+      .logo {
+        font-size: 20px;
+        color: var(--primary-color);
+      }
+    }
+
+    .middle {
+      display: flex;
+      align-items: center;
+
+      span {
+        font-size: 17px;
+        font-weight: 500;
+        color: var(--text-color2);
+        cursor: pointer;
+
+        &:first-child {
+          color: var(--primary-color);
+        }
+
+        &:not(:last-child) {
+          margin-right: 60px;
+        }
+      }
+    }
+
+    .right {
+      .profile {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          object-fit: cover;
+          cursor: pointer;
+        }
+
+        .userDetails {
+          display: flex;
+          flex-direction: column;
+          margin-left: 20px;
+
+          span:first-child {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-color2);
+          }
+
+          span:last-child {
+            font-size: 14px;
+            height: 19px;
+            color: var(--text-color1);
+          }
+        }
+
+        .icon {
+          margin-top: -22px;
+          padding: 0 10px;
+          font-size: 36px;
+          //   align-self: flex-start;
+          //   padding-top: 2px;
+        }
+      }
+    }
+  }
+}
