@@ -1,0 +1,300 @@
+.side {
+  width: 68%;
+  display: flex;
+  justify-content: space-between;
+}
+
+// contain start
+.container-note {
+  //  border: 2px solid rgb(15, 15, 13);
+  width: 450px;
+  height: 50%;
+}
+// contain end
+
+// meterial start
+.meterial {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  position: static;
+  width: 442px;
+  height: 31px;
+  left: 0.8px;
+  top: 10px;
+  margin: 20px 0px 0px 0px;
+}
+.meterial h1 {
+  font-size: 30px;
+  color: var(--text-color2);
+}
+.meterial a {
+  transition: all 0.3s ease-out;
+  text-decoration: none;
+}
+
+.meterial a:hover {
+  color: var(--text-color2);
+}
+
+// meterial end
+
+// boxmodel start
+.layout1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 21px 20px;
+  position: static;
+  width: 425px;
+  height: 82px;
+  left: 0px;
+  top: 58px;
+  background: var(--background-color);
+  box-shadow: 2px 2px 20px rgb(199, 195, 195);
+  border-radius: 12px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 22px 2px;
+}
+
+.images img {
+  width: 74px;
+  height: 74px;
+  top: 26px;
+  border-radius: 50%;
+  margin: 0px -6px;
+}
+// layout text start
+.layout-text {
+  margin: 10px 0px 0px 50px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: static;
+  // width: 310px;
+  height: 76px;
+  // left: 139px;
+  // top: 25px;
+}
+.layout-text h2 {
+  position: static;
+  width: 280px;
+  height: 21px;
+
+  top: 0px;
+
+  /* H5 - Inter - 22pt */
+
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 16px;
+  /* or 73% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.005em;
+
+  /* Text color 2 */
+
+  color: var(--text-color1);
+
+  /* Inside Auto Layout */
+}
+.layout-text h3 {
+  position: static;
+  // width: 251px;
+  height: 28px;
+
+  top: 30px;
+
+  /* P2 - Inter - 19pt */
+
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 126% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.005em;
+
+  /* Text color 1 */
+
+  color: var(--text-color1);
+
+  /* Inside Auto Layout */
+}
+
+.layout-text p {
+  position: static;
+  width: 251px;
+  height: 18px;
+  top: 58px;
+
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.005em;
+
+  color: var(--text-color1);
+
+  flex: none;
+  order: 2;
+
+  // margin: 5px 0px;
+}
+.btn {
+  margin: -5px -50px;
+  width: 100%;
+}
+// layout text end
+.btn button {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+
+  position: static;
+  width: 88px;
+  height: 38px;
+  border: none;
+  background: var(--primary-color);
+  top: 6px;
+
+  border-radius: 50px;
+
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+}
+.btn button:hover {
+  background: none;
+  border: 1px solid rgb(255, 196, 0);
+  color: rgb(255, 196, 0);
+}
+// boxmodel end
+
+// layout 2
+.layout2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 21px 20px;
+  position: static;
+  width: 425px;
+  height: 82px;
+  left: 0px;
+  top: 58px;
+  background: var(--background-color);
+  box-shadow: 2px 2px 20px rgb(199, 195, 195);
+  border-radius: 12px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 22px 2px;
+}
+
+// assignment section
+.assignment{
+  display: block;
+}
+.meterial-assignment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  position: static;
+  width: 442px;
+  height: 31px;
+  left: 0.8px;
+  top: 10px;
+  margin: 20px 0px 0px 0px;
+}
+.meterial-assignment h1 {
+  font-size: 30px;
+  color: var(--text-color2);
+}
+.meterial-assignment a {
+  transition: all 0.3s ease-out;
+  text-decoration: none;
+}
+
+.meterial-assignment a:hover {
+  color: var(--text-color2);
+}
+
+
+// assignment-layout start 
+.assi-image img{
+  width: 74px;
+  height: 74px;
+ 
+  border-radius: 50%;
+  
+}
+
+// icons 
+.assi-icon{
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 4px 10px;
+
+position: static;
+width: 150px;
+height: 26px;
+left: 0px;
+top: 69px;
+
+/* Secondary color */
+
+background: var(--secondary-color);
+/* Primary color */
+
+border: 1px solid #646CFF;
+box-sizing: border-box;
+border-radius: 13px;
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 2;
+flex-grow: 0;
+margin: 10px 0px;
+}
+.assi-icon img{
+  
+  width: 20px;
+  height: 20px;
+}
+.assi-icon h1
+{
+  color: var(--primary-color);
+  font-size: 10px;
+}
+.assi-icon h2{
+  color: var(--primary-color);
+  font-size: 10px;
+}
+
+
+
