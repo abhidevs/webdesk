@@ -1,0 +1,37 @@
+.widget-container {
+  width: 465px;
+  height: 254px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 24px;
+  
+  .topSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    h2 {
+      font-size: 24px;
+      color: var(--text-color2);
+    }
+    
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--primary-color);
+      transition: all 0.3s ease-out;
+    }
+    
+    a:hover {
+      color: var(--text-color1);
+    }
+  }
+  
+    &.tasks {
+      .topSection {
+        padding-bottom: 18px;
+      }
+    }
+}

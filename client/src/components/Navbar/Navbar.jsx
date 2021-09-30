@@ -1,12 +1,12 @@
 import React from "react";
 // import { Link } from "react-router-dom";
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import './styles.scss'
+import './style.scss'
 
 const Navbar = () => {
   return (
     <div className="navbar">
-      <div className="container">
+      <div className="nav-container">
         <div className="left">
           <h3 className="logo">WebDesk</h3>
         </div>

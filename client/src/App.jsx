@@ -1,19 +1,22 @@
-import './App.scss';
-import Navbar from './components/Navbar/Navbar';
-import Herosection from './components/herosection/Herosection';
-import HomeWidget from './components/notemeterial/HomeWidget';
+import "./App.scss";
+import Navbar from "./components/navbar/Navbar";
+import Herosection from "./components/herosection/Herosection";
+import HomeWidget from "./components/homeWidget/HomeWidget";
+import { notesArray, tasksArray } from "./dummydata";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Navbar />
-      {/* <h1>Welcome to WebDesk</h1> */}
-      <Herosection/>
-      <HomeWidget/>
-    </div>
-    
+      <div className="container">
+        <Herosection />
 
-    
+        <div className="widgets-row">
+          <HomeWidget title="Notes & Materials" type="notes" data={notesArray} />
+          <HomeWidget title="Tasks & Assignments" type="tasks" data={tasksArray} />
+        </div>
+      </div>
+    </div>
   );
 }
 
