@@ -35,3 +35,48 @@ export const tasksArray = [
     taskFile: "assignment2",
   },
 ];
+
+export const classesArray = [
+  {
+    itemTitle: "Sql Quarries",
+    subject: "Database",
+    timeOfposting: "9:30 am",
+    status: "finished",
+    nameOfPoster: "Satyajit Sahoo",
+  },
+  {
+    itemTitle: "Graph thoery",
+    subject: "Discrete",
+    timeOfposting: "1:30 pm",
+    status: "ongoing",
+    nameOfPoster: "Debnarayan K",
+  },
+  {
+    itemTitle: "Threads in Java",
+    subject: "Java",
+    timeOfposting: "2:30 pm",
+    status: "not-started",
+    nameOfPoster: "Dipankar Dey",
+  },
+];
+
+export const doubtsArray = [
+  {
+    itemTitle: "How to use super constructor",
+    subject: "Java Programming",
+    timeOfposting: "9:15 am",
+    nameOfPoster: "Soumen Sau",
+  },
+  {
+    itemTitle: "Difference between left join",
+    subject: "Database",
+    timeOfposting: "7:15 am",
+    nameOfPoster: "Abhik Das",
+  },
+  {
+    itemTitle: "What is the formula for number",
+    subject: "Discrete Mathematics",
+    timeOfposting: "yesterday",
+    nameOfPoster: "Rabbil Khan",
+  },
+];

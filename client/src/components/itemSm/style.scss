@@ -1,0 +1,137 @@
+@import "../../App.scss";
+
+.itemSm {
+  width: 465px;
+  height: 62px;
+  background: var(--secondary-color);
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 2px 20px #d1d1d1;
+  border-radius: 12px;
+
+  h5 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-color2);
+  }
+
+  p {
+    font-size: 12px;
+    color: var(--text-color1);
+  }
+
+  .column1 {
+    width: 80px;
+    display: flex;
+    align-items: center;
+
+    h5 {
+      max-width: 66px;
+      overflow: hidden;
+    }
+
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 5px;
+
+      &.finished {
+        background: var(--extra-color1);
+      }
+
+      &.ongoing {
+        background: var(--text-color3);
+      }
+
+      &.not-started {
+        background: var(--extra-color2);
+      }
+    }
+  }
+
+  .column2 {
+    width: 106px;
+
+    h5 {
+      padding-bottom: 6px;
+    }
+  }
+
+  .column3 {
+    width: 65px;
+
+    h5 {
+      padding-bottom: 6px;
+    }
+  }
+
+  .column4 {
+    width: 72px;
+    text-align: center;
+
+    p {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    p.finished {
+      color: var(--extra-color1);
+    }
+
+    p.not-started {
+      color: var(--extra-color2);
+    }
+
+    button {
+      width: 72px;
+      height: 32px;
+      padding: 5px 10px;
+      font-weight: 600;
+      background: var(--secondary-color);
+      color: var(--text-color3);
+      border: 2px solid var(--text-color3);
+      border-radius: 50px;
+      transition: all 0.3s ease-out;
+      cursor: pointer;
+    }
+  }
+
+  &.doubt {
+    .column1 {
+      width: 86px;
+      flex-direction: column-reverse;
+      align-items: flex-start;
+
+      h5 {
+        margin-bottom: 6px;
+        max-width: 86px;
+      }
+    }
+
+    .column2 {
+      width: 225px;
+    }
+  }
+
+  &:hover {
+    background: var(--primary-gradient);
+
+    h5,
+    p {
+      color: var(--secondary-color);
+    }
+
+    .column4 {
+      button {
+        background: var(--text-color3);
+        color: var(--secondary-color);
+      }
+    }
+
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+  }
+}

@@ -33,7 +33,7 @@ const ItemLg = ({
         {type === "task" ? (
           <>
             <p>
-              {status === "pending" ? timeOfposting : "Submitted"}
+              {status === "pending" ? timeOfposting : status}
             </p>
             {status === "pending" && <button>View</button>}
           </>
