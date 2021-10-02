@@ -1,26 +1,44 @@
 import "./App.scss";
-import Navbar from "./components/navbar/Navbar";
-import Herosection from "./components/herosection/Herosection";
-import HomeWidget from "./components/homeWidget/HomeWidget";
-import { classesArray, doubtsArray, notesArray, tasksArray } from "./dummydata";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/home/Home";
 
 function App() {
   return (
     <div className="app">
-      <Navbar />
-      <div className="container">
-        <Herosection />
-
-        <div className="widgets-row">
-          <HomeWidget title="Notes & Materials" type="notes" data={notesArray} forLargeItems />
-          <HomeWidget title="Tasks & Assignments" type="tasks" data={tasksArray} forLargeItems />
-        </div>
-
-        <div className="widgets-row">
-          <HomeWidget title="Class Schedule" type="schedules" data={classesArray} forSmallItems />
-          <HomeWidget title="Doubts & Questions" type="doubts" data={doubtsArray} forSmallItems />
-        </div>
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <h1>Login page</h1>
+          </Route>
+          <Route path="/register">
+            <h1>Register page</h1>
+          </Route>
+          <Route path="/materials">
+            <h1>All materials page</h1>
+          </Route>
+          <Route path="/tasks">
+            <h1>All tasks page</h1>
+          </Route>
+          <Route path="/doubts">
+            <h1>All doubts page</h1>
+          </Route>
+          <Route path="/material">
+            <h1>Individual material page</h1>
+          </Route>
+          <Route path="/task">
+            <h1>Individual task page</h1>
+          </Route>
+          <Route path="/doubt">
+            <h1>Individual doubt page</h1>
+          </Route>
+          <Route path="/class">
+            <h1>Individual class page</h1>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

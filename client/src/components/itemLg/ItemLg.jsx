@@ -1,6 +1,7 @@
 import React from "react";
 import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
 import "./style.scss";
+import { Link } from "react-router-dom";
 
 const ItemLg = ({
   index,
@@ -30,15 +31,15 @@ const ItemLg = ({
       </div>
 
       <div className={"right " + status}>
-        {type === "task" ? (
+        {type === "task" && (
           <>
-            <p>
-              {status === "pending" ? timeOfposting : status}
-            </p>
-            {status === "pending" && <button>View</button>}
+            <p>{status === "pending" ? timeOfposting : status}</p>
           </>
-        ) : (
-          <button>View</button>
+        )}
+        {(type === "material" || status === "pending") && (
+          <Link to={`/${type}`} className="link">
+            <button>View</button>
+          </Link>
         )}
       </div>
     </div>

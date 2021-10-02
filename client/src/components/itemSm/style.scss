@@ -99,6 +99,28 @@
     }
   }
 
+  &:hover {
+    background: var(--primary-gradient);
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+
+    h5,
+    p {
+      color: var(--secondary-color);
+    }
+
+    .column4 {
+      button {
+        background: var(--text-color3);
+        color: var(--secondary-color);
+      }
+    }
+  }
+
+  &.schedule.finished, &.schedule.not-started:hover {
+    cursor: initial;
+  }
+
   &.doubt {
     .column1 {
       width: 86px;
@@ -114,24 +136,5 @@
     .column2 {
       width: 225px;
     }
-  }
-
-  &:hover {
-    background: var(--primary-gradient);
-
-    h5,
-    p {
-      color: var(--secondary-color);
-    }
-
-    .column4 {
-      button {
-        background: var(--text-color3);
-        color: var(--secondary-color);
-      }
-    }
-
-    transition: all 0.3s ease-out;
-    cursor: pointer;
   }
 }

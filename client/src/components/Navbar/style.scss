@@ -28,14 +28,18 @@
       display: flex;
       align-items: center;
 
-      span {
-        font-size: 17px;
-        font-weight: 500;
-        color: var(--text-color2);
-        cursor: pointer;
+      .link {
+        span {
+          font-size: 17px;
+          font-weight: 500;
+          color: var(--text-color2);
+          cursor: pointer;
+        }
 
         &:first-child {
-          color: var(--primary-color);
+          span {
+            color: var(--primary-color);
+          }
         }
 
         &:not(:last-child) {
@@ -61,6 +65,7 @@
           display: flex;
           flex-direction: column;
           margin-left: 20px;
+          cursor: pointer;
 
           span:first-child {
             font-size: 18px;
@@ -76,11 +81,10 @@
         }
 
         .icon {
-          margin-top: -22px;
-          padding: 0 10px;
-          font-size: 36px;
-          //   align-self: flex-start;
-          //   padding-top: 2px;
+          margin-top: -21px;
+          font-size: 32px;
+          cursor: pointer;
+          // padding: 0 10px;
         }
       }
     }
