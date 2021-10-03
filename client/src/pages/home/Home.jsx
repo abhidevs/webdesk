@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/navbar/Navbar";
 import Herosection from "../../components/herosection/Herosection";
 import HomeWidget from "../../components/homeWidget/HomeWidget";
 import { classesArray, doubtsArray, notesArray, tasksArray } from "../../dummydata";
