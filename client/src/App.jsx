@@ -1,3 +1,6 @@
+
+
+
 import "./App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
@@ -39,8 +42,9 @@ function App() {
           </Route>
         </Switch>
       </Router>
+
     </div>
   );
-}
+  }
 
 export default App;
