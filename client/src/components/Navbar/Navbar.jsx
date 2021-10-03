@@ -1,21 +1,31 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import './styles.scss'
+import { Link } from "react-router-dom";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import "./style.scss";
 
 const Navbar = () => {
   return (
     <div className="navbar">
-      <div className="container">
+      <div className="nav-container">
         <div className="left">
-          <h3 className="logo">WebDesk</h3>
+          <Link to="/" className="link">
+            <h3 className="logo">WebDesk</h3>
+          </Link>
         </div>
 
         <div className="middle">
-          <span>Home</span>
-          <span>Notes</span>
-          <span>Tasks</span>
-          <span>Doubts</span>
+          <Link to="/" className="link">
+            <span>Home</span>
+          </Link>
+          <Link to="/materials" className="link">
+            <span>Materials</span>
+          </Link>
+          <Link to="/tasks" className="link">
+            <span>Tasks</span>
+          </Link>
+          <Link to="/doubts" className="link">
+            <span>Doubts</span>
+          </Link>
         </div>
 
         <div className="right">
