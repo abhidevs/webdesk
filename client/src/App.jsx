@@ -1,3 +1,6 @@
+
+
+
 import "./App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import StartClass from "./components/startclass/StartClass"
@@ -41,8 +44,9 @@ function App() {
           </Route>
         </Switch>
       </Router>
+
     </div>
   );
-}
+  }
 
 export default App;

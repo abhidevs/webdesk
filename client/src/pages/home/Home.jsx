@@ -1,9 +1,10 @@
 import React from "react";
 import "./style.scss";
-import Navbar from "../../components/navbar/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import Herosection from "../../components/herosection/Herosection";
 import HomeWidget from "../../components/homeWidget/HomeWidget";
 import { classesArray, doubtsArray, notesArray, tasksArray } from "../../dummydata";
+import MyCalendar from "../../components/calendar/MyCalendar";
 
 const Home = () => {
   return (
@@ -40,6 +41,7 @@ const Home = () => {
             data={doubtsArray}
             forSmallItems
           />
+          <MyCalendar/>
         </div>
       </div>
     </div>
