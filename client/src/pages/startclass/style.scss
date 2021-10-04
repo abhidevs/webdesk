@@ -1,101 +1,94 @@
-.container {
-  .code {
-    h2 {
+.startclass {
+  width: 100%;
+  height: 88vh;
+  background: var(--background-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 80px;
+
+  .meeting {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .meeting-code {
+      width: 100%;
+      font-size: 20px;
       color: var(--text-color2);
-      padding: 15px 0;
-      padding-left: 85px;
+    }
+
+    .meeting-screen {
+      width: 100%;
+      height: 82%;
+      background: var(--secondary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      box-shadow: 0px 0px 2px 2px #eeeeee;
+
+      img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    .meeting-controls {
+      width: 50%;
+      display: flex;
+      justify-content: space-evenly;
+
+      button {
+        width: 70px;
+        height: 50px;
+        border: none;
+        border-radius: 16px;
+        background: var(--secondary-color);
+        box-shadow: 0px 0px 2px 2px #eeeeee;
+        cursor: pointer;
+
+        .icon {
+          color: var(--text-color2);
+          font-size: 26px;
+        }
+      }
     }
   }
 
-  // camera section
-  .meeting {
-    justify-content: space-evenly;
-    width: 100%;
+  .join-meeting {
+    width: 30%;
     height: 100%;
     display: flex;
-    .meeting-all {
-      display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-      .cam {
-        border: 2px solid none;
-        width: 850px;
-        height: 423px;
-        border-radius: 15px;
-        background: var(--secondary-color);
-        .images {
-          justify-content: center;
-          align-items: center;
-          padding-top: 120px;
-
-          img {
-            display: block;
-            margin: auto;
-            border-radius: 50%;
-            width: 180px;
-            height: 180px;
-          }
-        }
-      }
-
-      .cam-icons {
-        justify-content: space-evenly;
-        display: flex;
-        padding: 40px;
-        button {
-          border-radius: 16px;
-          border: none;
-          width: 70px;
-          height: 50px;
-          background: var(--background-color);
-          box-shadow: 3px 3px 3px var(--text-color1);
-        }
-      }
+    h1 {
+      color: var(--text-color2);
+      padding: 20px;
     }
 
-    // join meeting section
+    h3 {
+      color: var(--text-color2);
+      padding: 13px;
+    }
 
-    .join-meet {
-      justify-content: center;
-      align-items: center;
-      padding-top: 120px;
-
-      h1 {
-        color: var(--text-color2);
-        text-align: center;
-        padding: 20px;
-      }
-      h3 {
-        color: var(--text-color2);
-        text-align: center;
-        padding: 13px;
-      }
-      .btn1 {
-        padding: 0px 0px 0px 50px;
-
-        button {
-          color: var(--secondary-color);
-          // padding: 10px;
-          border-radius: 26px;
-          border: none;
-          width: 160px;
-          height: 40px;
-          background: var(--primary-gradient);
-          font-weight: 700;
-        }
-      }
-      .btn2 {
-        padding: 0px 0px 0px 50px;
-
-        button {
-          color: var(--secondary-color);
-          border-radius: 26px;
-          border: none;
-          width: 160px;
-          height: 40px;
-          background: var(--primary-gradient);
-          font-weight: 700;
-        }
-      }
+    button {
+      background: var(--primary-gradient);
+      width: 165px;
+      height: 40px;
+      color: var(--secondary-color);
+      font-weight: 700;
+      border: none;
+      border-radius: 26px;
+      padding: 10px 30px;
+      cursor: pointer;
     }
   }
 }

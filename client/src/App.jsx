@@ -35,9 +35,14 @@ function App() {
           <Route path="/doubt">
             <h1>Individual doubt page</h1>
           </Route>
-          <Route path="/class">
-            
+          <Route path="/class/join">
             <StartClass/>
+          </Route>
+          <Route exact path="/class">
+            <h1>Video call page</h1>
+          </Route>
+          <Route path="/class/create">
+            <StartClass />
           </Route>
         </Switch>
       </Router>

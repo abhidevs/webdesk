@@ -13,7 +13,7 @@ const ItemSm = ({
   return (
     <Link
       to={`/${
-        type === "schedule" ? (status === "ongoing" ? "class" : "#") : type
+        type === "schedule" ? (status === "ongoing" ? "class/join" : "#") : type
       }`}
       className="link"
     >
@@ -40,7 +40,7 @@ const ItemSm = ({
         )}
         <div className="column4">
           {status === "ongoing" || type === "doubt" ? (
-            <Link to={`/${type === "schedule" ? "class" : type}`}>
+            <Link to={`/${type === "schedule" ? "class/join" : type}`}>
               <button>{type === "schedule" ? "Join" : "View"}</button>
             </Link>
           ) : (
