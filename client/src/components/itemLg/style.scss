@@ -3,7 +3,7 @@
 .itemLg {
   width: 465px;
   height: 92px;
-  background: var(--background-color);
+  background: var(--secondary-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,7 +19,7 @@
   }
 
   .textcontent {
-    min-width: 160px;
+    width: 160px;
     height: 84%;
     display: flex;
     flex-direction: column;
@@ -46,7 +46,7 @@
   }
 
   .right {
-    min-width: 100px;
+    width: 100px;
 
     button {
       width: 88px;
@@ -83,7 +83,7 @@
 
   &.task {
     .textcontent {
-      min-width: 170px;
+      width: 170px;
       height: 100%;
 
       .taskfile {
@@ -125,6 +125,52 @@
           color: var(--extra-color1);
           font-size: 13px;
           font-weight: 500;
+        }
+      }
+    }
+  }
+
+  &.class {
+    // margin-left: 12px;
+    width: 100%;
+    background: var(--secondary-color);
+    box-shadow: none;
+    padding: 15px 15px 15px 8px;
+
+    .subject-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50px;
+
+      h5 {
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+
+    .textcontent {
+      width: 150px;
+    }
+
+    .right {
+      width: min-content;
+
+      .link {
+        button {
+          width: 75px;
+          height: 30px;
+          padding: 8px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        &:first-of-type {
+          display: block;
+          margin-bottom: 10px;
         }
       }
     }

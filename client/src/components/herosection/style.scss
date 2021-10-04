@@ -9,40 +9,54 @@
   align-items: center;
   justify-content: center;
 
+  
   .heroSection-content {
     display: flex;
     align-items: center;
     justify-content: center;
-
+    
     .left {
       position: relative;
       top: -23px;
       left: -20px;
-
+      
       img {
         height: 270px;
       }
     }
-
+    
     .right {
       top: 20px;
       color: var(--secondary-color);
       letter-spacing: 1px;
       text-align: left;
       margin-left: 20px;
-
+      
       h3 {
         font-size: 15px;
       }
-
+      
       h1 {
         font-size: 40px;
         margin-top: 6px;
         margin-bottom: 6px;
       }
-
+      
       p {
         font-size: 15px;
+      }
+    }
+  }
+
+  &.small {
+    height: 150px;
+  
+    .heroSection-content {
+      .right {
+        display: flex;
+        flex-direction: column-reverse;
+
+        justify-content: center;
       }
     }
   }

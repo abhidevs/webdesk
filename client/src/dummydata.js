@@ -80,3 +80,27 @@ export const doubtsArray = [
     nameOfPoster: "Rabbil Khan",
   },
 ];
+
+export const allClassesArray = [
+  {
+    subject: "Database",
+    teacher: "Satyajit Sahoo",
+    classTime: "9:30 am",
+    bgColor: "rgba(94, 208, 88, 0.35)",
+    textColor: "rgba(94, 208, 88, 1)",
+  },
+  {
+    subject: "Discrete Math",
+    teacher: "Debnarayan K",
+    classTime: "1:30 pm",
+    bgColor: "rgba(255, 196, 0, 0.35)",
+    textColor: "rgba(255, 196, 0, 1)",
+  },
+  {
+    subject: "Java",
+    teacher: "Dipankar Dey",
+    classTime: "2:30 pm",
+    bgColor: "rgba(114, 223, 238, 0.35)",
+    textColor: "rgba(114, 223, 238, 1)",
+  },
+];
