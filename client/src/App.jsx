@@ -3,7 +3,7 @@
 
 import "./App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import StartClass from "./components/startclass/StartClass"
+import StartClass from "./pages/startclass/StartClass"
 import Home from "./pages/home/Home";
 
 function App() {

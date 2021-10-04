@@ -1,9 +1,9 @@
 import React, { PureComponent } from "react";
-import Navbar from "../navbar/Navbar";
+import Navbar from "../../components/navbar/Navbar";
 import MicIcon from "@material-ui/icons/MicTwoTone";
 import PersonalVideoIcon from "@material-ui/icons/PersonalVideo";
 import VideocamTwoToneIcon from "@material-ui/icons/VideocamTwoTone";
-import "./Style.scss";
+import "./style.scss";
 
 export default class StartClass extends PureComponent {
   render() {
