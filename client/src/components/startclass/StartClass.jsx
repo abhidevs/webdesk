@@ -14,10 +14,11 @@ export default class StartClass extends PureComponent {
           <div className="code">
             <h2>CFH-GGH-TYU</h2>
           </div>
-          <div className="meeting">
-            <div>
-              {/* camera section  */}
 
+          {/* camera section  */}
+
+          <div className="meeting">
+            <div className="meeting-all">
               <div className="cam">
                 <div className="images">
                   <img
@@ -30,11 +31,9 @@ export default class StartClass extends PureComponent {
                 <button>
                   <MicIcon />
                 </button>
-
                 <button>
                   <VideocamTwoToneIcon />
                 </button>
-
                 <button>
                   <PersonalVideoIcon />
                 </button>
