@@ -1,5 +1,6 @@
 import "./App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import StartClass from "./pages/startclass/StartClass"
 import Home from "./pages/home/Home";
 
 function App() {
@@ -35,7 +36,8 @@ function App() {
             <h1>Individual doubt page</h1>
           </Route>
           <Route path="/class">
-            <h1>Individual class page</h1>
+            
+            <StartClass/>
           </Route>
         </Switch>
       </Router>
