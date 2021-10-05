@@ -2,6 +2,7 @@ import "./App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import StartClass from "./pages/startclass/StartClass"
 import Home from "./pages/home/Home";
+import Materials from "./pages/materials/Materials";
 
 function App() {
   return (
@@ -17,9 +18,27 @@ function App() {
           <Route path="/register">
             <h1>Register page</h1>
           </Route>
+          
           <Route path="/materials">
-            <h1>All materials page</h1>
+          <Materials subject="All" dept="BCA" sem="5th" />
           </Route>
+          <Route path="/materialsinds">
+            <Materials subject="Data Structure" dept="BCA" sem="5th" />
+          </Route>
+          <Route path="/materialsinjp">
+            <Materials subject="Java Programming" dept="BCA" sem="5th" />
+          </Route>
+          <Route path="/materialsindm">
+            <Materials subject="Discrete Math" dept="BCA" sem="5th" />
+          </Route>
+          <Route path="/materialsinec">
+            <Materials subject="English Communication" dept="BCA" sem="5th" />
+          </Route>
+          <Route path="/materialsinca">
+            <Materials subject="Computer Architecture" dept="BCA" sem="5th" />
+          </Route>
+
+
           <Route path="/tasks">
             <h1>All tasks page</h1>
           </Route>
