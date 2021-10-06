@@ -2,6 +2,7 @@ import "./App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import StartClass from "./pages/startclass/StartClass"
 import Home from "./pages/home/Home";
+import Login from "./pages/login/Login"
 import Materials from "./pages/materials/Materials";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
             <Home />
           </Route>
           <Route path="/login">
-            <h1>Login page</h1>
+            <Login />
           </Route>
           <Route path="/register">
             <h1>Register page</h1>
