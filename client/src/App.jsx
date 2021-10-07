@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import JoinClass from "./pages/joinClass/JoinClass";
 import CreateClass from "./pages/createClass/CreateClass";
+import Login from "./pages/login/Login";
+import Materials from "./pages/materials/Materials";
+import Register from "./pages/register/Register";
 
 function App() {
   return (
@@ -13,13 +16,28 @@ function App() {
             <Home />
           </Route>
           <Route path="/login">
-            <h1>Login page</h1>
+            <Login />
           </Route>
           <Route path="/register">
-            <h1>Register page</h1>
+            <Register />
           </Route>
           <Route path="/materials">
-            <h1>All materials page</h1>
+            <Materials subject="All" dept="BCA" sem="5th" />
+          </Route>
+          <Route path="/materialsinds">
+            <Materials subject="Data Structure" dept="BCA" sem="5th" />
+          </Route>
+          <Route path="/materialsinjp">
+            <Materials subject="Java Programming" dept="BCA" sem="5th" />
+          </Route>
+          <Route path="/materialsindm">
+            <Materials subject="Discrete Math" dept="BCA" sem="5th" />
+          </Route>
+          <Route path="/materialsinec">
+            <Materials subject="English Communication" dept="BCA" sem="5th" />
+          </Route>
+          <Route path="/materialsinca">
+            <Materials subject="Computer Architecture" dept="BCA" sem="5th" />
           </Route>
           <Route path="/tasks">
             <h1>All tasks page</h1>

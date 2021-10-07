@@ -6,7 +6,7 @@ const Herosection = ({ small, large, title, dept, sem }) => {
   console.log({ small, large });
 
   return (
-    <div className={"heroSection " + (large ? "large" : "small")}>
+    <div className={"heroSection " + (large == true ? "large" : "small")}>
       <div className="heroSection-content">
         <div className="left">
           {large && <img src={heroImg} alt="heroimage" />}
