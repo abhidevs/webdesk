@@ -1,7 +1,8 @@
 import "./App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import StartClass from "./pages/startclass/StartClass"
 import Home from "./pages/home/Home";
+import JoinClass from "./pages/joinClass/JoinClass";
+import CreateClass from "./pages/createClass/CreateClass";
 
 function App() {
   return (
@@ -36,19 +37,18 @@ function App() {
             <h1>Individual doubt page</h1>
           </Route>
           <Route path="/class/join">
-            <StartClass/>
+            <JoinClass />
           </Route>
           <Route exact path="/class">
             <h1>Video call page</h1>
           </Route>
           <Route path="/class/create">
-            <StartClass />
+            <CreateClass />
           </Route>
         </Switch>
       </Router>
-
     </div>
   );
-  }
+}
 
 export default App;
