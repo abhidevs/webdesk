@@ -6,6 +6,7 @@ import CreateClass from "./pages/createClass/CreateClass";
 import Login from "./pages/login/Login";
 import Materials from "./pages/materials/Materials";
 import Register from "./pages/register/Register";
+import Tasks from "./pages/tasks/Tasks";
 
 function App() {
   return (
@@ -39,9 +40,27 @@ function App() {
           <Route path="/materialsinca">
             <Materials subject="Computer Architecture" dept="BCA" sem="5th" />
           </Route>
+
           <Route path="/tasks">
-            <h1>All tasks page</h1>
+            <Tasks subject="All" dept="BCA" sem="5th" />
           </Route>
+          <Route path="/tasksinds">
+            <Tasks subject="Data Structure" dept="BCA" sem="5th" />
+          </Route>
+          <Route path="/tasksinjp">
+            <Tasks subject="Java Programming" dept="BCA" sem="5th" />
+          </Route>
+          <Route path="/tasksindm">
+            <Tasks subject="Discrete Math" dept="BCA" sem="5th" />
+          </Route>
+          <Route path="/tasksinec">
+            <Tasks subject="English Communication" dept="BCA" sem="5th" />
+          </Route>
+          <Route path="/tasksinca">
+            <Tasks subject="Computer Architecture" dept="BCA" sem="5th" />
+          </Route>
+
+
           <Route path="/doubts">
             <h1>All doubts page</h1>
           </Route>

@@ -2,12 +2,13 @@ import React from "react";
 import "./style.scss";
 import Navbar from "../../components/navbar/Navbar";
 import Herosection from "../../components/herosection/Herosection";
-import { materialArray } from "../../dummydata";
+import { taskArray } from "../../dummydata";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Material from "../../components/material/Material";
+import Task from '../../components/task/Task'
 
 
-const Materials = ({ subject, dept, sem }) => {
+const Tasks = ({ subject, dept, sem }) => {
   return (
     <div>
       <Navbar />
@@ -18,19 +19,20 @@ const Materials = ({ subject, dept, sem }) => {
           sem={sem}
           title={
             subject == "All"
-              ? subject + " Notes & Materials"
-              : subject + " : Notes"
+              ? subject + " Tasks & Assignments"
+              : subject + " : Assignments"
           }
         />
       </div>
-      <div className="materials">
-        {materialArray.map((item) => {
+      <div className="task">
+        {taskArray.map((item) => {
           if (subject == "All" || subject == item.subject)
             return (
-              <Material
+              <Task
                 itemTitle={item.itemTitle}
                 titleNotes={item.titleNotes}
                 subject={item.subject}
+                dueDate={item.dueDate}
                 timeOfposting={item.timeOfposting}
                 profilePicOfPoster={item.profilePicOfPoster}
                 status={item.status}
@@ -46,5 +48,5 @@ const Materials = ({ subject, dept, sem }) => {
   )
 }
 
-export default Materials;
+export default Tasks;
 
