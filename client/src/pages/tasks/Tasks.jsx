@@ -5,10 +5,10 @@ import Herosection from "../../components/herosection/Herosection";
 import { taskArray } from "../../dummydata";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Material from "../../components/material/Material";
-import Tasks from '../../components/tasks/tasks'
+import Task from '../../components/task/Task'
 
 
-const Task = ({ subject, dept, sem }) => {
+const Tasks = ({ subject, dept, sem }) => {
   return (
     <div>
       <Navbar />
@@ -28,7 +28,7 @@ const Task = ({ subject, dept, sem }) => {
         {taskArray.map((item) => {
           if (subject == "All" || subject == item.subject)
             return (
-              <Tasks
+              <Task
                 itemTitle={item.itemTitle}
                 titleNotes={item.titleNotes}
                 subject={item.subject}
@@ -48,5 +48,5 @@ const Task = ({ subject, dept, sem }) => {
   )
 }
 
-export default Task;
+export default Tasks;
 

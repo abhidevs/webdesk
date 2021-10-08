@@ -5,8 +5,8 @@ import JoinClass from "./pages/joinClass/JoinClass";
 import CreateClass from "./pages/createClass/CreateClass";
 import Login from "./pages/login/Login";
 import Materials from "./pages/materials/Materials";
-import Task from "./pages/task/task";
 import Register from "./pages/register/Register";
+import Tasks from "./pages/tasks/Tasks";
 
 function App() {
   return (
@@ -42,22 +42,22 @@ function App() {
           </Route>
 
           <Route path="/tasks">
-            <Task subject="All" dept="BCA" sem="5th" />
+            <Tasks subject="All" dept="BCA" sem="5th" />
           </Route>
           <Route path="/tasksinds">
-            <Task subject="Data Structure" dept="BCA" sem="5th" />
+            <Tasks subject="Data Structure" dept="BCA" sem="5th" />
           </Route>
           <Route path="/tasksinjp">
-            <Task subject="Java Programming" dept="BCA" sem="5th" />
+            <Tasks subject="Java Programming" dept="BCA" sem="5th" />
           </Route>
           <Route path="/tasksindm">
-            <Task subject="Discrete Math" dept="BCA" sem="5th" />
+            <Tasks subject="Discrete Math" dept="BCA" sem="5th" />
           </Route>
           <Route path="/tasksinec">
-            <Task subject="English Communication" dept="BCA" sem="5th" />
+            <Tasks subject="English Communication" dept="BCA" sem="5th" />
           </Route>
           <Route path="/tasksinca">
-            <Task subject="Computer Architecture" dept="BCA" sem="5th" />
+            <Tasks subject="Computer Architecture" dept="BCA" sem="5th" />
           </Route>
 
 

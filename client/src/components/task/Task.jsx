@@ -3,7 +3,7 @@ import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
 import "./style.scss";
 import { Link } from "react-router-dom";
 
-const Tasks = ({
+const Task = ({
   index,
   type,
   itemTitle,
@@ -39,4 +39,4 @@ const Tasks = ({
   );
 };
 
-export default Tasks;
+export default Task;
