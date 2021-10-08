@@ -1,52 +1,50 @@
 import React from "react";
 import "./style.scss";
 import Navbar from "../../components/navbar/Navbar";
-import Herosection from "../../components/herosection/Herosection";
+import Herosection from "../../components/heroSection/Herosection";
 import { taskArray } from "../../dummydata";
 import Sidebar from "../../components/sidebar/Sidebar";
-import Material from "../../components/material/Material";
-import Task from '../../components/task/Task'
+import ItemLg from "../../components/itemLg/ItemLg";
+import { useParams } from "react-router-dom";
 
+const Tasks = ({ dept, sem }) => {
+  const { subject } = useParams();
 
-const Tasks = ({ subject, dept, sem }) => {
   return (
-    <div>
+    <div className="container">
       <Navbar />
-      <div className="mainSection">
-        <Herosection
-          small
-          dept={dept}
-          sem={sem}
-          title={
-            subject == "All"
-              ? subject + " Tasks & Assignments"
-              : subject + " : Assignments"
-          }
-        />
-      </div>
-      <div className="task">
+      <Sidebar />
+
+      <Herosection
+        small
+        dept={dept}
+        sem={sem}
+        title={
+          subject === "all"
+            ? subject + " Tasks & Assignments"
+            : subject + " : Assignments"
+        }
+      />
+
+      <div className="tasks">
         {taskArray.map((item) => {
-          if (subject == "All" || subject == item.subject)
+          if (subject === "all" || subject === item.subject)
             return (
-              <Task
+              <ItemLg
+                type="task"
                 itemTitle={item.itemTitle}
-                titleNotes={item.titleNotes}
+                postedBy={item.postedBy}
                 subject={item.subject}
-                dueDate={item.dueDate}
                 timeOfposting={item.timeOfposting}
                 profilePicOfPoster={item.profilePicOfPoster}
+                dueDate={item.dueDate}
                 status={item.status}
-                taskFile={item.taskFile}
               />
-              
             );
-            
         })}
-        <Sidebar />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Tasks;
-

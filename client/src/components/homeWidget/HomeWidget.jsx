@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import KeyboardArrowRightOutlinedIcon from "@material-ui/icons/KeyboardArrowRightOutlined";
-import ItemLg from "../itemLg/ItemLg";
+import ItemMd from "../itemMd/ItemMd";
 import ItemSm from "../itemSm/ItemSm";
 import { Link } from "react-router-dom";
 
@@ -20,7 +20,7 @@ const HomeWidget = ({
 
         {!noSeeAll && (
           <Link
-            to={`/${type === "schedules" ? "#classes" : type}`}
+            to={`/${type === "schedules" ? "#classes" : type}/all`}
             className="link"
           >
             see all
@@ -32,7 +32,7 @@ const HomeWidget = ({
       {forLargeItems &&
         type === "all-classes" &&
         data.map((item) => (
-          <ItemLg
+          <ItemMd
             type="class"
             subject={item.subject}
             teacher={item.teacher}
@@ -45,7 +45,7 @@ const HomeWidget = ({
       {forLargeItems &&
         type !== "all-classes" &&
         data.map((item, index) => (
-          <ItemLg
+          <ItemMd
             index={index}
             type={type.slice(0, -1)}
             itemTitle={item.itemTitle}
