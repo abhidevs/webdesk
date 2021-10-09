@@ -7,7 +7,7 @@ import Login from "./pages/login/Login";
 import Materials from "./pages/materials/Materials";
 import Register from "./pages/register/Register";
 import Tasks from "./pages/tasks/Tasks";
-import IndividualMeterial from "./pages/individualmaterial/IndividualMeterial"
+import IndividualMeterial from "./pages/individualMaterial/IndividualMeterial"
 function App() {
   return (
     <div className="app">

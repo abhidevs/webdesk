@@ -1,8 +1,8 @@
 import React from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import ClassComment from "../../components/classcomponent/ClassComment";
-import DetailedMaterial from "../../components/detailmeterial/DetailedMaterial";
+import ClassComment from "../../components/classComment/ClassComment";
+import DetailedMaterial from "../../components/detailMeterial/DetailedMaterial";
 function IndividualMeterial() {
   return (
     <div>
