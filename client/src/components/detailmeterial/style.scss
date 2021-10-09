@@ -1,0 +1,28 @@
+.detailed-material {
+  background: var(--secondary-color);
+  border: 2px solid none;
+  width: 65%;
+  padding: 50px;
+  border-radius: 20px;
+  .name-time {
+    color: var(--text-color2);
+    padding-top: 8px;
+    display: flex;
+    .Postingtime {
+      padding-left: 100px;
+    }
+  }
+  .subjects {
+    color: var(--text-color1);
+  }
+  .filename {
+    padding-top: 35px;
+    .pdf-icon {
+      padding: 20px;
+      width: 300px;
+      border: 2px solid var(--primary-color);
+      border-radius: 10px;
+      text-align: center;
+    }
+  }
+}

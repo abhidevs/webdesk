@@ -7,7 +7,7 @@ import Login from "./pages/login/Login";
 import Materials from "./pages/materials/Materials";
 import Register from "./pages/register/Register";
 import Tasks from "./pages/tasks/Tasks";
-
+import IndividualMeterial from "./pages/individualmaterial/IndividualMeterial"
 function App() {
   return (
     <div className="app">
@@ -26,7 +26,7 @@ function App() {
             <Materials dept="BCA" sem="5th" />
           </Route>
           <Route path="/material">
-            <h1>Individual material page</h1>
+            <IndividualMeterial />
           </Route>
           <Route path="/tasks/:subject">
             <Tasks dept="BCA" sem="5th" />
