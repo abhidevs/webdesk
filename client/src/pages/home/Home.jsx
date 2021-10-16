@@ -5,6 +5,8 @@ import Herosection from "../../components/herosection/Herosection";
 import HomeWidget from "../../components/homeWidget/HomeWidget";
 import { classesArray, doubtsArray, notesArray, tasksArray } from "../../dummydata";
 import MyCalendar from "../../components/calendar/MyCalendar";
+import Classmeet from "../classmeet/Classmeet";
+import Textsection from "../../components/textsection/Textsection";
 
 const Home = () => {
   return (
@@ -42,6 +44,8 @@ const Home = () => {
             forSmallItems
           />
           <MyCalendar/>
+          <Classmeet/>
+          <Textsection/>
         </div>
       </div>
     </div>
@@ -49,3 +53,4 @@ const Home = () => {
 };
 
 export default Home;
+export {Classmeet , Textsection};
