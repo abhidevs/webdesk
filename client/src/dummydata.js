@@ -567,3 +567,270 @@ export const taskArray = [
     status: "pending",
   },
 ];
+
+export const allDoubtsArray = [
+  {
+    itemTitle: "How to implement queue using only stack?",
+    postedBy: "Soumen Sau",
+    subject: "Data Structure",
+    timeOfposting: "11:25",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1544168190-79c17527004f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bWFsZSUyMHRlYWNoZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    votes: 21,
+    doubtDesc:
+      "Can anyone tell me how to how to implement a queue data structure using only stack. Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty). You must use only standard operations of a stack, which means only push to top, peek/pop from top, size, and is empty operations are valid. Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.",
+  },
+  {
+    itemTitle: "What is bipartite graph",
+    postedBy: "Rabbil Khan",
+    subject: "Discrete Math",
+    timeOfposting: "8:54 am",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1608681299041-cc19878f79f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80",
+    votes: 15,
+    doubtDesc:
+      "Please anyone tell what exactly is bipartite graph with proper examples.",
+  },
+  {
+    itemTitle: "Difference between internal and external view.",
+    postedBy: "Biswanath Bera",
+    subject: "Database",
+    timeOfposting: "Yesterday",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1589992896844-9b720813d1cb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1031&q=80",
+    votes: 8,
+    doubtDesc:
+      "What is the difference between internal view and external view in database? Please give at least 5 to 7 differnces. If you can provide examples that will be great.",
+  },
+  {
+    itemTitle: "How to implement queue using only stack?",
+    postedBy: "Soumen Sau",
+    subject: "Data Structure",
+    timeOfposting: "11:25",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1611928506023-25ed62d1d04d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80",
+    votes: 21,
+    doubtDesc:
+      "Can anyone tell me how to how to implement a queue data structure using only stack. Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty). You must use only standard operations of a stack, which means only push to top, peek/pop from top, size, and is empty operations are valid. Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.",
+  },
+  {
+    itemTitle: "What is bipartite graph",
+    postedBy: "Rabbil Khan",
+    subject: "Discrete Math",
+    timeOfposting: "8:54 am",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1595956553066-fe24a8c33395?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    votes: 15,
+    doubtDesc:
+      "Please anyone tell what exactly is bipartite graph with proper examples.",
+  },
+  {
+    itemTitle: "Difference between internal and external view.",
+    postedBy: "Biswanath Bera",
+    subject: "Database",
+    timeOfposting: "Yesterday",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1544168190-79c17527004f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bWFsZSUyMHRlYWNoZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    votes: 8,
+    doubtDesc:
+      "What is the difference between internal view and external view in database? Please give at least 5 to 7 differnces. If you can provide examples that will be great.",
+  },
+  {
+    itemTitle: "How to implement queue using only stack?",
+    postedBy: "Soumen Sau",
+    subject: "Data Structure",
+    timeOfposting: "11:25",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1608681299041-cc19878f79f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80",
+    votes: 21,
+    doubtDesc:
+      "Can anyone tell me how to how to implement a queue data structure using only stack. Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty). You must use only standard operations of a stack, which means only push to top, peek/pop from top, size, and is empty operations are valid. Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.",
+  },
+  {
+    itemTitle: "What is bipartite graph",
+    postedBy: "Rabbil Khan",
+    subject: "Discrete Math",
+    timeOfposting: "8:54 am",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1589992896844-9b720813d1cb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1031&q=80",
+    votes: 15,
+    doubtDesc:
+      "Please anyone tell what exactly is bipartite graph with proper examples.",
+  },
+  {
+    itemTitle: "Difference between internal and external view.",
+    postedBy: "Biswanath Bera",
+    subject: "Database",
+    timeOfposting: "Yesterday",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1611928506023-25ed62d1d04d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80",
+    votes: 8,
+    doubtDesc:
+      "What is the difference between internal view and external view in database? Please give at least 5 to 7 differnces. If you can provide examples that will be great.",
+  },
+  {
+    itemTitle: "How to implement queue using only stack?",
+    postedBy: "Soumen Sau",
+    subject: "Data Structure",
+    timeOfposting: "11:25",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1595956553066-fe24a8c33395?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    votes: 21,
+    doubtDesc:
+      "Can anyone tell me how to how to implement a queue data structure using only stack. Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty). You must use only standard operations of a stack, which means only push to top, peek/pop from top, size, and is empty operations are valid. Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.",
+  },
+  {
+    itemTitle: "What is bipartite graph",
+    postedBy: "Rabbil Khan",
+    subject: "Discrete Math",
+    timeOfposting: "8:54 am",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1544168190-79c17527004f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bWFsZSUyMHRlYWNoZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    votes: 15,
+    doubtDesc:
+      "Please anyone tell what exactly is bipartite graph with proper examples.",
+  },
+  {
+    itemTitle: "Difference between internal and external view.",
+    postedBy: "Biswanath Bera",
+    subject: "Database",
+    timeOfposting: "Yesterday",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1608681299041-cc19878f79f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80",
+    votes: 8,
+    doubtDesc:
+      "What is the difference between internal view and external view in database? Please give at least 5 to 7 differnces. If you can provide examples that will be great.",
+  },
+  {
+    itemTitle: "How to implement queue using only stack?",
+    postedBy: "Soumen Sau",
+    subject: "Data Structure",
+    timeOfposting: "11:25",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1589992896844-9b720813d1cb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1031&q=80",
+    votes: 21,
+    doubtDesc:
+      "Can anyone tell me how to how to implement a queue data structure using only stack. Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty). You must use only standard operations of a stack, which means only push to top, peek/pop from top, size, and is empty operations are valid. Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.",
+  },
+  {
+    itemTitle: "What is bipartite graph",
+    postedBy: "Rabbil Khan",
+    subject: "Discrete Math",
+    timeOfposting: "8:54 am",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1611928506023-25ed62d1d04d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80",
+    votes: 15,
+    doubtDesc:
+      "Please anyone tell what exactly is bipartite graph with proper examples.",
+  },
+  {
+    itemTitle: "Difference between internal and external view.",
+    postedBy: "Biswanath Bera",
+    subject: "Database",
+    timeOfposting: "Yesterday",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1595956553066-fe24a8c33395?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    votes: 8,
+    doubtDesc:
+      "What is the difference between internal view and external view in database? Please give at least 5 to 7 differnces. If you can provide examples that will be great.",
+  },
+  {
+    itemTitle: "How to implement queue using only stack?",
+    postedBy: "Soumen Sau",
+    subject: "Data Structure",
+    timeOfposting: "11:25",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1544168190-79c17527004f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bWFsZSUyMHRlYWNoZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    votes: 21,
+    doubtDesc:
+      "Can anyone tell me how to how to implement a queue data structure using only stack. Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty). You must use only standard operations of a stack, which means only push to top, peek/pop from top, size, and is empty operations are valid. Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.",
+  },
+  {
+    itemTitle: "What is bipartite graph",
+    postedBy: "Rabbil Khan",
+    subject: "Discrete Math",
+    timeOfposting: "8:54 am",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1608681299041-cc19878f79f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80",
+    votes: 15,
+    doubtDesc:
+      "Please anyone tell what exactly is bipartite graph with proper examples.",
+  },
+  {
+    itemTitle: "Difference between internal and external view.",
+    postedBy: "Biswanath Bera",
+    subject: "Database",
+    timeOfposting: "Yesterday",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1589992896844-9b720813d1cb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1031&q=80",
+    votes: 8,
+    doubtDesc:
+      "What is the difference between internal view and external view in database? Please give at least 5 to 7 differnces. If you can provide examples that will be great.",
+  },
+  {
+    itemTitle: "How to implement queue using only stack?",
+    postedBy: "Soumen Sau",
+    subject: "Data Structure",
+    timeOfposting: "11:25",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1611928506023-25ed62d1d04d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80",
+    votes: 21,
+    doubtDesc:
+      "Can anyone tell me how to how to implement a queue data structure using only stack. Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty). You must use only standard operations of a stack, which means only push to top, peek/pop from top, size, and is empty operations are valid. Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.",
+  },
+  {
+    itemTitle: "What is bipartite graph",
+    postedBy: "Rabbil Khan",
+    subject: "Discrete Math",
+    timeOfposting: "8:54 am",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1595956553066-fe24a8c33395?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    votes: 15,
+    doubtDesc:
+      "Please anyone tell what exactly is bipartite graph with proper examples.",
+  },
+  {
+    itemTitle: "Difference between internal and external view.",
+    postedBy: "Biswanath Bera",
+    subject: "Database",
+    timeOfposting: "Yesterday",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1544168190-79c17527004f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bWFsZSUyMHRlYWNoZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    votes: 8,
+    doubtDesc:
+      "What is the difference between internal view and external view in database? Please give at least 5 to 7 differnces. If you can provide examples that will be great.",
+  },
+  {
+    itemTitle: "How to implement queue using only stack?",
+    postedBy: "Soumen Sau",
+    subject: "Data Structure",
+    timeOfposting: "11:25",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1608681299041-cc19878f79f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80",
+    votes: 21,
+    doubtDesc:
+      "Can anyone tell me how to how to implement a queue data structure using only stack. Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty). You must use only standard operations of a stack, which means only push to top, peek/pop from top, size, and is empty operations are valid. Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.",
+  },
+  {
+    itemTitle: "What is bipartite graph",
+    postedBy: "Rabbil Khan",
+    subject: "Discrete Math",
+    timeOfposting: "8:54 am",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1589992896844-9b720813d1cb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1031&q=80",
+    votes: 15,
+    doubtDesc:
+      "Please anyone tell what exactly is bipartite graph with proper examples.",
+  },
+  {
+    itemTitle: "Difference between internal and external view.",
+    postedBy: "Biswanath Bera",
+    subject: "Database",
+    timeOfposting: "Yesterday",
+    profilePicOfPoster:
+      "https://images.unsplash.com/photo-1611928506023-25ed62d1d04d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80",
+    votes: 8,
+    doubtDesc:
+      "What is the difference between internal view and external view in database? Please give at least 5 to 7 differnces. If you can provide examples that will be great.",
+  },
+];

@@ -7,6 +7,7 @@ import Login from "./pages/login/Login";
 import Materials from "./pages/materials/Materials";
 import Register from "./pages/register/Register";
 import Tasks from "./pages/tasks/Tasks";
+import Doubts from "./pages/doubts/Doubts";
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
             <h1>Individual task page</h1>
           </Route>
           <Route path="/doubts/:subject">
-            <h1>All doubts page</h1>
+            <Doubts dept="BCA" sem="5th" />
           </Route>
           <Route path="/doubt">
             <h1>Individual doubt page</h1>
