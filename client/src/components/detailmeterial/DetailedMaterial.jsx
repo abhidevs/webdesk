@@ -1,6 +1,7 @@
-import { FileCopy } from "@material-ui/icons";
 import React from "react";
 import "./style.scss";
+import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
+
 const DetailedMaterial = ({
   title,
   postedBy,
@@ -15,12 +16,11 @@ const DetailedMaterial = ({
         <h5>{postedBy}</h5>
         <h5 className="Postingtime">{timeOfPosting}</h5>
       </div>
+
       <h5 className="subjects">{subject}</h5>
       <div className="filename">
-        <div className="pdf-icon">
-          <FileCopy />
-          <h3>{filename}</h3>
-        </div>
+        <DescriptionOutlinedIcon className="icon" />
+        <h3>{filename}</h3>
       </div>
     </div>
   );

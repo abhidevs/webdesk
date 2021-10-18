@@ -1,41 +1,42 @@
 .your-work {
-  padding-top: 20px;
-  .submit-work {
-    background: var(--secondary-color);
-    border-radius: 14px;
-    width: 250px;
-    padding: 30px;
-    .workinfo {
-      color: var(--text-color2);
-      justify-content: space-between;
+  margin-top: 20px;
+  background: var(--secondary-color);
+  border-radius: 14px;
+  width: 250px;
+  padding: 30px;
+
+  .workinfo {
+    color: var(--text-color2);
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+  }
+
+  .add-btn {
+    padding-top: 10px;
+    button {
       display: flex;
+      justify-content: center;
+      border: 2px solid var(--primary-color);
+      border-radius: 18px;
+      color: var(--primary-color);
+      padding: 8px;
       align-items: center;
+      width: 190px;
+      background: var(--secondary-color);
     }
-    .add-btn {
-      padding-top: 10px;
-      button {
-        display: flex;
-        justify-content: center;
-        border: 2px solid var(--primary-color);
-        border-radius: 18px;
-        color: var(--primary-color);
-        padding: 8px;
-        align-items: center;
-        width: 190px;
-        background: var(--secondary-color);
-      }
-    }
-    .mark-btn {
-      padding-top: 10px;
-      button {
-        color: var(--secondary-color);
-        border-radius: 18px;
-        border: none;
-        padding: 8px;
-        align-items: center;
-        width: 190px;
-        background: var(--primary-color);
-      }
+  }
+
+  .mark-btn {
+    padding-top: 10px;
+    button {
+      color: var(--secondary-color);
+      border-radius: 18px;
+      border: none;
+      padding: 12px;
+      align-items: center;
+      width: 190px;
+      background: var(--primary-color);
     }
   }
 }
