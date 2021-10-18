@@ -9,6 +9,8 @@ import Register from "./pages/register/Register";
 import Tasks from "./pages/tasks/Tasks";
 import IndividualMeterial from "./pages/individualMaterial/IndividualMeterial"
 import IndividualTask from "./pages/individualTask/IndividualTask";
+import Doubts from "./pages/doubts/Doubts";
+
 function App() {
   return (
     <div className="app">
@@ -36,7 +38,7 @@ function App() {
             <IndividualTask/>
           </Route>
           <Route path="/doubts/:subject">
-            <h1>All doubts page</h1>
+            <Doubts dept="BCA" sem="5th" />
           </Route>
           <Route path="/doubt">
             <h1>Individual doubt page</h1>
