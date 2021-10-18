@@ -1,12 +1,17 @@
 .class-comment {
-  .commnet {
-    padding: 30px 0px 20px 0px;
+  width: 65%;
+  .comment {
+    h3 {
+      padding: 20px 0px 10px 0px;
+      color: var(--text-color2);
+    }
   }
+
   .inputSection {
     display: flex;
     border: 2px solid none;
     padding: 20px;
-    width: 65%;
+    width: 100%;
     border-radius: 15px;
     background: var(--secondary-color);
     justify-content: space-around;
@@ -21,20 +26,18 @@
       text-align: center;
       border: 1px solid var(--text-color1);
       border-radius: 35px;
-      width: 76%;
+      width: 80%;
     }
     button {
-      width: 50px;
-      height: 50px;
-      border-radius: 15px;
       border: none;
-      background: var(--extra-color2);
+      color: none;
+      background:none;
     }
   }
   .textContent {
     border: 2px solid none;
     padding: 20px;
-    width: 65%;
+    width: 100%;
     border-radius: 15px;
     background: var(--secondary-color);
     display: flex;

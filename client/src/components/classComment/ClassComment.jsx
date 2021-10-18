@@ -1,6 +1,6 @@
+import { Send } from "@material-ui/icons";
 import React from "react";
 import "./style.scss";
-
 const ClassComment = ({
   classtype,
   type,
@@ -14,9 +14,10 @@ const ClassComment = ({
 
   return (
     <div className="class-comment">
-      <div className="commnet">
+      <div className="comment">
         <h3>{classtype}</h3>
       </div>
+
       {type === "writtenComment" ? (
         <div className="textContent">
           <div className="textContent-img">
@@ -36,7 +37,9 @@ const ClassComment = ({
             <img src={userProfilePic} alt="" />
           </div>
           <input type="text" placeholder="Type comment" />
-          <button>post</button>
+          <button>
+            <Send />
+          </button>
         </div>
       )}
     </div>

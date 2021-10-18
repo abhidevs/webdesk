@@ -1,6 +1,6 @@
+import { FileCopy } from "@material-ui/icons";
 import React from "react";
 import "./style.scss";
-
 const DetailedMaterial = ({
   title,
   postedBy,
@@ -18,6 +18,7 @@ const DetailedMaterial = ({
       <h5 className="subjects">{subject}</h5>
       <div className="filename">
         <div className="pdf-icon">
+          <FileCopy />
           <h3>{filename}</h3>
         </div>
       </div>

@@ -18,6 +18,8 @@
   .filename {
     padding-top: 35px;
     .pdf-icon {
+      justify-content: space-around;
+      display: flex;
       padding: 20px;
       width: 300px;
       border: 2px solid var(--primary-color);
