@@ -3,7 +3,7 @@
 .itemLg {
   width: 68%;
   // height: 100px;
-  background: var(--background-color);
+  background: var(--secondary-color);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -128,7 +128,7 @@
               margin: 0;
             }
           }
-          
+
           .doubtDesc {
             font-size: 14px;
             line-height: 1.4;
@@ -137,5 +137,11 @@
         }
       }
     }
+  }
+
+  &:hover {
+    transform: scale3d(1.006, 1.006, 1);
+    box-shadow: 2px 2px 20px 6px #d1d1d1;
+    transition: all 0.35s ease-in-out;
   }
 }

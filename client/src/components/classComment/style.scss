@@ -1,50 +1,48 @@
-.class-comment {
-  width: 65%;
+.comment {
+  border: 2px solid none;
+  padding: 20px;
+  width: 100%;
+  border-radius: 15px;
+  background: var(--secondary-color);
+  display: flex;
+  box-shadow: 2px 2px 20px #e0e0e0;
+  margin-bottom: 15px;
 
-  .comment-heading {
-    h3 {
-      padding: 20px 0px 10px 0px;
-      color: var(--text-color2);
-    }
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
   }
 
-  .comment {
-    border: 2px solid none;
-    padding: 20px;
-    width: 100%;
-    border-radius: 15px;
-    background: var(--secondary-color);
-    display: flex;
+  .textContent {
+    width: 90%;
 
-    img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 15px;
-    }
+    .topSection {
+      display: flex;
+      margin-bottom: 5px;
 
-    .textContent {
-      .topSection {
-        display: flex;
-        margin-bottom: 6px;
+      h4 {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-color2);
+      }
 
-        p {
-          color: var(--text-color2);
-          font-size: 14px;
-          padding-left: 20px;
-        }
-
-        h4 {
-          font-size: 17px;
-          color: var(--text-color2);
-          font-weight: 500;
-        }
+      p {
+        font-size: 13px;
+        margin-left: 20px;
+        color: var(--text-color1);
       }
     }
+    
+    .message {
+      font-size: 14px;
+      line-height: 1.35;
+    }
   }
 
-  .writeComment {
+  &.writeComment {
     display: flex;
     border: 2px solid none;
     padding: 20px;
@@ -52,15 +50,7 @@
     border-radius: 15px;
     background: var(--secondary-color);
     justify-content: flex-start;
-
-    img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 15px;
-    }
-
+    
     .inputSection {
       width: 90%;
       display: flex;
@@ -68,7 +58,7 @@
       border: 2px solid var(--text-color1);
       border-radius: 50px;
       padding-left: 20px;
-
+      
       input {
         width: 94%;
         height: 42px;
@@ -76,12 +66,12 @@
         border: none;
         outline: none;
       }
-
+      
       button {
         border: none;
         background: none;
         cursor: pointer;
-
+        
         .icon {
           color: var(--text-color2);
         }
@@ -89,3 +79,4 @@
     }
   }
 }
+  
