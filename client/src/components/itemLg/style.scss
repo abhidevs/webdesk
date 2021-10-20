@@ -81,7 +81,7 @@
     }
   }
 
-  &.doubt {
+  &.doubt, &.doubtResponse {
     flex-direction: row;
     align-items: flex-start;
     padding-left: 18px;
@@ -139,9 +139,19 @@
     }
   }
 
+  &.doubtResponse {
+    padding-top: 20px;
+  }
+
   &:hover {
     transform: scale3d(1.006, 1.006, 1);
     box-shadow: 2px 2px 20px 6px #d1d1d1;
     transition: all 0.35s ease-in-out;
+  }
+
+  &.noHover:hover {
+    transform: none;
+    box-shadow: 2px 2px 20px #d1d1d1;
+    cursor: initial;
   }
 }

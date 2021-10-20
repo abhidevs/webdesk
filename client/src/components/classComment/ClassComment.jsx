@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import { Send } from "@material-ui/icons";
+import SendIcon from "@material-ui/icons/Send";
 
 const ClassComment = ({
   type,
@@ -31,7 +31,7 @@ const ClassComment = ({
         <div className="inputSection">
           <input type="text" placeholder="Add class comment" />
           <button>
-            <Send className="icon" />
+            <SendIcon className="icon" />
           </button>
         </div>
       )}
