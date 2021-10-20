@@ -6,6 +6,11 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import CreateRoundedIcon from "@material-ui/icons/CreateRounded";
 
 const IndividualDoubt = () => {
+  const adjustTextarea = ({ target }) => {
+    target.style.height = target.scrollHeight + "px";
+    if (target.value === "") target.style.height = 96 + "px";
+  };
+
   return (
     <div className="individual-doubt">
       <Navbar />
@@ -32,7 +37,11 @@ const IndividualDoubt = () => {
           />
 
           <div className="inputSection">
-            <textarea rows="6" placeholder="Write your answer to this question" />
+            <textarea
+              placeholder="Write your answer to this question"
+              spellCheck="false"
+              onKeyUp={adjustTextarea}
+            ></textarea>
             <button>Submit</button>
           </div>
         </div>

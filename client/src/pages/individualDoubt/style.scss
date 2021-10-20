@@ -29,13 +29,18 @@
 
         textarea {
           width: 100%;
-          min-height: 60px;
+          min-height: 100px;
+          max-height: 350px;
           resize: vertical;
           margin-bottom: 10px;
           padding: 6px;
           border: 2px solid var(--text-color1);
           border-radius: 5px;
-          outline-color: var(--text-color2);
+          outline: none;
+
+          &:focus {
+            box-shadow: 0px 0px 2px 2px #eeeeee;
+          }
         }
 
         button {
