@@ -3,7 +3,7 @@
 .itemLg {
   width: 68%;
   // height: 100px;
-  background: var(--background-color);
+  background: var(--secondary-color);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -80,8 +80,8 @@
       }
     }
   }
-
   &.doubt {
+  &.doubt, &.doubtResponse {
     flex-direction: row;
     align-items: flex-start;
     padding-left: 18px;
@@ -128,7 +128,7 @@
               margin: 0;
             }
           }
-          
+
           .doubtDesc {
             font-size: 14px;
             line-height: 1.4;
@@ -139,3 +139,22 @@
     }
   }
 }
+
+
+  &.doubtResponse {
+    padding-top: 20px;
+  }
+
+  &:hover {
+    transform: scale3d(1.006, 1.006, 1);
+    box-shadow: 2px 2px 20px 6px #d1d1d1;
+    transition: all 0.35s ease-in-out;
+  }
+
+  &.noHover:hover {
+    transform: none;
+    box-shadow: 2px 2px 20px #d1d1d1;
+    cursor: initial;
+  }
+}
+

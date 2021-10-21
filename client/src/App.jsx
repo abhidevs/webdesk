@@ -8,6 +8,11 @@ import Materials from "./pages/materials/Materials";
 import Register from "./pages/register/Register";
 import Tasks from "./pages/tasks/Tasks";
 import Onlinemeet from "./pages/onlinemeet/Onlinemeet";
+import IndividualMeterial from "./pages/individualMaterial/IndividualMeterial";
+import IndividualTask from "./pages/individualTask/IndividualTask";
+import Doubts from "./pages/doubts/Doubts";
+import IndividualDoubt from "./pages/individualDoubt/IndividualDoubt";
+
 
 function App() {
   return (
@@ -28,18 +33,26 @@ function App() {
           </Route>
           <Route path="/material">
             {/* <IndividualMeterial /> */}
+            <IndividualMeterial />
           </Route>
           <Route path="/tasks/:subject">
             <Tasks dept="BCA" sem="5th" />
           </Route>
           <Route path="/task">
+
             {/* <IndividualTask/> */}
           </Route>
           <Route path="/doubts/:subject">
             {/* < Doubts dept="BCA" sem="5th" /> */}
+
+            <IndividualTask />
+          </Route>
+          <Route path="/doubts/:subject">
+            <Doubts dept="BCA" sem="5th" />
+
           </Route>
           <Route path="/doubt">
-            <h1>Individual doubt page</h1>
+            <IndividualDoubt />
           </Route>
           <Route path="/class/join">
             <JoinClass />
