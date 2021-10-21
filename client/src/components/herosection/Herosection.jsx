@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import heroImg from "../../assets/heroimg.jpg";
 
-const Herosection = ({ small, large, title, dept, sem }) => {
+const HeroSection = ({ small, large, title, dept, sem }) => {
   return (
     <div className={"heroSection " + (large ? "large" : "small")}>
       <div className="heroSection-content">
@@ -25,4 +25,4 @@ const Herosection = ({ small, large, title, dept, sem }) => {
   );
 };
 
-export default Herosection;
+export default HeroSection;

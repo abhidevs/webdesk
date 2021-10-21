@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import Navbar from "../../components/navbar/Navbar";
-import Herosection from "../../components/Herosection/Herosection";
+import Herosection from "../../components/heroSection/HeroSection";
 import { allDoubtsArray } from "../../dummydata";
 import Sidebar from "../../components/sidebar/Sidebar";
 import ItemLg from "../../components/itemLg/ItemLg";

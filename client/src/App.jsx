@@ -32,24 +32,16 @@ function App() {
             <Materials dept="BCA" sem="5th" />
           </Route>
           <Route path="/material">
-            {/* <IndividualMeterial /> */}
             <IndividualMeterial />
           </Route>
           <Route path="/tasks/:subject">
             <Tasks dept="BCA" sem="5th" />
           </Route>
           <Route path="/task">
-
-            {/* <IndividualTask/> */}
-          </Route>
-          <Route path="/doubts/:subject">
-            {/* < Doubts dept="BCA" sem="5th" /> */}
-
-            <IndividualTask />
+            <IndividualTask/>
           </Route>
           <Route path="/doubts/:subject">
             <Doubts dept="BCA" sem="5th" />
-
           </Route>
           <Route path="/doubt">
             <IndividualDoubt />
