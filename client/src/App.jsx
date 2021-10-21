@@ -7,10 +7,12 @@ import Login from "./pages/login/Login";
 import Materials from "./pages/materials/Materials";
 import Register from "./pages/register/Register";
 import Tasks from "./pages/tasks/Tasks";
+import Onlinemeet from "./pages/onlinemeet/Onlinemeet";
 import IndividualMeterial from "./pages/individualMaterial/IndividualMeterial";
 import IndividualTask from "./pages/individualTask/IndividualTask";
 import Doubts from "./pages/doubts/Doubts";
 import IndividualDoubt from "./pages/individualDoubt/IndividualDoubt";
+
 
 function App() {
   return (
@@ -36,7 +38,7 @@ function App() {
             <Tasks dept="BCA" sem="5th" />
           </Route>
           <Route path="/task">
-            <IndividualTask />
+            <IndividualTask/>
           </Route>
           <Route path="/doubts/:subject">
             <Doubts dept="BCA" sem="5th" />
@@ -48,7 +50,7 @@ function App() {
             <JoinClass />
           </Route>
           <Route exact path="/class">
-            <h1>Video call page</h1>
+            <Onlinemeet />
           </Route>
           <Route path="/class/create">
             <CreateClass />

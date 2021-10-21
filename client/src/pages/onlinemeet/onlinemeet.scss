@@ -1,0 +1,159 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+// main body section
+.vdframe {
+  align-items: center;
+  width: 90%;
+  height: 650px;
+  background-color: #849fbd3b;
+  display: flex;
+  margin: -65px 0px 0px 20px;
+  border-radius: 10px;
+  margin-left: 50px;
+  margin-top: -42px;
+
+// display section
+.video-section {
+  height: 570px;
+  width: 65%;
+  margin: -80px 0px 0px -10px;
+  padding-right: 15px;
+  .display-image {
+  width: 840px;
+  height: 556px;
+  margin-top: 10px;
+  border-radius: 15px;
+  padding-left: 30px;
+}
+  
+}
+
+// .participants-screen {
+//   color: aquamarine;
+// }
+.side-image {
+  width: 150px;
+  height: 100spx;
+  padding: 21px 0px 0px 6px;
+  margin: -20px 30px 0px -45px;
+  border-radius: 8px;
+  box-shadow: 5px 2px 3px rgba(197, 173, 173, 0.651);
+  position: relative;
+  left: 10px;
+  padding-right: 2px;
+  
+}
+
+.top-section {
+  margin-top: -605px;
+  position: absolute;
+  left: 950px;
+  font-size: small;
+}
+.parti {
+  font-size: small;
+  padding-right: 5px;
+  margin-top: -601px;
+  color: rgba(0, 0, 0, 0.486);
+}
+
+
+/*chat section*/
+.chat-section {
+  background-color: rgba(255, 255, 255, 0.699);
+  border: 1px solid rgb(187, 186, 186);
+  height: 94%;
+  width: 22%;
+  margin: 0px 40px 0px 30px;
+  border-radius: 17px;
+  box-shadow: 10px 4px 6px 3px rgb(77, 58, 58);
+}
+input[type="text"] {
+  background-color: white;
+  margin: 516px 0px -3px 0px;
+  height: 50px;
+  width: 290px;
+  border-radius: 5px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: medium;
+  border: white;
+  font-weight: 600;
+  outline: 0px;
+  padding-left: 6px;
+  // box-shadow: -1px 4px 6px 3px rgb(77, 58, 58);
+}
+.s-icon {
+  background-color: white;
+  border: 0px solid white;
+  margin: -50px 0px 1px 220px;
+  width: 70px;
+  height: 50px;
+  color: rgba(0, 0, 0, 0.5);
+  outline: 0px;
+  border-radius: 20px;
+  position: relative;
+  top: -25px;
+}
+
+.chat-bar {
+  list-style: none;
+  display: flex;
+  height: 40px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border-radius: 4px;
+  background-color: white;
+  // box-shadow: -1px 4px 6px 3px rgb(77, 58, 58);
+}
+.chats,
+.participants,
+.info {
+  padding: 8px 16px 10px 19.5px;
+  color: rgba(70, 50, 50, 0.486);
+  border-radius: 2px;
+  
+}
+.chats {
+  color: rgb(53, 53, 158);
+}
+
+
+
+.btn {
+  background-color: white;
+  height: 38px;
+  width: 115px;
+  color: red;
+  padding: 0px 5px 0px 5px;
+  border-radius: 60px;
+  border: 2px solid red;
+  position: absolute;
+  left: 760px;
+  bottom: 60px;
+  box-shadow: 3px 5px 6px -2px black;
+}
+.btn:hover {
+  background-color: rgba(207, 28, 28, 0.938);
+  color: white;
+}
+.icon-style {
+  margin-left: 80px;
+  margin-top: 12px;
+
+}
+
+.btn1 {
+  text-align: justify;
+  text-align: center;
+  background-color: white;
+  margin-left: 35px;
+  margin-right: 20px;
+  border: 0px solid white;
+  width: 60px;
+  height: 40px;
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  box-shadow: 3px 5px 6px -2px black;
+}
+}

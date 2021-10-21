@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import Navbar from "../../components/navbar/Navbar";
-import Herosection from "../../components/heroSection/Herosection";
+import Herosection from "../../components/heroSection/HeroSection";
 import HomeWidget from "../../components/homeWidget/HomeWidget";
 import {
   classesArray,
