@@ -1,0 +1,155 @@
+@import "../../App.scss";
+
+.createClass {
+  width: 100%;
+  height: 88vh;
+  background: var(--background-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 80px;
+
+  .left {
+    width: 45%;
+    height: fit-content;
+    margin-bottom: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .textContent {
+      h1 {
+        padding: 0;
+        font-size: 46px;
+        font-weight: 500;
+        // color: var(--text-color2);
+
+        &:last-of-type {
+          margin-bottom: 40px;
+        }
+      }
+
+      p {
+        font-size: 18px;
+        color: var(--text-color2);
+
+        &:last-of-type {
+          margin-bottom: 50px;
+        }
+      }
+    }
+
+    .btn-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+
+      button.createBtn {
+        width: 170px;
+        height: 50px;
+        background: var(--primary-gradient);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--secondary-color);
+        font-weight: 700;
+        border: none;
+        border-radius: 26px;
+        padding: 10px 20px;
+        cursor: pointer;
+
+        .icon {
+          margin-right: 8px;
+        }
+      }
+
+      .joinWithCode {
+        // width: 70%;
+        display: flex;
+        align-items: center;
+
+        .code-input {
+          margin-left: 20px;
+          width: 240px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          background: var(--secondary-color);
+          border: 2px solid var(--text-color2);
+          border-radius: 26px;
+          padding: 0px 12px;
+          margin-right: 8px;
+
+          .icon {
+            color: var(--text-color2);
+            margin-right: 8px;
+          }
+
+          input {
+            width: 84%;
+            height: 100%;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-color2);
+          }
+        }
+
+        .joinBtn {
+          display: none;
+          color: var(--text-color2);
+          font-weight: 600;
+          padding: 12px 16px;
+          border-radius: 5px;
+          border: none;
+          cursor: pointer;
+        }
+
+        &.show-joinBtn {
+          .code-input {
+            width: 225px;
+          }
+
+          .joinBtn {
+            display: block;
+            background: var(--background-color);
+            color: var(--primary-color);
+            font-size: 16px;
+
+            &:hover {
+              background: var(--extra-color4);
+            }
+          }
+
+          .joinBtn.disabled {
+            color: var(--text-color1);
+            cursor: initial;
+
+            &:hover {
+              background: var(--background-color);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .right {
+    width: 50%;
+    height: 82%;
+    background: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 0px 0px 2px 2px #eeeeee;
+
+    img {
+      width: 85%;
+      object-fit: cover;
+    }
+  }
+}

@@ -9,6 +9,20 @@
   align-items: center;
   justify-content: center;
 
+  &.small {
+    height: 130px;
+    display: flex;
+    flex-direction: column-reverse;
+    // margin-top: 120px;
+    align-items: flex-start;
+
+    .right {
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 25px;
+    }
+  }
+
   .heroSection-content {
     display: flex;
     align-items: center;
@@ -39,6 +53,7 @@
         font-size: 40px;
         margin-top: 6px;
         margin-bottom: 6px;
+        text-transform: capitalize;
       }
 
       p {

@@ -1,20 +1,19 @@
 $textbg_color1: #646cff;
 $textbg-color2: white;
 
+
  *{
    padding: 0px ; margin: 0px;
  }
 
-.container {
+.container1 {
   position:relative;
-  top: -3px;
-  left:-331px;
+  top: -19.5px;
+  left:-289px;
   background-color:$textbg_color2 !important;
   width: 290px;
-
-  height: 518px;
-  
-
+  height: 516.6px;
+  border-radius: 3px;
 
 }
 
@@ -29,7 +28,7 @@ $textbg-color2: white;
   background-color: $textbg_color1;
   display: flex;
   flex-direction: row-reverse;
-  margin-left: -8px;
+  margin-left: 19px;
   padding:12px 15px 0px 0px ;
   box-shadow: 0px 0px 5px 0px black;
 
@@ -42,7 +41,7 @@ $textbg-color2: white;
   border-radius: 25px;
   background-color: $textbg_color2;
   display: flex;
-  margin-right: 15px;
+  margin-left: 70px;
   padding:10px 0px 0px 20px ;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   box-shadow: 0px 0px 5px 0px black;
@@ -54,7 +53,7 @@ $textbg-color2: white;
   height: 37px;
   border-radius: 40px;
   position: absolute;
-  right: 20px;
+  right: 15px;
   margin-top: 5px;
   margin-right: 19px;
 
@@ -68,7 +67,7 @@ $textbg-color2: white;
   height: 37px;
   border-radius: 40px;
   margin-top: -40px;
-  left: 23px;
+  left: 32px;
 }
 .dispay-flex2,
 .dispay-flex3,
@@ -86,10 +85,13 @@ $textbg-color2: white;
   padding-bottom: 18px;
   color: rgba(0, 0, 0, 0.527);
   font-size: small;
+  margin-right: -30px;
+  margin-top: 5px;
 }
 .time2 ,.time4{
   display: flex;
   font-size: small;
   color: rgba(0, 0, 0, 0.507);
   margin-top: 10px;
+  margin-left: 8px;
 }

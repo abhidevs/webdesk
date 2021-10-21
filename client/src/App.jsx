@@ -1,9 +1,13 @@
-
 import "./App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
-import Classmeet from "./pages/classmeet/Classmeet"
-
+import JoinClass from "./pages/joinClass/JoinClass";
+import CreateClass from "./pages/createClass/CreateClass";
+import Login from "./pages/login/Login";
+import Materials from "./pages/materials/Materials";
+import Register from "./pages/register/Register";
+import Tasks from "./pages/tasks/Tasks";
+import Onlinemeet from "./pages/onlinemeet/Onlinemeet";
 
 function App() {
   return (
@@ -14,46 +18,42 @@ function App() {
             <Home />
           </Route>
           <Route path="/login">
-            <h1>Login page</h1>
-            
+            <Login />
           </Route>
           <Route path="/register">
-            <h1>Register page</h1>
+            <Register />
           </Route>
-          <Route path="/materials">
-            <h1>All materials page</h1>
-          </Route>
-          <Route path="/tasks">
-            <h1>All tasks page</h1>
-          </Route>
-          <Route path="/doubts">
-            <h1>All doubts page</h1>
+          <Route path="/materials/:subject">
+            <Materials dept="BCA" sem="5th" />
           </Route>
           <Route path="/material">
-            <h1>Individual material page</h1>
+            {/* <IndividualMeterial /> */}
+          </Route>
+          <Route path="/tasks/:subject">
+            <Tasks dept="BCA" sem="5th" />
           </Route>
           <Route path="/task">
-            <h1>Individual task page</h1>
+            {/* <IndividualTask/> */}
+          </Route>
+          <Route path="/doubts/:subject">
+            {/* < Doubts dept="BCA" sem="5th" /> */}
           </Route>
           <Route path="/doubt">
             <h1>Individual doubt page</h1>
-  
           </Route>
-
-          <Route path="/class">
-          <Classmeet/>
-          
+          <Route path="/class/join">
+            <JoinClass />
           </Route>
-         
-          
-        
+          <Route exact path="/class">
+            <Onlinemeet />
+          </Route>
+          <Route path="/class/create">
+            <CreateClass />
+          </Route>
         </Switch>
       </Router>
-
     </div>
   );
-  };
-  
+}
 
 export default App;
-export { Classmeet };

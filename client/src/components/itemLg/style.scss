@@ -1,130 +1,139 @@
 @import "../../App.scss";
 
 .itemLg {
-  width: 465px;
-  height: 92px;
+  width: 68%;
+  // height: 100px;
   background: var(--background-color);
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 13px 25px 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 16px 25px;
   box-shadow: 2px 2px 20px #d1d1d1;
   border-radius: 12px;
+  margin-top: 20px;
 
-  img {
-    width: 56px;
-    height: 56px;
-    object-fit: cover;
-    border-radius: 50%;
-  }
+  .itemContent {
+    width: 100%;
 
-  .textcontent {
-    min-width: 160px;
-    height: 84%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 2px;
-
-    .itemTitle {
-      font-weight: 600;
-      color: var(--text-color2);
-    }
-
-    .subject {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-color1);
-    }
-
-    p {
-      font-size: 12px;
-      font-weight: normal;
-      color: var(--text-color1);
-    }
-  }
-
-  .right {
-    min-width: 100px;
-
-    button {
-      width: 88px;
-      height: 38px;
-      padding: 8px 24px;
-      font-weight: 600;
-      background: var(--secondary-color);
-      color: var(--text-color3);
-      border: 2px solid var(--text-color3);
-      border-radius: 50px;
-      transition: all 0.3s ease-out;
-      cursor: pointer;
-
-      &:hover {
-        background: var(--primary-gradient);
-        border: none;
-        color: var(--secondary-color);
-      }
-    }
-  }
-
-  &.task.first {
-    height: 100px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    box-shadow: 0px 10px 30px 12px #d1d1d1;
-  }
-
-  &.task.second {
-    height: 100px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-
-  &.task {
-    .textcontent {
-      min-width: 170px;
-      height: 100%;
-
-      .taskfile {
-        display: flex;
-        align-items: center;
-        padding: 1px 10px;
-        border: 2px solid var(--primary-color);
-        border-radius: 50px;
-
-        .icon {
-          font-size: 16px;
-          color: var(--primary-color);
-          margin-right: 5px;
-        }
-
-        p {
-          color: var(--primary-color);
-        }
-      }
-    }
-
-    .right {
-      height: 85%;
+    .topSection {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+
+      .subject {
+        font-size: 14px;
+        font-weight: 500;
+        padding: 1px 12px;
+        border-radius: 50px;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        margin-right: 20px;
+      }
+
+      .dueDate {
+        font-size: 13px;
+        color: var(--text-color2);
+        font-weight: 500;
+
+        &.submitted {
+          color: var(--extra-color1);
+        }
+      }
+    }
+
+    .bottomSection {
+      width: 100%;
+      display: flex;
       align-items: center;
 
-      p {
-        font-size: 12px;
-        font-weight: normal;
-        color: var(--text-color1);
+      img {
+        width: 48px;
+        height: 48px;
+        object-fit: cover;
+        border-radius: 50%;
       }
 
-      &.submitted {
-        justify-content: center;
+      .textContent {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 2px;
+        margin-left: 24px;
 
-        p {
-          color: var(--extra-color1);
-          font-size: 13px;
-          font-weight: 500;
+        .titleSection {
+          .itemTitle {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-color2);
+            margin-bottom: 4px;
+          }
+
+          p {
+            font-size: 13px;
+            font-weight: normal;
+            color: var(--text-color1);
+          }
+        }
+      }
+    }
+  }
+
+  &.doubt {
+    flex-direction: row;
+    align-items: flex-start;
+    padding-left: 18px;
+    padding-bottom: 20px;
+
+    .votes {
+      margin-right: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      top: -3px;
+
+      .icon {
+        font-weight: bolder;
+        color: var(--primary-color);
+        cursor: pointer;
+      }
+
+      p {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-color2);
+        margin: 5px 0;
+      }
+    }
+
+    .itemContent {
+      .bottomSection {
+        align-items: flex-start;
+
+        .textContent {
+          width: 86%;
+          margin-left: 20px;
+
+          .titleSection {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+
+            h4 {
+              margin: 0;
+            }
+          }
+          
+          .doubtDesc {
+            font-size: 14px;
+            line-height: 1.4;
+            color: var(--text-color1);
+          }
         }
       }
     }

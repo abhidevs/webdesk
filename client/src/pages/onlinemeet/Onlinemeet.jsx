@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.scss";
+import "./onlinemeet.scss";
 import presentscreen from "../../assets/presentscreen.jpg";
 import image1 from "../../assets/image1.jpg";
 import image2 from "../../assets/image2.jpg";
@@ -11,7 +11,7 @@ import PresentToAllIcon from "@material-ui/icons/PresentToAll";
 import TextsmsIcon from "@material-ui/icons/Textsms";
 import SendIcon from "@material-ui/icons/Send";
 import Textsection from "../../components/textsection/Textsection";
-const Classmeet = () => {
+const Onlinemeet = () => {
   return (
     <div className="vdframe">
       <div className="video-section">
@@ -22,26 +22,26 @@ const Classmeet = () => {
         />
 
         <div className="footer">
-         <div className="icon-style">
-           <button className="btn1">
-            <VideocamIcon />
+          <div className="icon-style">
+            <button className="btn1">
+              <VideocamIcon />
             </button>
-           
-            <button className="btn1">  <MicIcon/> </button>
+
+            <button className="btn1">  <MicIcon /> </button>
 
             <button className="btn1">
-            <PresentToAllIcon/> </button>
+              <PresentToAllIcon /> </button>
 
-            <button className=" btn1"> <TextsmsIcon/></button>
-            <button className=" btn1"> <SupervisorAccountIcon/></button>
-            </div>
-        <button className="btn">leave meeting</button>
+            <button className=" btn1"> <TextsmsIcon /></button>
+            <button className=" btn1"> <SupervisorAccountIcon /></button>
+          </div>
+          <button className="btn">leave meeting</button>
         </div>
       </div>
 
 
       <div className="parti">
-      <SupervisorAccountIcon/>
+        <SupervisorAccountIcon />
       </div>
       <div className="top-section">(24)All Participants</div>
 
@@ -57,22 +57,23 @@ const Classmeet = () => {
         <img className="side-image" src={image2} alt="image2" />
         <p>taliban</p>
       </div>
-      {/* side bar  */}
+      {/* chat section  */}
 
-      <div className="sidebar">
-        <div className="topbar">
+      <div className=".chat-section">
+        <div className="chat-bar">
           <li className="chats">Chats</li>
           <li className="participants">Participants</li>
           <li className="info">info</li>
         </div>
         <hr />
         <form action="">
-        <input type="text" placeholder="type message" />
-      <button className="s-icon">  <SendIcon/></button></form>
+          <input type="text" placeholder="type message" />
+          <button className="s-icon">  <SendIcon /></button></form>
+
       </div>
-      <Textsection/>
+      <Textsection />
     </div>
   );
 };
-export default Classmeet;
-export {Textsection};
+export default Onlinemeet;
+

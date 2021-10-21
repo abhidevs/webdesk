@@ -1,19 +1,22 @@
 import React from "react";
 import "./style.scss";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/navbar/Navbar";
 import Herosection from "../../components/herosection/Herosection";
 import HomeWidget from "../../components/homeWidget/HomeWidget";
-import { classesArray, doubtsArray, notesArray, tasksArray } from "../../dummydata";
-import MyCalendar from "../../components/calendar/MyCalendar";
-import Classmeet from "../classmeet/Classmeet";
-import Textsection from "../../components/textsection/Textsection";
+import {
+  classesArray,
+  doubtsArray,
+  notesArray,
+  tasksArray,
+} from "../../dummydata";
+import Sidebar from "../../components/sidebar/Sidebar";
 
 const Home = () => {
   return (
     <div>
       <Navbar />
       <div className="container">
-        <Herosection />
+        <Herosection large title="Welcome To WebDesk" />
 
         <div className="widgets-row">
           <HomeWidget
@@ -43,9 +46,8 @@ const Home = () => {
             data={doubtsArray}
             forSmallItems
           />
-          <MyCalendar/>
-          <Classmeet/>
-          <Textsection/>
+
+          <Sidebar />
         </div>
       </div>
     </div>
@@ -53,4 +55,3 @@ const Home = () => {
 };
 
 export default Home;
-export {Classmeet , Textsection};

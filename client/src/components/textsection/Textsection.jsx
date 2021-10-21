@@ -1,12 +1,12 @@
 import React from "react";
-import "./Textsection.scss";
+import "./textsection.scss";
 import image2 from "../../assets/image2.jpg";
 import image3 from "../../assets/image3.jpg";
 
 const Textsection = () =>{
     return(
         
-<div className="container">
+<div className="container1">
   
        
         <div className="dispay-flex2">

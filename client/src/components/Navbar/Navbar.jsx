@@ -17,10 +17,10 @@ const Navbar = () => {
           <Link to="/" className="link">
             <span>Home</span>
           </Link>
-          <Link to="/materials" className="link">
+          <Link to="/materials/all" className="link">
             <span>Materials</span>
           </Link>
-          <Link to="/tasks" className="link">
+          <Link to="/tasks/all" className="link">
             <span>Tasks</span>
           </Link>
           <Link to="/doubts" className="link">
@@ -32,7 +32,7 @@ const Navbar = () => {
           <div className="profile">
             <img
               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80"
-              alt="profile image"
+              alt="profileimg"
             />
             <div className="userDetails">
               <span>Jane Doe</span>
