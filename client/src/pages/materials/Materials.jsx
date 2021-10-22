@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import Navbar from "../../components/navbar/Navbar";
-import Herosection from "../../components/heroSection/HeroSection";
+import HeroSection from "../../components/heroSection/HeroSection";
 import { materialArray } from "../../dummydata";
 import Sidebar from "../../components/sidebar/Sidebar";
 import ItemLg from "../../components/itemLg/ItemLg";
@@ -16,7 +16,7 @@ const Materials = ({ dept, sem }) => {
       <Sidebar />
 
       <div className="container">
-        <Herosection
+        <HeroSection
           small
           dept={dept}
           sem={sem}

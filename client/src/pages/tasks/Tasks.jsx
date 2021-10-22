@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import Navbar from "../../components/navbar/Navbar";
-import Herosection from "../../components/heroSection/HeroSection";
+import HeroSection from "../../components/heroSection/HeroSection";
 import { taskArray } from "../../dummydata";
 import Sidebar from "../../components/sidebar/Sidebar";
 import ItemLg from "../../components/itemLg/ItemLg";
@@ -15,7 +15,7 @@ const Tasks = ({ dept, sem }) => {
       <Navbar />
       <Sidebar />
 
-      <Herosection
+      <HeroSection
         small
         dept={dept}
         sem={sem}

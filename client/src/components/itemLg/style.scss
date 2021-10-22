@@ -80,8 +80,9 @@
       }
     }
   }
-  &.doubt {
-  &.doubt, &.doubtResponse {
+
+  &.doubt,
+  &.doubtResponse {
     flex-direction: row;
     align-items: flex-start;
     padding-left: 18px;
@@ -138,8 +139,6 @@
       }
     }
   }
-}
-
 
   &.doubtResponse {
     padding-top: 20px;
@@ -157,4 +156,3 @@
     cursor: initial;
   }
 }
-

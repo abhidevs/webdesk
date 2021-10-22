@@ -5,7 +5,6 @@ import Navbar from "../../components/navbar/Navbar";
 import DetailedMaterial from "../../components/detailedMeterial/DetailedMaterial";
 import ClassComment from "../../components/classComment/ClassComment";
 import QuestionAnswerRoundedIcon from "@material-ui/icons/QuestionAnswerRounded";
-import Add from "@material-ui/icons/Add";
 
 function IndividualTask() {
   return (

@@ -1,0 +1,75 @@
+.videoChat {
+  width: 90%;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+
+  .mainSection {
+    width: max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    background: var(--secondary-color);
+    border-radius: 50px;
+    box-shadow: 0px 0px 2px 2px #eeeeee;
+    margin-right: 12px;
+
+    img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 50px;
+      margin-right: 8px;
+    }
+
+    .textContent {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4px 18px 4px 0px;
+
+      h5 {
+        color: var(--text-color4);
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--text-color2);
+        line-height: 1.2;
+      }
+    }
+  }
+
+  p.time {
+    min-width: 60px;
+    font-size: 13px;
+    color: var(--text-color1);
+    align-self: end;
+  }
+
+  &.sent {
+    flex-direction: row-reverse;
+
+    .mainSection {
+      margin-right: 0;
+      margin-left: 12px;
+      background: var(--primary-gradient);
+
+      .textContent {
+        h5,
+        p {
+          color: var(--secondary-color);
+        }
+      }
+    }
+
+    p.time {
+      text-align: right;
+    }
+  }
+}

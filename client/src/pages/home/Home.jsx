@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import Navbar from "../../components/navbar/Navbar";
-import Herosection from "../../components/heroSection/HeroSection";
+import HeroSection from "../../components/heroSection/HeroSection";
 import HomeWidget from "../../components/homeWidget/HomeWidget";
 import {
   classesArray,
@@ -16,7 +16,7 @@ const Home = () => {
     <div>
       <Navbar />
       <div className="container">
-        <Herosection large title="Welcome To WebDesk" />
+        <HeroSection large title="Welcome To WebDesk" />
 
         <div className="widgets-row">
           <HomeWidget

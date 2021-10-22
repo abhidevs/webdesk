@@ -1,79 +1,136 @@
 import React from "react";
-import "./onlinemeet.scss";
-import presentscreen from "../../assets/presentscreen.jpg";
+import "./style.scss";
 import image1 from "../../assets/image1.jpg";
 import image2 from "../../assets/image2.jpg";
 import image3 from "../../assets/image3.jpg";
-import VideocamIcon from "@material-ui/icons/Videocam";
-import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
-import MicIcon from "@material-ui/icons/Mic";
+import MicRoundedIcon from "@material-ui/icons/MicRounded";
+import VideocamRoundedIcon from "@material-ui/icons/VideocamRounded";
 import PresentToAllIcon from "@material-ui/icons/PresentToAll";
-import TextsmsIcon from "@material-ui/icons/Textsms";
+import CommentIcon from "@material-ui/icons/Comment";
+import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import SendIcon from "@material-ui/icons/Send";
-import Textsection from "../../components/textsection/Textsection";
+import VideoChat from "../../components/videoChat/VideoChat";
+
 const Onlinemeet = () => {
   return (
-    <div className="vdframe">
-      <div className="video-section">
-        <img
-          className="display-image"
-          src={presentscreen}
-          alt="presentscreen"
-        />
+    <div className="onlinemeet">
+      <div className="wrapper">
+        <div className="video-section">
+          <img
+            className="display-image"
+            src="https://static.acer.com/up/Resource/Acer/windows-11/20210622/WIN_Start_Productivity_Light_16x9_en-US.jpg"
+            alt="present screen"
+          />
 
-        <div className="footer">
-          <div className="icon-style">
-            <button className="btn1">
-              <VideocamIcon />
+          <div className="controls">
+            <button className="btn">
+              <MicRoundedIcon />
             </button>
-
-            <button className="btn1">  <MicIcon /> </button>
-
-            <button className="btn1">
-              <PresentToAllIcon /> </button>
-
-            <button className=" btn1"> <TextsmsIcon /></button>
-            <button className=" btn1"> <SupervisorAccountIcon /></button>
+            <button className="btn">
+              <VideocamRoundedIcon />
+            </button>
+            <button className="btn">
+              <PresentToAllIcon />
+            </button>
+            <button className=" btn">
+              <CommentIcon />
+            </button>
+            <button className=" btn">
+              <SupervisorAccountIcon />
+            </button>
+            <button className="leaveBtn">Leave meeting</button>
           </div>
-          <button className="btn">leave meeting</button>
+        </div>
+
+        <div className="participants-section">
+          <div className="heading">
+            <SupervisorAccountIcon />
+            (24) All Participants
+          </div>
+
+          <div className="participants">
+            <div className="participant">
+              <img src={image1} alt="image1" />
+              <p>You</p>
+            </div>
+            <div className="participant">
+              <img src={image2} alt="image1" />
+              <p>Rabbil</p>
+            </div>
+            <div className="participant">
+              <img src={image3} alt="image1" />
+              <p>Bisu</p>
+            </div>
+            <div className="participant">
+              <img src={image1} alt="image1" />
+              <p>Soumen</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="chat-section">
+          <div className="topSection">
+            <p className="chatNavLink">chats</p>
+            <p className="chatNavLink">participants</p>
+            <p className="chatNavLink">info</p>
+          </div>
+
+          <div className="middleSection">
+            <div className="chats">
+              <VideoChat
+                type="received"
+                senderName="Soumen Jana"
+                senderProfilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStKLhhPTTq_dJ5Hf7w4jMZlst9-UfadOVhSgxI8ftfyhsxlpjWNeRAV0q996Y6_YCdHnE&usqp=CAU"
+                message="Good morning all"
+                timeOfSending="9:31 am"
+              />
+              <VideoChat
+                type="received"
+                senderName="Abhik Das"
+                senderProfilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStKLhhPTTq_dJ5Hf7w4jMZlst9-UfadOVhSgxI8ftfyhsxlpjWNeRAV0q996Y6_YCdHnE&usqp=CAU"
+                message="Morning guys"
+                timeOfSending="9:31 am"
+              />
+              <VideoChat
+                type="sent"
+                senderName="Soumen Sau"
+                senderProfilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStKLhhPTTq_dJ5Hf7w4jMZlst9-UfadOVhSgxI8ftfyhsxlpjWNeRAV0q996Y6_YCdHnE&usqp=CAU"
+                message="Good morning😃"
+                timeOfSending="9:31 am"
+              />
+              <VideoChat
+                type="received"
+                senderName="Rabbil Khan"
+                senderProfilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStKLhhPTTq_dJ5Hf7w4jMZlst9-UfadOVhSgxI8ftfyhsxlpjWNeRAV0q996Y6_YCdHnE&usqp=CAU"
+                message="How are you doing everyone?"
+                timeOfSending="9:32 am"
+              />
+              <VideoChat
+                type="sent"
+                senderName="Soumen Sau"
+                senderProfilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStKLhhPTTq_dJ5Hf7w4jMZlst9-UfadOVhSgxI8ftfyhsxlpjWNeRAV0q996Y6_YCdHnE&usqp=CAU"
+                message="I'm fine."
+                timeOfSending="9:32 am"
+              />
+              <VideoChat
+                type="received"
+                senderName="Biswanath Bera"
+                senderProfilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStKLhhPTTq_dJ5Hf7w4jMZlst9-UfadOVhSgxI8ftfyhsxlpjWNeRAV0q996Y6_YCdHnE&usqp=CAU"
+                message="All good😎"
+                timeOfSending="9:33 am"
+              />
+            </div>
+          </div>
+
+          <div className="bottomSection">
+            <input type="text" placeholder="type message" />
+            <button>
+              <SendIcon />
+            </button>
+          </div>
         </div>
       </div>
-
-
-      <div className="parti">
-        <SupervisorAccountIcon />
-      </div>
-      <div className="top-section">(24)All Participants</div>
-
-      <div className="participants-screen">
-        <img className="side-image" src={image1} alt="image1" />
-        <p>you</p>
-        <img className="side-image" src={image2} alt="image2" />
-        <p>Rabbil</p>
-        <img className="side-image" src={image3} alt="image3" />
-        <p>soumen</p>
-        <img className="side-image" src={image1} alt="image1" />
-        <p>abhik</p>
-        <img className="side-image" src={image2} alt="image2" />
-        <p>taliban</p>
-      </div>
-      {/* chat section  */}
-
-      <div className=".chat-section">
-        <div className="chat-bar">
-          <li className="chats">Chats</li>
-          <li className="participants">Participants</li>
-          <li className="info">info</li>
-        </div>
-        <hr />
-        <form action="">
-          <input type="text" placeholder="type message" />
-          <button className="s-icon">  <SendIcon /></button></form>
-
-      </div>
-      <Textsection />
     </div>
   );
 };
 export default Onlinemeet;
-
