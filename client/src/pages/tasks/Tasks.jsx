@@ -27,21 +27,20 @@ const Tasks = ({ dept, sem }) => {
       />
 
       <div className="tasks">
-        {taskArray.map((item) => {
-          if (subject === "all" || subject === item.subject)
-            return (
-              <ItemLg
-                type="task"
-                itemTitle={item.itemTitle}
-                postedBy={item.postedBy}
-                subject={item.subject}
-                timeOfposting={item.timeOfposting}
-                profilePicOfPoster={item.profilePicOfPoster}
-                dueDate={item.dueDate}
-                status={item.status}
-              />
-            );
-        })}
+        {taskArray
+          .filter((item) => subject === "all" || subject === item.subject)
+          .map((item) => (
+            <ItemLg
+              type="task"
+              itemTitle={item.itemTitle}
+              postedBy={item.postedBy}
+              subject={item.subject}
+              timeOfposting={item.timeOfposting}
+              profilePicOfPoster={item.profilePicOfPoster}
+              dueDate={item.dueDate}
+              status={item.status}
+            />
+          ))}
       </div>
     </div>
   );

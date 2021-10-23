@@ -27,19 +27,18 @@ const Materials = ({ dept, sem }) => {
           }
         />
 
-        {materialArray.map((item) => {
-          if (subject === "all" || subject === item.subject)
-            return (
-              <ItemLg
-                type="material"
-                itemTitle={item.itemTitle}
-                postedBy={item.postedBy}
-                subject={item.subject}
-                timeOfposting={item.timeOfposting}
-                profilePicOfPoster={item.profilePicOfPoster}
-              />
-            );
-        })}
+        {materialArray
+          .filter((item) => subject === "all" || subject === item.subject)
+          .map((item) => (
+            <ItemLg
+              type="material"
+              itemTitle={item.itemTitle}
+              postedBy={item.postedBy}
+              subject={item.subject}
+              timeOfposting={item.timeOfposting}
+              profilePicOfPoster={item.profilePicOfPoster}
+            />
+          ))}
       </div>
     </div>
   );

@@ -27,21 +27,20 @@ const Doubts = ({ dept, sem }) => {
           }
         />
 
-        {allDoubtsArray.map((item) => {
-          if (subject === "all" || subject === item.subject)
-            return (
-              <ItemLg
-                type="doubt"
-                itemTitle={item.itemTitle}
-                postedBy={item.postedBy}
-                subject={item.subject}
-                timeOfposting={item.timeOfposting}
-                profilePicOfPoster={item.profilePicOfPoster}
-                votes={item.votes}
-                doubtDesc={item.doubtDesc}
-              />
-            );
-        })}
+        {allDoubtsArray
+          .filter((item) => subject === "all" || subject === item.subject)
+          .map((item) => (
+            <ItemLg
+              type="doubt"
+              itemTitle={item.itemTitle}
+              postedBy={item.postedBy}
+              subject={item.subject}
+              timeOfposting={item.timeOfposting}
+              profilePicOfPoster={item.profilePicOfPoster}
+              votes={item.votes}
+              doubtDesc={item.doubtDesc}
+            />
+          ))}
       </div>
     </div>
   );
