@@ -15,6 +15,8 @@ const Home = () => {
   return (
     <div>
       <Navbar />
+      <Sidebar />
+
       <div className="container">
         <HeroSection large title="Welcome To WebDesk" />
 
@@ -46,8 +48,6 @@ const Home = () => {
             data={doubtsArray}
             forSmallItems
           />
-
-          <Sidebar />
         </div>
       </div>
     </div>

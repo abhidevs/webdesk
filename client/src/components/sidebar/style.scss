@@ -32,4 +32,8 @@
     width: 90%;
     height: 100%;
   }
+
+  @include tablet {
+    display: none;
+  }
 }

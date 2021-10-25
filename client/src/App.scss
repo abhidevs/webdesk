@@ -2,23 +2,34 @@
   --primary-color: #646cff;
   --secondary-color: #ffffff;
   --background-color: #f5f8fd;
-  
+
   --text-color1: #919191;
   --text-color2: #505050;
   --text-color3: #ffc400;
   --text-color4: #000000;
-  
-  --extra-color1: #5FD058;
-  --extra-color2: #72DFEE;
+
+  --extra-color1: #5fd058;
+  --extra-color2: #72dfee;
   --extra-color3: #ef8b3e;
   --extra-color4: rgba(100, 108, 255, 0.1);
-  
 
-  --primary-gradient:linear-gradient(90deg, #A3A7ED 0%, #646CFF 100%);
+  --primary-gradient: linear-gradient(90deg, #a3a7ed 0%, #646cff 100%);
 }
 
 * {
   font-family: "Inter", sans-serif;
+}
+
+@mixin tablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
 }
 
 .app {
@@ -39,5 +50,17 @@
       align-items: center;
       justify-content: space-between;
     }
+
+    @include tablet {
+      padding: 30px 20px;
+    }
+
+    @include mobile {
+      padding: 30px 5px;
+    }
+  }
+
+  @include mobile {
+    margin-top: 62px;
   }
 }

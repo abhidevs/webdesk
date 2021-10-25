@@ -1,9 +1,24 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
+import NoteOutlinedIcon from "@material-ui/icons/NoteOutlined";
+import AssignmentOutlinedIcon from "@material-ui/icons/AssignmentOutlined";
+import LiveHelpOutlinedIcon from "@material-ui/icons/LiveHelpOutlined";
 import "./style.scss";
 
 const Navbar = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    let currentTab = location.pathname.split("/")[1] || "home";
+    if (currentTab !== "home" && currentTab.slice(-1) !== "s")
+      currentTab += "s";
+
+    const tabToSetActive = document.querySelector(`.link#${currentTab}`);
+    if (tabToSetActive) tabToSetActive.classList.add("active");
+  }, [location.pathname]);
+
   return (
     <div className="navbar">
       <div className="nav-container">
@@ -14,18 +29,28 @@ const Navbar = () => {
         </div>
 
         <div className="middle">
-          <Link to="/" className="link">
-            <span>Home</span>
-          </Link>
-          <Link to="/materials/all" className="link">
-            <span>Materials</span>
-          </Link>
-          <Link to="/tasks/all" className="link">
-            <span>Tasks</span>
-          </Link>
-          <Link to="/doubts/all" className="link">
-            <span>Doubts</span>
-          </Link>
+          <div className="nav-links">
+            <Link to="/" className="link" id="home">
+              <HomeOutlinedIcon className="icon" />
+              <span>Home</span>
+              <div className="navlink-border"></div>
+            </Link>
+            <Link to="/materials/all" className="link" id="materials">
+              <NoteOutlinedIcon className="icon" />
+              <span>Materials</span>
+              <div className="navlink-border"></div>
+            </Link>
+            <Link to="/tasks/all" className="link" id="tasks">
+              <AssignmentOutlinedIcon className="icon" />
+              <span>Tasks</span>
+              <div className="navlink-border"></div>
+            </Link>
+            <Link to="/doubts/all" className="link" id="doubts">
+              <LiveHelpOutlinedIcon className="icon" />
+              <span>Doubts</span>
+              <div className="navlink-border"></div>
+            </Link>
+          </div>
         </div>
 
         <div className="right">

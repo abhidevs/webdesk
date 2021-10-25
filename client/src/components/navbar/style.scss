@@ -2,20 +2,22 @@
 
 .navbar {
   width: 96%;
-  background: var(--secondary-color);
   font-size: 14px;
   position: fixed;
   top: 13px;
   left: 2%;
   z-index: 999;
-  box-shadow: 0px 0px 2px 2px #eeeeee;
 
   .nav-container {
+    width: 100%;
+    background: var(--secondary-color);
     padding: 0px 50px;
     height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    // box-shadow: 0px 0px 2px 2px #eeeeee;
+    box-shadow: 0 -1px 12px rgba(14, 62, 58, 0.15);
 
     .left {
       .logo {
@@ -25,25 +27,108 @@
     }
 
     .middle {
-      display: flex;
-      align-items: center;
+      height: 100%;
 
-      .link {
-        span {
-          font-size: 17px;
-          font-weight: 500;
-          color: var(--text-color2);
-          cursor: pointer;
-        }
+      .nav-links {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        column-gap: 30px;
+        transition: 0.4s;
 
-        &:first-child {
+        .link {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          &:hover {
+            span {
+              color: var(--primary-color);
+            }
+          }
+
+          .icon {
+            font-size: 25px;
+            color: var(--text-color2);
+            display: none;
+          }
+
           span {
-            color: var(--primary-color);
+            height: 99%;
+            display: flex;
+            align-items: center;
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--text-color2);
+            padding: 10px 15px;
+            cursor: pointer;
+          }
+
+          .navlink-border {
+            align-self: end;
+            width: 100%;
+            height: 4px;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            border-bottom: 4px solid transparent;
+          }
+
+          &.active {
+            .icon {
+              color: var(--primary-color);
+            }
+
+            span {
+              color: var(--primary-color);
+            }
+
+            .navlink-border {
+              border-color: var(--primary-color);
+            }
           }
         }
+      }
 
-        &:not(:last-child) {
-          margin-right: 60px;
+      @include tablet {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background: var(--secondary-color);
+        display: flex;
+        justify-content: center;
+        border-top-left-radius: 22px;
+        border-top-right-radius: 22px;
+        box-shadow: 0 -1px 12px rgba(14, 62, 58, 0.15);
+
+        .nav-links {
+          width: 60%;
+          column-gap: 0;
+          justify-content: space-between;
+          padding: 10px 0 5px;
+
+          .link {
+            .icon {
+              display: block;
+            }
+            
+            span {
+              font-size: 11px;
+              padding: 2px 10px;
+            }
+            
+            .navlink-border {
+              display: none;
+            }
+          }
+        }
+      }
+
+      @include mobile {
+        .nav-links {
+          width: 90%;
         }
       }
     }
@@ -84,9 +169,48 @@
           margin-top: -21px;
           font-size: 32px;
           cursor: pointer;
-          // padding: 0 10px;
+        }
+
+        @include tablet {
+          .userDetails {
+            display: none;
+          }
+
+          .icon {
+            display: none;
+          }
         }
       }
     }
+
+    @include tablet {
+      padding: 0px 45px;
+    }
+
+    @include mobile {
+      padding: 0px 20px;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 83px;
+    background: var(--secondary-color);
+    z-index: -99;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  @include tablet {
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 -1px 12px rgba(14, 62, 58, 0.15);
   }
 }
