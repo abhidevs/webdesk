@@ -32,6 +32,12 @@
   }
 }
 
+@mixin xs {
+  @media (max-width: 359px) {
+    @content;
+  }
+}
+
 .app {
   width: 96%;
   margin: 84px auto 0 auto;
@@ -52,15 +58,20 @@
     }
 
     @include tablet {
-      padding: 30px 20px;
+      padding: 20px 25px;
     }
 
     @include mobile {
-      padding: 30px 5px;
+      padding: 20px 10px;
     }
   }
 
+  @include tablet() {
+    width: 100%;
+    margin-top: 60px;
+  }
+
   @include mobile {
-    margin-top: 62px;
+    margin-top: 54px;
   }
 }

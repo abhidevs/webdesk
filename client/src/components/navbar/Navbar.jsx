@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
-import NoteOutlinedIcon from "@material-ui/icons/NoteOutlined";
+import LibraryBooksOutlinedIcon from "@material-ui/icons/LibraryBooksOutlined";
 import AssignmentOutlinedIcon from "@material-ui/icons/AssignmentOutlined";
 import LiveHelpOutlinedIcon from "@material-ui/icons/LiveHelpOutlined";
 import "./style.scss";
@@ -36,7 +36,7 @@ const Navbar = () => {
               <div className="navlink-border"></div>
             </Link>
             <Link to="/materials/all" className="link" id="materials">
-              <NoteOutlinedIcon className="icon" />
+              <LibraryBooksOutlinedIcon className="icon" />
               <span>Materials</span>
               <div className="navlink-border"></div>
             </Link>

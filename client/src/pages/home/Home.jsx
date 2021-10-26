@@ -18,7 +18,7 @@ const Home = () => {
       <Sidebar />
 
       <div className="container">
-        <HeroSection large title="Welcome To WebDesk" />
+        <HeroSection large title="Welcome to WebDesk" />
 
         <div className="widgets-row">
           <HomeWidget

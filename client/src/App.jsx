@@ -13,7 +13,6 @@ import IndividualTask from "./pages/individualTask/IndividualTask";
 import Doubts from "./pages/doubts/Doubts";
 import IndividualDoubt from "./pages/individualDoubt/IndividualDoubt";
 
-
 function App() {
   return (
     <div className="app">
