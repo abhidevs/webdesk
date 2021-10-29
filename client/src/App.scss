@@ -50,19 +50,25 @@
     padding: 30px 20px 50px 30px;
     background: var(--background-color);
 
+    @include tablet {
+      padding: 20px 30px;
+    }
+
+    @include mobile {
+      padding: 20px 10px;
+    }
+
     .widgets-row {
       width: 68%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-    }
 
-    @include tablet {
-      padding: 20px 25px;
-    }
-
-    @include mobile {
-      padding: 20px 10px;
+      @include tablet {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+      }
     }
   }
 

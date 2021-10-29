@@ -38,4 +38,38 @@
       padding-bottom: 18px;
     }
   }
+
+  @include tablet {
+    width: 100%;
+
+    &.schedules,
+    &.doubts {
+      .topSection {
+        padding-bottom: 8px;
+      }
+    }
+  }
+
+  @include mobile {
+    &.materials {
+      height: 215px;
+    }
+    
+    &.tasks {
+      height: 200px;
+    }
+
+    .topSection {
+      h2 {
+        font-size: 19px;
+      }
+    }
+
+    &.schedules,
+    &.doubts {
+      .topSection {
+        padding-bottom: 8px;
+      }
+    }
+  }
 }

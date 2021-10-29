@@ -137,4 +137,8 @@
       width: 225px;
     }
   }
+
+  @include tablet {
+    width: 100%;
+  }
 }

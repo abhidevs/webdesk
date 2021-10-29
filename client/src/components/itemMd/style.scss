@@ -175,4 +175,137 @@
       }
     }
   }
+
+  @include tablet {
+    width: 100%;
+    padding: 12px 18px;
+    column-gap: 15px;
+
+    .textcontent {
+      width: 54%;
+
+      .itemTitle {
+        font-size: 2.4vw;
+      }
+
+      .subject {
+        font-size: 2.2vw;
+      }
+
+      p {
+        font-size: 1.9vw;
+      }
+    }
+
+    &.task {
+      .textcontent {
+        width: 54%;
+      }
+    }
+  }
+
+  @include mobile {
+    height: 80px;
+    padding: 12px 18px;
+    column-gap: 15px;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .textcontent {
+      width: 54%;
+      height: 88%;
+
+      .itemTitle {
+        font-size: 3.7vw;
+      }
+
+      .subject {
+        font-size: 3.4vw;
+      }
+
+      p {
+        font-size: 3.1vw;
+      }
+    }
+
+    &.task {
+      .textcontent {
+        width: 54%;
+
+        .taskfile {
+          padding: 0px 10px;
+
+          .icon {
+            font-size: 13px;
+          }
+
+          p {
+            font-size: 11px;
+          }
+        }
+      }
+
+      .right,
+      .right.submitted {
+        height: 100%;
+        min-width: 22%;
+
+        p {
+          font-size: 11px;
+        }
+      }
+    }
+
+    &.task.first, &.task.second {
+      height: 76px;
+    }
+
+    .right {
+      width: max-content;
+
+      .link {
+        button {
+          width: 70px;
+          height: 32px;
+          padding: 0;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  @include xs {
+    .textcontent {
+      width: 80%;
+
+      .itemTitle {
+        font-size: 4.1vw;
+      }
+
+      .subject {
+        font-size: 3.8vw;
+      }
+
+      p {
+        font-size: 3.5vw;
+      }
+    }
+
+    .right {
+      display: none;
+    }
+
+    &.task {
+      .textcontent {
+        width: 80%;
+      }
+
+      .right {
+        display: none;
+      }
+    }
+  }
 }
