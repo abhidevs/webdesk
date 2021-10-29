@@ -35,7 +35,6 @@ const ClassComment = ({
           </button>
         </div>
       )}
-
     </div>
   );
 };

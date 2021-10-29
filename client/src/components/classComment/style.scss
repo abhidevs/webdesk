@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .comment {
   border: 2px solid none;
   padding: 20px;
@@ -35,10 +37,31 @@
         color: var(--text-color1);
       }
     }
-    
+
     .message {
       font-size: 14px;
       line-height: 1.35;
+    }
+  }
+
+  @include tablet {
+    width: 145%;
+  }
+
+  @include mobile {
+    width: 141%;
+    padding: 15px;
+
+    .textContent {
+      width: 80%;
+      .message {
+        font-size: 12px;
+      }
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
     }
   }
 
@@ -46,11 +69,10 @@
     display: flex;
     border: 2px solid none;
     padding: 20px;
-    width: 100%;
     border-radius: 15px;
     background: var(--secondary-color);
     justify-content: flex-start;
-    
+
     .inputSection {
       width: 90%;
       display: flex;
@@ -58,25 +80,42 @@
       border: 2px solid var(--text-color1);
       border-radius: 50px;
       padding-left: 20px;
-      
+
       input {
         width: 94%;
-        height: 42px;
         border-radius: 35px;
         border: none;
         outline: none;
       }
-      
+
       button {
         border: none;
         background: none;
         cursor: pointer;
-        
+
         .icon {
           color: var(--text-color2);
         }
       }
     }
+    @include tablet {
+      button {
+        margin-right: 14px;
+      }
+    }
+    @include mobile {
+      padding: 15px;
+
+      .inputSection {
+        width: 80%;
+
+        input {
+          font-size: 12px;
+        }
+        button {
+          margin-right: 8px;
+        }
+      }
+    }
   }
 }
-  
