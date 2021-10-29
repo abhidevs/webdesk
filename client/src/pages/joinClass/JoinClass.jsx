@@ -9,7 +9,7 @@ import "./style.scss";
 
 const JoinClass = () => {
   return (
-    <div>
+    <div> 
       <Navbar />
       <div className="joinClass">
         {/* meeting section  */}

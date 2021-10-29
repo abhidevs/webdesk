@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .detailed-material {
   width: 100%;
   display: flex;
@@ -9,11 +11,37 @@
   border-radius: 20px;
   box-shadow: 2px 2px 20px #e0e0e0;
 
+  @include tablet {
+    width: 145%;
+    display: block;
+  }
+
+  @include mobile {
+    padding: 30px;
+    width: 141%;
+  }
+
+  @include xs {
+    padding: 25px;
+  }
+
   .material-info {
     align-self: flex-start;
 
     .title {
       color: var(--text-color2);
+    }
+
+    @include mobile {
+      .title {
+        font-weight: 600;
+        width: 100%;
+        font-size: 23px;
+      }
+    }
+
+    @include xs {
+      font-size: 20px;
     }
 
     .name-and-time {
@@ -29,6 +57,11 @@
 
       .Postingtime {
         margin-left: 50px;
+      }
+      @include mobile {
+        h5 {
+          font-size: 13px;
+        }
       }
     }
 
@@ -59,6 +92,32 @@
         font-weight: 600;
         color: var(--primary-color);
       }
+
+      @include tablet {
+        margin-top: 15px;
+        min-width: 200px;
+        padding: 10px;
+
+        .icon {
+          height: 20px;
+        }
+        h3 {
+          font-size: 15px;
+        }
+      }
+
+      @include mobile {
+        margin-top: 12px;
+        min-width: 180px;
+        padding: 6px;
+
+        .icon {
+          height: 18px;
+        }
+        h3 {
+          font-size: 12px;
+        }
+      }
     }
   }
 
@@ -78,7 +137,7 @@
       h3 {
         font-size: 22px;
       }
-      
+
       p {
         font-size: 15px;
         font-weight: 500;
@@ -114,6 +173,21 @@
       padding: 12px;
       border: none;
       background: var(--primary-color);
+    }
+
+    @include tablet {
+      margin-top: 20px;
+      width: 100%;
+
+      .workinfo {
+        h3 {
+          font-size: 20px;
+        }
+      }
+    }
+
+    @include mobile {
+      padding: 0 5px;
     }
   }
 }
