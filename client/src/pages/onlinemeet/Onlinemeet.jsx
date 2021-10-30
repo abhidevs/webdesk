@@ -10,6 +10,8 @@ import CommentIcon from "@material-ui/icons/Comment";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import SendIcon from "@material-ui/icons/Send";
 import VideoChat from "../../components/videoChat/VideoChat";
+import CallEndIcon from '@material-ui/icons/CallEnd';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const Onlinemeet = () => {
   return (
@@ -23,22 +25,24 @@ const Onlinemeet = () => {
           />
 
           <div className="controls">
-            <button className="btn">
+            <button className="btn btn2">
               <MicRoundedIcon />
             </button>
-            <button className="btn">
+            <button className="btn btn3">
               <VideocamRoundedIcon />
             </button>
-            <button className="btn">
+            <button className="btn btn4">
               <PresentToAllIcon />
             </button>
-            <button className=" btn">
+            <button className=" btn btn5">
               <CommentIcon />
             </button>
-            <button className=" btn">
+            <button className=" btn btn6">
               <SupervisorAccountIcon />
             </button>
-            <button className="leaveBtn">Leave meeting</button>
+            <button className=" btn btn7"><MoreVertIcon/></button>
+            <button className="leaveBtn"><CallEndIcon/>
+            </button>
           </div>
         </div>
 
