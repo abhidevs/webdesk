@@ -1,3 +1,4 @@
+@import "../../App.scss";
 .onlinemeet {
   position: absolute;
   top: 0;
@@ -6,7 +7,12 @@
   height: 100vh;
   display: grid;
   place-items: center;
-
+  @include mobile{
+  height: 100%; 
+  overflow: hidden;
+  }
+  
+  
   .wrapper {
     width: 96%;
     height: 96%;
@@ -16,7 +22,18 @@
     background: var(--background-color);
     border-radius: 15px;
     box-shadow: 0px 0px 2px 2px #eeeeee;
-    // overflow: hidden;
+    overflow: none;
+
+    @include mobile{
+      width: 360px;
+      height:190vh;
+      background-color:white ;
+      border-radius: 0px;
+      position: relative;
+      padding-top: -10px;
+     
+    }
+
     
     .video-section {
       width: 62%;
@@ -29,12 +46,40 @@
       border-bottom-left-radius: 15px;
       box-shadow: 0px 0px 2px 2px #eeeeee;
       background: var(--secondary-color);
+      
+      @include mobile{
+       position: relative;
+      width: 100%;
+      height: 30%;
+      left: 20px;
+      top: -420px;
+      margin-left: -19px;
+      margin-right: -31px;
+      border-radius:0px;
+  
+    
+      }
 
       .display-image {
         width: 100%;
         height: 90%;
         border-top-left-radius: 15px;
         object-fit: cover;
+
+        @include mobile {
+        border-radius: 0px;
+        background: none;
+        width: 100%;
+        height: 400px;
+        position: relative;
+        bottom: -40px;
+        top: 20px;
+        margin-top: -60px;
+        margin-bottom: -20px;
+        padding-top: 50px;
+        padding-bottom: 2px;  
+          }
+
       }
 
       .controls {
@@ -43,7 +88,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+     
         button {
           height: 50px;
           display: flex;
@@ -55,11 +100,65 @@
           border-radius: 20px;
           box-shadow: 2px 2px 20px #d1d1d1;
 
+         @include mobile{
+           width: 50px;
+
+         }
+          
+
           &.btn {
             width: 65px;
             color: var(--text-color2);
             border-radius: 20px;
-          }
+            &.btn7{
+              display:none;
+            }
+            @include mobile{
+               color:black;
+               padding: 10px 10px 10px 10px;
+               background-color: white;
+               margin-top: 350px;
+               margin-left: -20px;
+               width: 52px;
+               
+              }
+              
+          &.btn:hover{
+            color: white;
+            background-color: red;
+
+            }
+            @include mobile{
+              &.btn7{
+                display: flex;
+                border-radius: 100px !important;
+                position: relative;
+                left: 105px;
+              }
+              &.btn2{
+                
+                position: relative;
+                left: 140px;
+                border-radius: 50px;
+              }
+              &.btn3{
+                position: relative;
+                left: -5px;
+                border-radius: 50px;
+                border-radius: 50px;
+              }
+            
+              
+            }
+               
+               
+               @include mobile{
+                 &.btn4,&.btn5,&.btn6{
+                   display: none;
+                 }
+               }
+            }
+           
 
           &.leaveBtn {
             padding: 5px 22px;
@@ -68,6 +167,15 @@
             color: red;
             border: 2px solid red;
             border-radius: 50px;
+
+           @include mobile {
+           
+            position: relative;
+            left: -220px;
+            margin-top: 350px;
+            border-radius: 50px;
+          
+            }
 
             &:hover {
               background: red;
@@ -85,6 +193,15 @@
       flex-direction: column;
       align-items: center;
 
+      @include mobile{
+        display: block;
+        position: relative;
+        top: 115px;
+        left: -320px;
+        margin-top: 335px;
+    
+      }
+
       .heading {
         display: flex;
         align-items: center;
@@ -93,11 +210,27 @@
         font-size: 14px;
         font-weight: 500;
         color: var(--text-color2);
+
+        @include mobile{
+          display: none;
+
+        }
       }
 
       .participants {
         width: 90%;
+       
+        @include mobile{
+          width: 370px;
+          margin-top: 70px;
+          padding-left: 10px;
+          display: flex;
+          overflow-x: scroll;
+         
+        }
+        
 
+       
         .participant {
           width: 100%;
           display: flex;
@@ -105,17 +238,39 @@
           align-items: center;
           margin-bottom: 15px;
           cursor: pointer;
+         
+          @include mobile{
+            top: 165px;
+            width: 90px;
+            height: 95px;
+            box-shadow: 1px 1px 5px 1px rgba(214, 209, 209, 0.459);
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+            padding-inline-start: 19px;
+          
+          }
 
           img {
             width: 100%;
             margin-bottom: 3px;
             border-radius: 15px;
+            @include mobile{
+              width: 50px;
+              height: 50px;
+              margin-top: 15px;
+              border-radius: 190px;
+              margin-left: -14px;
+            }
+            
           }
 
           p {
             color: var(--text-color4);
             font-size: 14px;
             font-weight: 500;
+            @include mobile{
+            margin-left: -12px;
+            }
           }
         }
       }
@@ -129,6 +284,9 @@
       border-top-right-radius: 15px;
       border-bottom-right-radius: 15px;
       box-shadow: 0px 0px 2px 2px #eeeeee;
+      @include mobile {
+        display: none;
+      }
 
       .topSection {
         width: 100%;
@@ -164,6 +322,7 @@
           display: flex;
           flex-direction: column;
           align-items: center;
+          
         }
       }
       
