@@ -1,7 +1,7 @@
 @import "../../App.scss";
 
 .widget-container {
-  width: 465px;
+  width: 48%;
   height: 254px;
   display: flex;
   flex-direction: column;
@@ -54,17 +54,27 @@
     &.materials {
       height: 215px;
     }
-    
+
     &.tasks {
-      height: 200px;
+      height: 212px;
     }
 
     .topSection {
       h2 {
         font-size: 19px;
       }
+      
+      .link {
+        font-size: 15px;
+      }
     }
 
+    &.tasks {
+      .topSection {
+        padding-bottom: 13px;
+      }
+    }
+    
     &.schedules,
     &.doubts {
       .topSection {

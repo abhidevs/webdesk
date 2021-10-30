@@ -51,11 +51,11 @@
     background: var(--background-color);
 
     @include tablet {
-      padding: 20px 30px;
+      padding: 20px 30px 80px;
     }
 
     @include mobile {
-      padding: 20px 10px;
+      padding: 20px 10px 70px;
     }
 
     .widgets-row {

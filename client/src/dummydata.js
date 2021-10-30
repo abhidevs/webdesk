@@ -49,7 +49,7 @@ export const classesArray = [
     subject: "Discrete",
     timeOfposting: "1:30 pm",
     status: "ongoing",
-    nameOfPoster: "Debnarayan K",
+    nameOfPoster: "Debnarayan Khatua",
   },
   {
     itemTitle: "Threads in Java",

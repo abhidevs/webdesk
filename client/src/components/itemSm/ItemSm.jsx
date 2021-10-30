@@ -35,12 +35,12 @@ const ItemSm = ({
         {type === "schedule" && (
           <div className="column3">
             <h5>{timeOfposting}</h5>
-            <p>tommorrow</p>
+            <p>today</p>
           </div>
         )}
         <div className="column4">
           {status === "ongoing" || type === "doubt" ? (
-            <Link to={`/${type === "schedule" ? "class/join" : type}`}>
+            <Link to={`/${type === "schedule" ? "class/join" : type}`} className="link">
               <button>{type === "schedule" ? "Join" : "View"}</button>
             </Link>
           ) : (

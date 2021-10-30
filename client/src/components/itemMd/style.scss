@@ -1,7 +1,7 @@
 @import "../../App.scss";
 
 .itemMd {
-  width: 465px;
+  width: 100%;
   height: 92px;
   background: var(--secondary-color);
   display: flex;
@@ -177,7 +177,6 @@
   }
 
   @include tablet {
-    width: 100%;
     padding: 12px 18px;
     column-gap: 15px;
 
@@ -216,24 +215,25 @@
 
     .textcontent {
       width: 54%;
-      height: 88%;
+      height: 90%;
 
       .itemTitle {
-        font-size: 3.7vw;
+        font-size: 3.5vw;
       }
 
       .subject {
-        font-size: 3.4vw;
+        font-size: 3.2vw;
       }
 
       p {
-        font-size: 3.1vw;
+        font-size: 3vw;
       }
     }
 
     &.task {
       .textcontent {
         width: 54%;
+        height: 100%;
 
         .taskfile {
           padding: 0px 10px;
@@ -254,13 +254,13 @@
         min-width: 22%;
 
         p {
-          font-size: 11px;
+          font-size: 12px;
         }
       }
     }
 
     &.task.first, &.task.second {
-      height: 76px;
+      height: 85px;
     }
 
     .right {
