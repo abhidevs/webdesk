@@ -155,4 +155,16 @@
     box-shadow: 2px 2px 20px #d1d1d1;
     cursor: initial;
   }
+
+  @include tablet{
+    width: 100%;
+    padding: 12px 18px;
+    column-gap: 15px;
+  }
+
+  @include mobile{
+    width: 100%;
+    padding: 12px 18px;
+    column-gap: 15px;
+  }
 }
