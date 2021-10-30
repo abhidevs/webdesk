@@ -15,9 +15,10 @@
   }
 
   @include mobile {
-    height: 110vh;
+    height: max-content;
     padding: 20px;
-    display: block;
+    flex-direction: column;
+    margin-bottom: 60px;
   }
 
   .meeting {

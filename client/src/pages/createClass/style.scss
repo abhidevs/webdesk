@@ -152,4 +152,105 @@
       object-fit: cover;
     }
   }
+
+  @include tablet {
+    flex-direction: column;
+    justify-content: start;
+    padding: 5vw;
+    padding-bottom: 50px;
+
+    .left {
+      width: 100%;
+      margin-bottom: 30px;
+
+      .textContent {
+        h1 {
+          font-size: 7.5vw;
+
+          &:last-of-type {
+            margin-bottom: 20px;
+          }
+        }
+
+        p {
+          font-size: 4vw;
+
+          &:last-of-type {
+            margin-bottom: 30px;
+          }
+        }
+      }
+    }
+
+    .right {
+      width: 100%;
+      height: 40vh;
+    }
+  }
+
+  @include mobile {
+    padding: 20px;
+
+    .left {
+      width: 100%;
+
+      .btn-container {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+
+        button.createBtn {
+          height: 45px;
+        }
+
+        .joinWithCode {
+          width: 250px;
+          margin-top: 15px;
+
+          .code-input {
+            margin-left: 0;
+            width: 85%;
+            height: 45px;
+            margin-right: 5px;
+
+            input {
+              font-size: 14px;
+            }
+          }
+
+          &.show-joinBtn {
+            .code-input {
+              width: 78%;
+            }
+          }
+        }
+      }
+    }
+
+    .right {
+      height: 32vh;
+    }
+  }
+
+  @include xs {
+    .left {
+      margin-bottom: 20px;
+
+      .textContent {
+        h1:last-of-type {
+          margin-bottom: 15px;
+        }
+
+        p:last-of-type {
+          margin-bottom: 20px;
+        }
+      }
+
+      .btn-container {
+        .joinWithCode {
+          width: 240px;
+        }
+      }
+    }
+  }
 }
