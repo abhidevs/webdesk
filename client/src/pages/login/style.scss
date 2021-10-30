@@ -1,5 +1,7 @@
+@import "../../App.scss";
+
 .login {
-  margin-top: -84px;
+  margin-top: -94px;
   width: 100%;
   height: 100vh;
   display: grid;
@@ -41,6 +43,11 @@
       border-radius: 8px;
       outline: none;
       cursor: pointer;
+    }
+    
+    @include mobile {
+      width: 370px;
+      height: 400px;
     }
   }
 }
