@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .individual-doubt {
   .container {
     .itemLg:first-of-type {
@@ -58,6 +60,30 @@
           border-radius: 50px;
           border: none;
           cursor: pointer;
+        }
+      }
+
+      @include tablet {
+        width: 100%;
+        padding: 16px 18px;
+
+        img {
+          margin-right: 8px;
+        }
+
+        .inputSection {
+          width: 90%;
+        }
+      }
+
+      @include mobile {
+        img {
+          width: 40px;
+          height: 40px;
+        }
+
+        .inputSection {
+          width: 84%;
         }
       }
     }

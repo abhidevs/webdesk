@@ -156,15 +156,130 @@
     cursor: initial;
   }
 
-  @include tablet{
+  @include tablet {
     width: 100%;
     padding: 12px 18px;
     column-gap: 15px;
+
+    &.doubt,
+    &.doubtResponse {
+      flex-direction: column-reverse;
+
+      .votes {
+        height: 33px;
+        flex-direction: row;
+        position: unset;
+        margin-top: 15px;
+        padding: 0px 10px;
+        border-radius: 50px;
+        box-shadow: 0px 0px 3px 3px #eeeeee;
+
+        p {
+          margin: 5px 10px;
+        }
+
+        .icon:last-of-type {
+          padding-left: 10px;
+          border-left: 2px solid var(--extra-color4);
+          font-size: 33px;
+        }
+      }
+
+      .itemContent {
+        .bottomSection {
+          .textContent {
+            margin-left: 12px;
+            width: 83%;
+
+            .titleSection {
+              .itemTitle {
+                width: 80%;
+              }
+            }
+
+            .doubtDesc {
+              margin-top: 8px;
+              position: relative;
+              left: -55px;
+              width: 110%;
+              font-size: 13.5px;
+            }
+          }
+        }
+      }
+    }
   }
 
-  @include mobile{
+  @include mobile {
     width: 100%;
-    padding: 12px 18px;
-    column-gap: 15px;
+    padding: 12px 15px;
+    margin-top: 10px;
+
+    .itemContent {
+      .topSection {
+        margin-bottom: 12px;
+
+        .link {
+          .subject {
+            font-size: 13px;
+            padding: 1.5px 15px;
+          }
+        }
+
+        .dueDate {
+          font-size: 12px;
+        }
+      }
+
+      .bottomSection {
+        img {
+          width: 40px;
+          height: 40px;
+        }
+
+        .textContent {
+          margin-left: 12px;
+
+          .titleSection {
+            .itemTitle {
+              font-size: 14px;
+              font-weight: 500;
+            }
+
+            p {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+
+    &.doubt,
+    &.doubtResponse {
+      .itemContent {
+        .bottomSection {
+          .textContent {
+            .doubtDesc {
+              margin-top: 0px;
+              left: -50px;
+              width: 115%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include xs {
+    &.doubt,
+    &.doubtResponse {
+      .itemContent {
+        .bottomSection {
+          .textContent {
+            width: 80%;
+          }
+        }
+      }
+    }
   }
 }
