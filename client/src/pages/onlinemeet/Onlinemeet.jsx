@@ -10,8 +10,8 @@ import CommentIcon from "@material-ui/icons/Comment";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import SendIcon from "@material-ui/icons/Send";
 import VideoChat from "../../components/videoChat/VideoChat";
-import CallEndIcon from '@material-ui/icons/CallEnd';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import CallEndIcon from "@material-ui/icons/CallEnd";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const Onlinemeet = () => {
   return (
@@ -25,23 +25,26 @@ const Onlinemeet = () => {
           />
 
           <div className="controls">
-            <button className="btn btn2">
+            <button className="btn">
               <MicRoundedIcon />
             </button>
-            <button className="btn btn3">
+            <button className="btn">
               <VideocamRoundedIcon />
             </button>
-            <button className="btn btn4">
+            <button className="btn mobile-hide">
               <PresentToAllIcon />
             </button>
-            <button className=" btn btn5">
+            <button className="btn mobile-hide">
               <CommentIcon />
             </button>
-            <button className=" btn btn6">
+            <button className="btn mobile-hide">
               <SupervisorAccountIcon />
             </button>
-            <button className=" btn btn7"><MoreVertIcon/></button>
-            <button className="leaveBtn"><CallEndIcon/>
+            <button className="btn moreBtn">
+              <MoreVertIcon />
+            </button>
+            <button className="leaveBtn">
+              <CallEndIcon />
             </button>
           </div>
         </div>
