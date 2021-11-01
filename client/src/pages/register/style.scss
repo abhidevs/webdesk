@@ -1,53 +1,100 @@
 @import "../../App.scss";
-
 .register {
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  margin: auto;
+  background: url(../../assets/Wave.png) no-repeat;
+  display: flex;
   width: 100%;
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  margin-top: -84px;
+  height: 100%;
+  z-index: -1;
+  transform: rotate(180deg);
+  .side-img {
+    margin: auto;
+    img {
+      width: 750px;
+      transform: rotate(180deg);
+      transition: all 0.3s ease-out;
+    }
+    img:hover {
+      width: 770px;
+    }
+  }
 
-  .container {
+  .register-page {
+    transform: rotate(180deg);
+    margin: auto;
     width: 400px;
+    height: 550px;
     display: flex;
+    background: var(--secondary-color);
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #fff;
-    border: 1px solid #dddfe2;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 12px rgb(0 0 0 / 10%);
     border-radius: 8px;
     padding: 1rem;
     align-items: center;
     text-align: center;
-
-    input {
-      border-radius: 8px;
-      border: 2px solid #dddfe2;
-      outline: none;
-      color: #1d2129;
-      margin: 0.5rem 0;
-      padding: 0.5rem 0.75rem;
-      width: 92%;
-      font-size: 1rem;
+    h1 {
+      color: var(--primary-color);
+      margin-bottom: 50px;
     }
-
+    .register-input {
+      margin-bottom: 10px;
+      border-bottom: 2px solid var(--primary-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 92%;
+      input {
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        color: var(--text-color2);
+        margin: 0.5rem 0;
+        padding: 0.5rem 0.75rem;
+        width: 92%;
+        font-size: 13px;
+      }
+      .icon {
+        color: var(--primary-color);
+      }
+    }
     .btn {
       width: 92%;
-      background: #1877f2;
-      border: 1px solid #1877f2;
+      background: var(--primary-color);
       color: #fff;
       font-size: 1.25rem;
       padding: 0.5rem;
       margin: 0.5rem 0;
-      border-radius: 8px;
+      border-radius: 18px;
       outline: none;
       cursor: pointer;
+      transition: all 0.3s ease-out;
     }
-
-    @include mobile {
-      width: 370px;
-      height: 400px;
+    .btn:hover {
+      box-shadow: 2px 2px 6px var(--text-color1);
+    }
+  }
+  @include tablet{
+    display: block;
+    background: var(--primary-gradient);
+    .side-img{
+      img{
+        display: none;
+      }
+    }
+    .register-page{
+      margin-top: 35%;
+    }
+  }
+  @include mobile{
+    .register-page{
+      margin-top:15%;
+      width: 300px;
     }
   }
 }

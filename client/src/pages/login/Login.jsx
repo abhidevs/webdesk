@@ -1,4 +1,7 @@
+import Email from "@material-ui/icons/Email";
+import Lock from "@material-ui/icons/Lock";
 import React, { useState } from "react";
+import loginimg from "../../assets/login-side-img.svg";
 // import axios from "axios"
 import { useHistory } from "react-router-dom";
 import "./style.scss";
@@ -29,22 +32,33 @@ const Login = ({ setLoginUser }) => {
 
   return (
     <div className="login">
-      <div className="container">
+      <div className="image">
+        <img src={loginimg} alt="" />
+      </div>
+      <div className="login-page">
         <h1>Login</h1>
-        <input
-          type="text"
-          name="email"
-          value={user.email}
-          onChange={handleChange}
-          placeholder="Enter your Email"
-        ></input>
-        <input
-          type="password"
-          name="password"
-          value={user.password}
-          onChange={handleChange}
-          placeholder="Enter your Password"
-        ></input>
+        <div className="login-input">
+          <input
+            type="text"
+            name="email"
+            value={user.email}
+            onChange={handleChange}
+            placeholder="Enter your Email"
+          ></input>
+          <Email className="icon" />
+        </div>
+
+        <div className="login-input">
+          <input
+            type="password"
+            name="password"
+            value={user.password}
+            onChange={handleChange}
+            placeholder="Enter your Password"
+          ></input>
+          <Lock className="icon" />
+        </div>
+        
         <div className="btn" onClick={login}>
           Login
         </div>
