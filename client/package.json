@@ -1,6 +1,7 @@
 {
-  "name": "client",
+  "name": "webdesk-client",
   "version": "0.1.0",
+  "description": "frontend for webdesk application",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.3",
