@@ -6,7 +6,6 @@ const DoubtSchema = new mongoose.Schema(
     description: { type: String, required: true },
     subjectId: { type: String, required: true },
     posterId: { type: String, required: true },
-    timeOfPosting: { type: String, required: true },
     votes: { type: Number, default: 0 },
     responses: { type: Array },
     isResponse: { type: String, default: false },

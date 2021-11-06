@@ -28,10 +28,27 @@ router.get("/find/:id", verify, async (req, res) => {
   }
 });
 
-// Get All
+// Get all subjects or all for a specific course and semester
 router.get("/all", verify, async (req, res) => {
+  const course = req.query.course;
+  const sem = req.query.sem;
+
   try {
-    const allSubjects = await Subject.find().sort({ _id: -1 });
+    let allSubjects;
+
+    if (course && sem) {
+      allSubjects = await Subject.find({
+        course: course,
+        semester: sem,
+      }).sort({ _id: -1 });
+    } else if (course) {
+      allSubjects = await Subject.find({
+        course: course,
+      }).sort({ _id: -1 });
+    } else {
+      allSubjects = await Subject.find().sort({ _id: -1 });
+    }
+
     res.status(200).json(allSubjects);
   } catch (err) {
     res.status(500).json(err);

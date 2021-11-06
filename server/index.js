@@ -34,7 +34,7 @@ app.use("/api/material", materialRoute);
 app.use("/api/task", taskRoute);
 app.use("/api/doubt", doubtRoute);
 app.use("/api/schedule", scheduleRoute);
-app.use("/api/classComment", classCommentRoute);
+app.use("/api/classcomment", classCommentRoute);
 
 app.listen(8800, () => {
   console.log("webdesk server is running...");

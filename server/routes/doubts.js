@@ -5,6 +5,7 @@ const verify = require("../verifyToken");
 
 // Create
 router.post("/", verify, async (req, res) => {
+  req.body.posterId = req.user.id;
   const newDoubt = new Doubt(req.body);
 
   try {

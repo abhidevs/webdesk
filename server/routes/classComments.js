@@ -4,6 +4,7 @@ const verify = require("../verifyToken");
 
 // Create
 router.post("/", verify, async (req, res) => {
+  req.body.posterId = req.user.id;
   const newClassComment = new ClassComment(req.body);
 
   try {
@@ -24,7 +25,7 @@ router.get("/find/:id", verify, async (req, res) => {
   }
 });
 
-// Get All
+// Get all comments of a specific material or task
 router.get("/all/:postedIn&:parentId", verify, async (req, res) => {
   try {
     const allClassComments = await ClassComment.find({

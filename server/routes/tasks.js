@@ -6,6 +6,7 @@ const verify = require("../verifyToken");
 // Create
 router.post("/", verify, async (req, res) => {
   if (req.user.isTeacher || req.user.isAdmin) {
+    req.body.posterId = req.user.id;
     const newTask = new Task(req.body);
 
     try {
@@ -47,7 +48,7 @@ router.get("/:subject", verify, async (req, res) => {
       allTasks = await Task.find().sort({ _id: -1 });
     } else {
       const subject = await Subject.findOne({ name: req.params.subject });
-    //   console.log(req.params.subject, subject._id);
+      //   console.log(req.params.subject, subject._id);
       allTasks = await Task.find({
         subjectId: subject._id,
       }).sort({ _id: -1 });

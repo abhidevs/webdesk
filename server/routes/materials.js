@@ -6,6 +6,7 @@ const verify = require("../verifyToken");
 // Create
 router.post("/", verify, async (req, res) => {
   if (req.user.isTeacher || req.user.isAdmin) {
+    req.body.posterId = req.user.id;
     const newMaterial = new Material(req.body);
 
     try {
