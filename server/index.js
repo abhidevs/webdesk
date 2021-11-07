@@ -27,6 +27,7 @@ mongoose
 app.use(express.json());
 
 // routes
+app.get("/", (req, res) => res.send("Hello from Webdesk :)"));
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/subject", subjectRoute);
@@ -36,6 +37,9 @@ app.use("/api/doubt", doubtRoute);
 app.use("/api/schedule", scheduleRoute);
 app.use("/api/classcomment", classCommentRoute);
 
-app.listen(8800, () => {
-  console.log("webdesk server is running...");
+// Port setup
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => {
+  console.log("webdesk server is running on port:" + port);
 });

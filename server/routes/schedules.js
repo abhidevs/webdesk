@@ -40,13 +40,13 @@ router.get("/all", verify, async (req, res) => {
       allSchedules = await Schedule.find({
         course: course,
         semester: sem,
-      }).sort({ _id: -1 });
+      });
     } else if (course) {
       allSchedules = await Schedule.find({
         course: course,
-      }).sort({ _id: -1 });
+      });
     } else {
-      allSchedules = await Schedule.find().sort({ _id: -1 });
+      allSchedules = await Schedule.find();
     }
 
     res.status(200).json(allSchedules);

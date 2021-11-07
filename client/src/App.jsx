@@ -1,5 +1,10 @@
 import "./App.scss";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import Home from "./pages/home/Home";
 import JoinClass from "./pages/joinClass/JoinClass";
 import CreateClass from "./pages/createClass/CreateClass";
@@ -14,46 +19,55 @@ import Doubts from "./pages/doubts/Doubts";
 import IndividualDoubt from "./pages/individualDoubt/IndividualDoubt";
 
 function App() {
+  const user = true;
+
   return (
     <div className="app">
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home />
+            {user ? <Home /> : <Redirect to="/register" />}
           </Route>
           <Route path="/login">
-            <Login />
+            {!user ? <Login /> : <Redirect to="/" />}
           </Route>
           <Route path="/register">
-            <Register />
+            {!user ? <Register /> : <Redirect to="/" />}
           </Route>
-          <Route path="/materials/:subject">
-            <Materials dept="BCA" sem="5th" />
-          </Route>
-          <Route path="/material">
-            <IndividualMeterial />
-          </Route>
-          <Route path="/tasks/:subject">
-            <Tasks dept="BCA" sem="5th" />
-          </Route>
-          <Route path="/task">
-            <IndividualTask/>
-          </Route>
-          <Route path="/doubts/:subject">
-            <Doubts dept="BCA" sem="5th" />
-          </Route>
-          <Route path="/doubt">
-            <IndividualDoubt />
-          </Route>
-          <Route path="/class/join">
-            <JoinClass />
-          </Route>
-          <Route exact path="/class">
-            <Onlinemeet />
-          </Route>
-          <Route path="/class/create">
-            <CreateClass />
-          </Route>
+
+          {user ? (
+            <>
+              <Route path="/materials/:subject">
+                <Materials dept="BCA" sem="5th" />
+              </Route>
+              <Route path="/material">
+                <IndividualMeterial />
+              </Route>
+              <Route path="/tasks/:subject">
+                <Tasks dept="BCA" sem="5th" />
+              </Route>
+              <Route path="/task">
+                <IndividualTask />
+              </Route>
+              <Route path="/doubts/:subject">
+                <Doubts dept="BCA" sem="5th" />
+              </Route>
+              <Route path="/doubt">
+                <IndividualDoubt />
+              </Route>
+              <Route path="/class/join">
+                <JoinClass />
+              </Route>
+              <Route exact path="/class">
+                <Onlinemeet />
+              </Route>
+              <Route path="/class/create">
+                <CreateClass />
+              </Route>
+            </>
+          ) : (
+            <Redirect to="/register" />
+          )}
         </Switch>
       </Router>
     </div>
