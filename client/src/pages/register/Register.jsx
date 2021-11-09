@@ -1,40 +1,37 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./style.scss";
 import registerimg from "../../assets/reg-side-img.svg";
-// import axios from "axios";
 import { useHistory } from "react-router-dom";
-import  Person  from "@material-ui/icons/Person";
+import Person from "@material-ui/icons/Person";
 import Email from "@material-ui/icons/Email";
 import Lock from "@material-ui/icons/Lock";
+import SchoolRounded from "@material-ui/icons/SchoolRounded";
+import MenuBookRounded from "@material-ui/icons/MenuBookRounded";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { registerUser } from "../../context/authContext/apiCalls";
 
 const Register = () => {
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPass, setConfirmPass] = useState("");
+  const [course, setCourse] = useState("");
+  const [semester, setSemester] = useState("");
+
+  const { isFetching, dispatch } = useContext(AuthContext);
+
   const history = useHistory();
 
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    password: "",
-    reEnterPassword: "",
-  });
+  const handleRegister = () => {
+    console.log(email, password);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser({
-      ...user,
-      [name]: value,
-    });
-  };
-
-  const register = () => {
-    // const { name, email, password, reEnterPassword } = user;
-    // if (name && email && password && password === reEnterPassword) {
-    //   axios.post("http://localhost:9002/register", user).then((res) => {
-    //     alert(res.data.message);
-    //     history.push("/login");
-    //   });
-    // } else {
-    //   alert("invlid input");
-    // }
+    if (!(fullname && email && password && course && semester)) {
+      alert("Please fillup all fields");
+    } else if (password !== confirmPass) {
+      alert("Password & confirm password are not equal");
+    } else {
+      registerUser({ fullname, email, password, course, semester }, dispatch);
+    }
   };
 
   return (
@@ -47,50 +44,70 @@ const Register = () => {
         <div className="register-input">
           <input
             type="text"
-            name="name"
-            value={user.name}
-            placeholder="Your Name"
-            onChange={handleChange}
+            name="fullname"
+            value={fullname}
+            placeholder="Your full name"
+            onChange={(e) => setFullname(e.target.value)}
           ></input>
-          <Person className="icon"/>
+          <Person className="icon" />
+        </div>
+        <div className="register-input">
+          <input
+            type="text"
+            name="course"
+            value={course}
+            placeholder="Your course"
+            onChange={(e) => setCourse(e.target.value)}
+          ></input>
+          <SchoolRounded className="icon" />
+        </div>
+        <div className="register-input">
+          <input
+            type="text"
+            name="semester"
+            value={semester}
+            placeholder="Your semester"
+            onChange={(e) => setSemester(e.target.value)}
+          ></input>
+          <MenuBookRounded className="icon" />
         </div>
         <div className="register-input">
           <input
             type="text"
             name="email"
-            value={user.email}
-            placeholder="Your Email"
-            onChange={handleChange}
+            value={email}
+            placeholder="Your email"
+            onChange={(e) => setEmail(e.target.value)}
           ></input>
-          <Email className="icon"/>
+          <Email className="icon" />
         </div>
         <div className="register-input">
           <input
             type="password"
             name="password"
-            value={user.password}
-            placeholder="Your Password"
-            onChange={handleChange}
+            value={password}
+            placeholder="Enter password"
+            onChange={(e) => setPassword(e.target.value)}
           ></input>
-          <Lock className="icon"/>
+          <Lock className="icon" />
         </div>
         <div className="register-input">
           <input
             type="password"
-            name="reEnterPassword"
-            value={user.reEnterPassword}
-            placeholder="Re-enter Password"
-            onChange={handleChange}
+            name="confirmPassword"
+            value={confirmPass}
+            placeholder="Confirm password"
+            onChange={(e) => setConfirmPass(e.target.value)}
           ></input>
-          <Lock className="icon"/>
+          <Lock className="icon" />
         </div>
-        <div className="btn" onClick={register}>
+        <button className="btn" onClick={handleRegister} disabled={isFetching}>
           Register
-        </div>
+        </button>
         <div>or</div>
-        <div className="btn" onClick={() => history.push("/login")}>
+        <button className="btn" onClick={() => history.push("/login")}>
           Login
-        </div>
+        </button>
       </div>
     </div>
   );

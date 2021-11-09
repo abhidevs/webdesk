@@ -3,8 +3,12 @@ const mongoose = require("mongoose");
 const ScheduleSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
-    subjectId: { type: String, required: true },
-    teacherIds: { type: Array, required: true },
+    subject: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Subject",
+      required: true,
+    },
+    teachers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     day: { type: String, required: true },
     time: { type: String, required: true },
     course: { type: String, required: true },

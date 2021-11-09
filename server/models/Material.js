@@ -4,9 +4,18 @@ const MaterialSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
     description: { type: String, required: true },
-    subjectId: { type: String, required: true },
-    posterId: { type: String, required: true },
-    attachments: { type: Array, required: true },
+    subject: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Subject",
+      required: true,
+    },
+    poster: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    attachments: [{ type: Object, required: true }],
+    comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
     course: { type: String, required: true },
     semester: { type: String, required: true },
   },

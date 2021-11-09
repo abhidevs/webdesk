@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import "./App.scss";
 import {
   BrowserRouter as Router,
@@ -17,9 +18,10 @@ import IndividualMeterial from "./pages/individualMaterial/IndividualMeterial";
 import IndividualTask from "./pages/individualTask/IndividualTask";
 import Doubts from "./pages/doubts/Doubts";
 import IndividualDoubt from "./pages/individualDoubt/IndividualDoubt";
+import { AuthContext } from "./context/authContext/AuthContext";
 
 function App() {
-  const user = true;
+  const { user } = useContext(AuthContext);
 
   return (
     <div className="app">

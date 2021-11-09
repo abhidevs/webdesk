@@ -10,12 +10,15 @@
   width: 100%;
   height: 100%;
   z-index: -1;
+
   .image {
     margin: auto;
+
     img {
       width: 800px;
       transition: all 0.3s;
     }
+
     img:hover {
       width: 820px;
     }
@@ -69,6 +72,7 @@
       font-size: 1.25rem;
       padding: 0.5rem;
       margin: 0.5rem 0;
+      border: none;
       border-radius: 18px;
       outline: none;
       cursor: pointer;

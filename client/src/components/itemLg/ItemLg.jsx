@@ -18,6 +18,9 @@ const ItemLg = ({
   noHover,
   noLink,
 }) => {
+  const dummyProfilePic =
+    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png";
+
   return (
     <>
       {noLink ? (
@@ -46,7 +49,7 @@ const ItemLg = ({
             )}
 
             <div className="bottomSection">
-              <img src={profilePicOfPoster} alt="profile" />
+              <img src={profilePicOfPoster || dummyProfilePic} alt="profile" />
               <div className="textContent">
                 <div className="titleSection">
                   <h4 className="itemTitle">
@@ -57,8 +60,7 @@ const ItemLg = ({
                             ? " shared "
                             : type === "task"
                             ? " assigned "
-                            : " asked ") + itemTitle)
-                    }
+                            : " asked ") + itemTitle)}
                   </h4>
                   <p>{timeOfposting}</p>
                 </div>
@@ -97,7 +99,7 @@ const ItemLg = ({
               </div>
 
               <div className="bottomSection">
-                <img src={profilePicOfPoster} alt="profile" />
+                <img src={profilePicOfPoster || dummyProfilePic} alt="profile" />
                 <div className="textContent">
                   <div className="titleSection">
                     <h4 className="itemTitle">

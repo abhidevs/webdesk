@@ -1,11 +1,45 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import "./style.scss";
 import Navbar from "../../components/navbar/Navbar";
 import HeroSection from "../../components/heroSection/HeroSection";
 import HomeWidget from "../../components/homeWidget/HomeWidget";
 import Sidebar from "../../components/sidebar/Sidebar";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { MaterialsContext } from "../../context/materialsContext/MaterialsContext";
+import { TasksContext } from "../../context/tasksContext/TasksContext";
+import { SchedulesContext } from "../../context/schedulesContext/SchedulesContext";
+import { DoubtsContext } from "../../context/doubtsContext/DoubtsContext";
+import { getRecentMaterials } from "../../context/materialsContext/apiCalls";
+import { getRecentTasks } from "../../context/tasksContext/apiCalls";
+import { getRecentDoubts } from "../../context/doubtsContext/apiCalls";
+import { getSchedules } from "../../context/schedulesContext/apiCalls";
 
 const Home = () => {
+  const { user } = useContext(AuthContext);
+  const { recentMaterials, dispatch: materialsDispatch } =
+    useContext(MaterialsContext);
+  const { recentTasks, dispatch: tasksDispatch } = useContext(TasksContext);
+  const { schedules, dispatch: schedulesDispatch } =
+    useContext(SchedulesContext);
+  const { recentDoubts, dispatch: doubtsDispatch } = useContext(DoubtsContext);
+
+  useEffect(() => {
+    recentMaterials?.length === 0 && getRecentMaterials(user, materialsDispatch);
+  }, [materialsDispatch]);
+
+  useEffect(() => {
+    recentTasks?.length === 0 && getRecentTasks(user, tasksDispatch);
+  }, [tasksDispatch]);
+
+  useEffect(() => {
+    schedules?.length === 0 && getSchedules(user, schedulesDispatch);
+  }, [schedulesDispatch]);
+
+  useEffect(() => {
+    recentDoubts?.length === 0 && getRecentDoubts(user, doubtsDispatch);
+  }, [doubtsDispatch]);
+
+  console.log(recentMaterials, recentTasks, recentDoubts);
   return (
     <div>
       <Navbar />
@@ -19,11 +53,13 @@ const Home = () => {
             title="Notes & Materials"
             type="materials"
             forLargeItems
+            itemList={recentMaterials}
           />
           <HomeWidget
             title="Tasks & Assignments"
             type="tasks"
             forLargeItems
+            itemList={recentTasks}
           />
         </div>
 
@@ -32,12 +68,14 @@ const Home = () => {
             title="Class Schedule"
             type="schedules"
             forSmallItems
+            itemList={schedules}
             noSeeAll
           />
           <HomeWidget
             title="Doubts & Questions"
             type="doubts"
             forSmallItems
+            itemList={recentDoubts}
           />
         </div>
       </div>

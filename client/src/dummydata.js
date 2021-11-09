@@ -110,6 +110,34 @@ export const allClassesArray = [
     bgColor: "rgba(239, 139, 62, 0.35)",
     textColor: "rgba(239, 139, 62, 1)",
   },
+  {
+    subject: "Data Structure",
+    teacher: "Samiran Pal",
+    classTime: "9:30 am",
+    bgColor: "rgba(94, 208, 88, 0.35)",
+    textColor: "rgba(94, 208, 88, 1)",
+  },
+  {
+    subject: "Discrete Math",
+    teacher: "Debnarayan K",
+    classTime: "10:30 am",
+    bgColor: "rgba(255, 196, 0, 0.35)",
+    textColor: "rgba(255, 196, 0, 1)",
+  },
+  {
+    subject: "Java Programming",
+    teacher: "Dipankar Dey",
+    classTime: "12:30 pm",
+    bgColor: "rgba(114, 223, 238, 0.35)",
+    textColor: "rgba(114, 223, 238, 1)",
+  },
+  {
+    subject: "Database",
+    teacher: "Satyajit Sahoo",
+    classTime: "1:30 pm",
+    bgColor: "rgba(239, 139, 62, 0.35)",
+    textColor: "rgba(239, 139, 62, 1)",
+  },
 ];
 
 export const materialArray = [

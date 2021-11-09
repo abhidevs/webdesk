@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "./style.scss";
 import Navbar from "../../components/navbar/Navbar";
 import HeroSection from "../../components/heroSection/HeroSection";
-import { allDoubtsArray } from "../../dummydata";
 import Sidebar from "../../components/sidebar/Sidebar";
 import ItemLg from "../../components/itemLg/ItemLg";
 import { useParams } from "react-router-dom";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { DoubtsContext } from "../../context/doubtsContext/DoubtsContext";
+import { getAllDoubts } from "../../context/doubtsContext/apiCalls";
+import formatDatetime from "../../utils/formatDatetime";
 
 const Doubts = ({ dept, sem }) => {
   const { subject } = useParams();
+
+  const { user } = useContext(AuthContext);
+  const { allDoubts, dispatch } = useContext(DoubtsContext);
+
+  useEffect(() => {
+    allDoubts?.length === 0 && getAllDoubts(user, dispatch);
+  }, [dispatch]);
+
+  console.log(allDoubts);
 
   return (
     <div>
@@ -27,18 +39,20 @@ const Doubts = ({ dept, sem }) => {
           }
         />
 
-        {allDoubtsArray
-          .filter((item) => subject === "all" || subject === item.subject)
-          .map((item) => (
+        {allDoubts
+          ?.filter(
+            (item) => subject === "all" || subject === item.subject?.name
+          )
+          ?.map((item) => (
             <ItemLg
               type="doubt"
-              itemTitle={item.itemTitle}
-              postedBy={item.postedBy}
-              subject={item.subject}
-              timeOfposting={item.timeOfposting}
-              profilePicOfPoster={item.profilePicOfPoster}
+              itemTitle={item.title}
+              postedBy={item.poster?.fullname}
+              subject={item.subject?.name}
+              timeOfposting={formatDatetime(item.createdAt)}
+              profilePicOfPoster={item.poster?.profilePic}
               votes={item.votes}
-              doubtDesc={item.doubtDesc}
+              doubtDesc={item.description}
             />
           ))}
       </div>

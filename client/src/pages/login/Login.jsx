@@ -1,33 +1,28 @@
+import React, { useContext, useState } from "react";
 import Email from "@material-ui/icons/Email";
 import Lock from "@material-ui/icons/Lock";
-import React, { useState } from "react";
 import loginimg from "../../assets/login-side-img.svg";
-// import axios from "axios"
 import { useHistory } from "react-router-dom";
 import "./style.scss";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { loginUser } from "../../context/authContext/apiCalls";
 
 const Login = ({ setLoginUser }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { isFetching, dispatch } = useContext(AuthContext);
+
   const history = useHistory();
 
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
+  const handleLogin = () => {
+    console.log(email, password);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser({
-      ...user,
-      [name]: value,
-    });
-  };
-
-  const login = () => {
-    // axios.post("http://localhost:9002/login", user).then((res) => {
-    //   alert(res.data.message);
-    //   setLoginUser(res.data.user);
-    //   history.push("/");
-    // });
+    if (email && password) {
+      loginUser({ email, password }, dispatch);
+    } else {
+      alert("Please fillup all fields");
+    }
   };
 
   return (
@@ -41,9 +36,9 @@ const Login = ({ setLoginUser }) => {
           <input
             type="text"
             name="email"
-            value={user.email}
-            onChange={handleChange}
-            placeholder="Enter your Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Your email"
           ></input>
           <Email className="icon" />
         </div>
@@ -52,20 +47,20 @@ const Login = ({ setLoginUser }) => {
           <input
             type="password"
             name="password"
-            value={user.password}
-            onChange={handleChange}
-            placeholder="Enter your Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter password"
           ></input>
           <Lock className="icon" />
         </div>
-        
-        <div className="btn" onClick={login}>
+
+        <button className="btn" onClick={handleLogin} disabled={isFetching}>
           Login
-        </div>
+        </button>
         <div>or</div>
-        <div className="btn" onClick={() => history.push("/register")}>
+        <button className="btn" onClick={() => history.push("/register")}>
           Register
-        </div>
+        </button>
       </div>
     </div>
   );

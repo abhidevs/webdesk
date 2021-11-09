@@ -1,33 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { classesArray } from "../../dummydata";
-import { getPosterProfile, getSubject } from "../../utils/fetchData";
 import formatDatetime from "../../utils/formatDatetime";
 import "./style.scss";
 
 const ItemSm = ({
   type,
   index,
-  data: { title, subjectId, posterId, createdAt, teacherIds, day, time },
+  data: { title, subject, poster, teachers, createdAt, day, time },
   noLink,
 }) => {
-  const [subject, setSubject] = useState("");
-  const [nameOfPoster, setNameOfPoster] = useState("");
   const [status, setStatus] = useState("");
 
-  useEffect(() => {
-    getSubject(subjectId).then((sub) => setSubject(sub?.name));
+  const history = useHistory();
 
-    if (type === "schedule") {
-      getPosterProfile(teacherIds[0]).then((profile) =>
-        setNameOfPoster(profile?.fullname)
-      );
-      setStatus(classesArray[index].status);
-    } else {
-      getPosterProfile(posterId).then((profile) =>
-        setNameOfPoster(profile?.fullname)
-      );
-    }
+  useEffect(() => {
+    if (type === "schedule") setStatus(classesArray[index].status);
   }, []);
 
   createdAt = formatDatetime(createdAt);
@@ -41,10 +29,7 @@ const ItemSm = ({
             "itemSm " + type + (type === "schedule" ? ` ${status}` : "")
           }
           onClick={
-            status === "ongoing"
-              ? () =>
-                  (window.location.href = "http://localhost:3000/class/join")
-              : () => {}
+            status === "ongoing" ? () => history.push("/class/join") : () => {}
           }
         >
           <div className="column1">
@@ -53,11 +38,11 @@ const ItemSm = ({
             ) : (
               <p>{createdAt}</p>
             )}
-            <h5>{type === "schedule" ? subject : nameOfPoster}</h5>
+            <h5>{type === "schedule" ? subject?.name : poster?.fullname}</h5>
           </div>
           <div className="column2">
             <h5>{title}</h5>
-            <p>{type === "schedule" ? nameOfPoster : subject}</p>
+            <p>{type === "schedule" ? teachers[0]?.fullname : subject?.name}</p>
           </div>
           {type === "schedule" && (
             <div className="column3">
@@ -91,11 +76,13 @@ const ItemSm = ({
               ) : (
                 <p>{createdAt}</p>
               )}
-              <h5>{type === "schedule" ? subject : nameOfPoster}</h5>
+              <h5>{type === "schedule" ? subject?.name : poster?.fullname}</h5>
             </div>
             <div className="column2">
               <h5>{title}</h5>
-              <p>{type === "schedule" ? nameOfPoster : subject}</p>
+              <p>
+                {type === "schedule" ? teachers[0]?.fullname : subject?.name}
+              </p>
             </div>
             {type === "schedule" && (
               <div className="column3">
