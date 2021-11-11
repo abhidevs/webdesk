@@ -11,31 +11,23 @@ router.post("/", verify, async (req, res) => {
 
     await newTask.save(function (err) {
       if (err) res.status(500).json(err);
+      else {
+        newTask.populate({
+          path: "subject",
+          select: "name",
+        });
 
-      newTask.populate({
-        path: "subject",
-        select: "name",
-      });
-
-      newTask.populate({
-        path: "poster",
-        select: ["fullname", "profilePic"],
-      });
-
-      newTask.populate(
-        {
-          path: "comments",
-          populate: {
+        newTask.populate(
+          {
             path: "poster",
             select: ["fullname", "profilePic"],
           },
-          select: ["comment", "poster", "createdAt"],
-        },
-        function (err, doc) {
-          if (err) res.status(500).json(err);
-          else res.status(201).json(doc);
-        }
-      );
+          function (err, doc) {
+            if (err) res.status(500).json(err);
+            else res.status(201).json(doc);
+          }
+        );
+      }
     });
   } else {
     res.status(403).json("You're not allowed to do this!");

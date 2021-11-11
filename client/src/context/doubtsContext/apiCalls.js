@@ -1,5 +1,8 @@
 import axios from "axios";
 import {
+  createNewDoubtFailure,
+  createNewDoubtStart,
+  createNewDoubtSuccess,
   getAllDoubtsFailure,
   getAllDoubtsStart,
   getAllDoubtsSuccess,
@@ -39,5 +42,22 @@ export const getRecentDoubts = async (user, dispatch) => {
     dispatch(getRecentDoubtsSuccess(res.data));
   } catch (err) {
     dispatch(getRecentDoubtsFailure(err));
+  }
+};
+
+export const createNewDoubt = async (doubt, user, dispatch) => {
+  dispatch(createNewDoubtStart());
+
+  try {
+    const res = await axios.post("/doubt", doubt, {
+      headers: {
+        token: "Bearer " + user.accessToken,
+      },
+    });
+
+    // console.log(res.data);
+    dispatch(createNewDoubtSuccess(res.data));
+  } catch (err) {
+    dispatch(createNewDoubtFailure(err));
   }
 };

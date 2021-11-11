@@ -24,22 +24,22 @@ const Home = () => {
   const { recentDoubts, dispatch: doubtsDispatch } = useContext(DoubtsContext);
 
   useEffect(() => {
-    recentMaterials?.length === 0 && getRecentMaterials(user, materialsDispatch);
+    recentMaterials?.length < 2 && getRecentMaterials(user, materialsDispatch);
   }, [materialsDispatch]);
 
   useEffect(() => {
-    recentTasks?.length === 0 && getRecentTasks(user, tasksDispatch);
+    recentTasks?.length < 2 && getRecentTasks(user, tasksDispatch);
   }, [tasksDispatch]);
 
   useEffect(() => {
-    schedules?.length === 0 && getSchedules(user, schedulesDispatch);
+    schedules?.length < 3 && getSchedules(user, schedulesDispatch);
   }, [schedulesDispatch]);
 
   useEffect(() => {
-    recentDoubts?.length === 0 && getRecentDoubts(user, doubtsDispatch);
+    recentDoubts?.length < 3 && getRecentDoubts(user, doubtsDispatch);
   }, [doubtsDispatch]);
 
-  console.log(recentMaterials, recentTasks, recentDoubts);
+  // console.log(recentMaterials, recentTasks, recentDoubts);
   return (
     <div>
       <Navbar />

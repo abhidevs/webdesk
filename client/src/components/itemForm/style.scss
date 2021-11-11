@@ -1,0 +1,69 @@
+@import "../../App.scss";
+
+.itemForm {
+  width: 68%;
+  background: var(--secondary-color);
+  border-radius: 12px;
+  box-shadow: 2px 2px 20px #d1d1d1;
+  margin-top: 20px;
+  padding: 12px 25px;
+  transition: all 0.5s ease-in-out;
+
+  .beforeFocus {
+    display: flex;
+    align-items: center;
+    flex-grow: 100;
+
+    img {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 50px;
+      margin-right: 10px;
+    }
+
+    input {
+      width: 100%;
+      height: 50px;
+      padding-left: 10px;
+      background: var(--background-color);
+      border-radius: 12px;
+      border: none;
+      outline: none;
+    }
+  }
+
+  .afterFocus {
+    display: none;
+    padding: 10px 0;
+  }
+
+  &.onFocus {
+    .beforeFocus {
+      display: none;
+    }
+
+    .afterFocus {
+      display: block;
+    }
+  }
+
+  @include tablet {
+    width: 100%;
+  }
+
+  @include mobile {
+    padding: 12px 15px;
+
+    .beforeFocus {
+      img {
+        width: 40px;
+        height: 40px;
+      }
+
+      input {
+        height: 42px;
+      }
+    }
+  }
+}

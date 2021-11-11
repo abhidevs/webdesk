@@ -1,14 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import LibraryBooksOutlinedIcon from "@material-ui/icons/LibraryBooksOutlined";
 import AssignmentOutlinedIcon from "@material-ui/icons/AssignmentOutlined";
 import LiveHelpOutlinedIcon from "@material-ui/icons/LiveHelpOutlined";
+import { AuthContext } from "../../context/authContext/AuthContext";
 import "./style.scss";
+import dummyProfilePic from "../../assets/dummyProfilePic.png";
 
 const Navbar = () => {
   const location = useLocation();
+
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     let currentTab = location.pathname.split("/")[1] || "home";
@@ -55,13 +59,10 @@ const Navbar = () => {
 
         <div className="right">
           <div className="profile">
-            <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80"
-              alt="profileimg"
-            />
+            <img src={user.profilePic || dummyProfilePic} alt="profileimg" />
             <div className="userDetails">
-              <span>Jane Doe</span>
-              <span>Student</span>
+              <span>{user.fullname}</span>
+              <span>{user.isTeacher ? "Teacher" : "Student"}</span>
             </div>
 
             <ArrowDropDownIcon className="icon" />

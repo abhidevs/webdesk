@@ -48,6 +48,30 @@ const MaterialsReducer = (state, action) => {
         error: action.payload,
       };
 
+    case "CREATE_NEW_MATERIAL_START":
+      return {
+        allMaterials: [...state.allMaterials],
+        recentMaterials: [...state.recentMaterials],
+        isFetching: true,
+        error: false,
+      };
+
+    case "CREATE_NEW_MATERIAL_SUCCESS":
+      return {
+        allMaterials: [action.payload, ...state.allMaterials],
+        recentMaterials: [action.payload, ...state.recentMaterials.slice(0, -1)],
+        isFetching: false,
+        error: false,
+      };
+
+    case "CREATE_NEW_MATERIAL_FAILURE":
+      return {
+        allMaterials: [...state.allMaterials],
+        recentMaterials: [...state.recentMaterials],
+        isFetching: false,
+        error: action.payload,
+      };
+
     default:
       return { ...state };
   }

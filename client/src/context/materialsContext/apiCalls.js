@@ -1,5 +1,8 @@
 import axios from "axios";
 import {
+  createNewMaterialFailure,
+  createNewMaterialStart,
+  createNewMaterialSuccess,
   getAllMaterialsFailure,
   getAllMaterialsStart,
   getAllMaterialsSuccess,
@@ -39,5 +42,22 @@ export const getRecentMaterials = async (user, dispatch) => {
     dispatch(getRecentMaterialsSuccess(res.data));
   } catch (err) {
     dispatch(getRecentMaterialsFailure(err));
+  }
+};
+
+export const createNewMaterial = async (material, user, dispatch) => {
+  dispatch(createNewMaterialStart());
+
+  try {
+    const res = await axios.post("/material", material, {
+      headers: {
+        token: "Bearer " + user.accessToken,
+      },
+    });
+
+    // console.log(res.data);
+    dispatch(createNewMaterialSuccess(res.data));
+  } catch (err) {
+    dispatch(createNewMaterialFailure(err));
   }
 };

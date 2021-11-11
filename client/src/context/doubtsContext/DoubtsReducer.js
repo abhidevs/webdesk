@@ -48,6 +48,30 @@ const DoubtsReducer = (state, action) => {
         error: action.payload,
       };
 
+    case "CREATE_NEW_DOUBT_START":
+      return {
+        allDoubts: [...state.allDoubts],
+        recentDoubts: [...state.recentDoubts],
+        isFetching: true,
+        error: false,
+      };
+
+    case "CREATE_NEW_DOUBT_SUCCESS":
+      return {
+        allDoubts: [action.payload, ...state.allDoubts],
+        recentDoubts: [action.payload, ...state.recentDoubts.slice(0, -1)],
+        isFetching: false,
+        error: false,
+      };
+
+    case "CREATE_NEW_DOUBT_FAILURE":
+      return {
+        allDoubts: [...state.allDoubts],
+        recentDoubts: [...state.recentDoubts],
+        isFetching: false,
+        error: action.payload,
+      };
+
     default:
       return { ...state };
   }

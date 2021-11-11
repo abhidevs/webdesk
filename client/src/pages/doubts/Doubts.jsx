@@ -9,6 +9,7 @@ import { AuthContext } from "../../context/authContext/AuthContext";
 import { DoubtsContext } from "../../context/doubtsContext/DoubtsContext";
 import { getAllDoubts } from "../../context/doubtsContext/apiCalls";
 import formatDatetime from "../../utils/formatDatetime";
+import ItemForm from "../../components/itemForm/ItemForm";
 
 const Doubts = ({ dept, sem }) => {
   const { subject } = useParams();
@@ -20,7 +21,7 @@ const Doubts = ({ dept, sem }) => {
     allDoubts?.length === 0 && getAllDoubts(user, dispatch);
   }, [dispatch]);
 
-  console.log(allDoubts);
+  // console.log(allDoubts);
 
   return (
     <div>
@@ -38,6 +39,14 @@ const Doubts = ({ dept, sem }) => {
               : subject + " : Doubts"
           }
         />
+
+        {!user.isTeacher && (
+          <ItemForm
+            type="doubt"
+            profilePic={user.profilePic}
+            currentSubject={subject !== "all" ? subject : ""}
+          />
+        )}
 
         {allDoubts
           ?.filter(

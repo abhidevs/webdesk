@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./style.scss";
 import formatDatetime from "../../utils/formatDatetime";
 import { allClassesArray } from "../../dummydata";
+import dummyProfilePic from "../../assets/dummyProfilePic.png";
 
 const ItemMd = ({
   index,
@@ -22,8 +23,6 @@ const ItemMd = ({
     name: subjectName,
   },
 }) => {
-  const dummyProfilePic =
-    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png";
   const [bgColor, setBgColor] = useState("");
   const [textColor, setTextColor] = useState("");
 
@@ -64,7 +63,7 @@ const ItemMd = ({
         <div
           className={"itemMd " + type + (index === 0 ? " first" : " second")}
         >
-          <img src={poster.profilePic || dummyProfilePic} alt="profileimage" />
+          <img src={poster?.profilePic || dummyProfilePic} alt="profileimage" />
 
           <div className="textcontent">
             <h4 className="itemTitle">

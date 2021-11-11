@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./style.scss";
 import Navbar from "../../components/navbar/Navbar";
 import HeroSection from "../../components/heroSection/HeroSection";
@@ -9,6 +9,7 @@ import { AuthContext } from "../../context/authContext/AuthContext";
 import { MaterialsContext } from "../../context/materialsContext/MaterialsContext";
 import { getAllMaterials } from "../../context/materialsContext/apiCalls";
 import formatDatetime from "../../utils/formatDatetime";
+import ItemForm from "../../components/itemForm/ItemForm";
 
 const Materials = ({ dept, sem }) => {
   const { subject } = useParams();
@@ -20,10 +21,10 @@ const Materials = ({ dept, sem }) => {
     allMaterials?.length === 0 && getAllMaterials(user, dispatch);
   }, [dispatch]);
 
-  console.log(allMaterials);
+  // console.log(allMaterials);
 
   return (
-    <div>
+    <div className="all-materials">
       <Navbar />
       <Sidebar />
 
@@ -39,8 +40,18 @@ const Materials = ({ dept, sem }) => {
           }
         />
 
+        {(user.isTeacher || user.isAdmin) && (
+          <ItemForm
+            type="material"
+            profilePic={user.profilePic}
+            currentSubject={subject !== "all" ? subject : ""}
+          />
+        )}
+
         {allMaterials
-          ?.filter((item) => subject === "all" || subject === item.subject?.name)
+          ?.filter(
+            (item) => subject === "all" || subject === item.subject?.name
+          )
           ?.map((item) => (
             <ItemLg
               type="material"

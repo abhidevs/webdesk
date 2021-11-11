@@ -11,31 +11,23 @@ router.post("/", verify, async (req, res) => {
 
     await newMaterial.save(function (err) {
       if (err) res.status(500).json(err);
+      else {
+        newMaterial.populate({
+          path: "subject",
+          select: "name",
+        });
 
-      newMaterial.populate({
-        path: "subject",
-        select: "name",
-      });
-
-      newMaterial.populate({
-        path: "poster",
-        select: ["fullname", "profilePic"],
-      });
-
-      newMaterial.populate(
-        {
-          path: "comments",
-          populate: {
+        newMaterial.populate(
+          {
             path: "poster",
             select: ["fullname", "profilePic"],
           },
-          select: ["comment", "poster", "createdAt"],
-        },
-        function (err, doc) {
-          if (err) res.status(500).json(err);
-          else res.status(201).json(doc);
-        }
-      );
+          function (err, doc) {
+            if (err) res.status(500).json(err);
+            else res.status(201).json(doc);
+          }
+        );
+      }
     });
   } else {
     res.status(403).json("You're not allowed to do this!");
@@ -165,22 +157,22 @@ router.put("/:id", verify, async (req, res) => {
         },
         { new: true }
       )
-      .populate({
-        path: "subject",
-        select: "name",
-      })
-      .populate({
-        path: "poster",
-        select: ["fullname", "profilePic"],
-      })
-      .populate({
-        path: "comments",
-        populate: {
+        .populate({
+          path: "subject",
+          select: "name",
+        })
+        .populate({
           path: "poster",
           select: ["fullname", "profilePic"],
-        },
-        select: ["comment", "poster", "createdAt"],
-      });
+        })
+        .populate({
+          path: "comments",
+          populate: {
+            path: "poster",
+            select: ["fullname", "profilePic"],
+          },
+          select: ["comment", "poster", "createdAt"],
+        });
 
       res.status(200).json(updatedMaterial);
     } else {

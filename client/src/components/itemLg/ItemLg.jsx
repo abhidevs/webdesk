@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ArrowUpwardRoundedIcon from "@material-ui/icons/ArrowUpwardRounded";
 import ArrowDownwardRoundedIcon from "@material-ui/icons/ArrowDownwardRounded";
 import "./style.scss";
+import dummyProfilePic from "../../assets/dummyProfilePic.png";
 
 const ItemLg = ({
   type,
@@ -18,9 +19,6 @@ const ItemLg = ({
   noHover,
   noLink,
 }) => {
-  const dummyProfilePic =
-    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png";
-
   return (
     <>
       {noLink ? (
@@ -99,7 +97,10 @@ const ItemLg = ({
               </div>
 
               <div className="bottomSection">
-                <img src={profilePicOfPoster || dummyProfilePic} alt="profile" />
+                <img
+                  src={profilePicOfPoster || dummyProfilePic}
+                  alt="profile"
+                />
                 <div className="textContent">
                   <div className="titleSection">
                     <h4 className="itemTitle">

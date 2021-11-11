@@ -48,6 +48,33 @@ const TasksReducer = (state, action) => {
         error: action.payload,
       };
 
+    case "CREATE_NEW_TASK_START":
+      return {
+        allTasks: [...state.allTasks],
+        recentTasks: [...state.recentTasks],
+        isFetching: true,
+        error: false,
+      };
+
+    case "CREATE_NEW_TASK_SUCCESS":
+      return {
+        allTasks: [action.payload, ...state.allTasks],
+        recentTasks: [
+          action.payload,
+          ...state.recentTasks.slice(0, -1),
+        ],
+        isFetching: false,
+        error: false,
+      };
+
+    case "CREATE_NEW_TASK_FAILURE":
+      return {
+        allTasks: [...state.allTasks],
+        recentTasks: [...state.recentTasks],
+        isFetching: false,
+        error: action.payload,
+      };
+
     default:
       return { ...state };
   }

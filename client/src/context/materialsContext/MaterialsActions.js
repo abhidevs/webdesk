@@ -27,3 +27,18 @@ export const getRecentMaterialsFailure = (error) => ({
   type: "GET_RECENT_MATERIALS_FAILURE",
   payload: error,
 });
+
+// Create New Material Actions
+export const createNewMaterialStart = () => ({
+  type: "CREATE_NEW_MATERIAL_START",
+});
+
+export const createNewMaterialSuccess = (newMaterial) => ({
+  type: "CREATE_NEW_MATERIAL_SUCCESS",
+  payload: newMaterial,
+});
+
+export const createNewMaterialFailure = (error) => ({
+  type: "CREATE_NEW_MATERIAL_FAILURE",
+  payload: error,
+});

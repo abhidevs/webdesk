@@ -10,22 +10,23 @@ router.post("/", verify, async (req, res) => {
 
   await newDoubt.save(function (err) {
     if (err) res.status(500).json(err);
+    else {
+      newDoubt.populate({
+        path: "subject",
+        select: "name",
+      });
 
-    newDoubt.populate({
-      path: "subject",
-      select: "name",
-    });
-
-    newDoubt.populate(
-      {
-        path: "poster",
-        select: ["fullname", "profilePic"],
-      },
-      function (err, doc) {
-        if (err) res.status(500).json(err);
-        else res.status(201).json(doc);
-      }
-    );
+      newDoubt.populate(
+        {
+          path: "poster",
+          select: ["fullname", "profilePic"],
+        },
+        function (err, doc) {
+          if (err) res.status(500).json(err);
+          else res.status(201).json(doc);
+        }
+      );
+    }
   });
 });
 
