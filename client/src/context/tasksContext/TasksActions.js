@@ -42,3 +42,33 @@ export const createNewTaskFailure = (error) => ({
   type: "CREATE_NEW_TASK_FAILURE",
   payload: error,
 });
+
+// Update Task Actions
+export const updateTaskStart = () => ({
+  type: "UPDATE_TASK_START",
+});
+
+export const updateTaskSuccess = (task) => ({
+  type: "UPDATE_TASK_SUCCESS",
+  payload: task,
+});
+
+export const updateTaskFailure = (error) => ({
+  type: "UPDATE_TASK_FAILURE",
+  payload: error,
+});
+
+// Delete Task Actions
+export const deleteTaskStart = () => ({
+  type: "DELETE_TASK_START",
+});
+
+export const deleteTaskSuccess = (taskId) => ({
+  type: "DELETE_TASK_SUCCESS",
+  payload: taskId,
+});
+
+export const deleteTaskFailure = (error) => ({
+  type: "DELETE_TASK_FAILURE",
+  payload: error,
+});

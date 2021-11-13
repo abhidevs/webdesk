@@ -1,0 +1,434 @@
+@import "../../App.scss";
+
+.detailedItem {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background: var(--secondary-color);
+  border: 2px solid none;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 20px #e0e0e0;
+
+  @include tablet {
+    flex-direction: column;
+    align-items: start;
+    padding: 30px;
+    position: relative;
+  }
+
+  @include mobile {
+    padding: 20px;
+  }
+
+  @include xs {
+    padding: 25px;
+  }
+
+  .itemInfo {
+    align-self: flex-start;
+
+    .title {
+      color: var(--text-color2);
+    }
+
+    @include tablet {
+      width: 88%;
+    }
+
+    @include mobile {
+      .title {
+        font-weight: 600;
+        width: 100%;
+        font-size: 23px;
+      }
+    }
+
+    @include xs {
+      font-size: 20px;
+    }
+
+    .name-and-time {
+      color: var(--text-color2);
+      margin-top: 8px;
+      margin-bottom: 3px;
+      display: flex;
+
+      h5 {
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .Postingtime {
+        margin-left: 50px;
+      }
+      @include mobile {
+        h5 {
+          font-size: 13px;
+        }
+      }
+    }
+
+    .subject {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-color1);
+      margin-bottom: 20px;
+    }
+
+    .filename {
+      min-width: 300px;
+      max-width: max-content;
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      border: 2px solid var(--primary-color);
+      border-radius: 10px;
+
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+
+      .icon {
+        font-size: 24px;
+        color: var(--primary-color);
+      }
+
+      h3 {
+        margin-left: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      @include tablet {
+        margin-top: 15px;
+        min-width: 200px;
+        height: 40px;
+        padding: 10px;
+
+        .icon {
+          height: 20px;
+        }
+        h3 {
+          font-size: 15px;
+        }
+      }
+
+      @include mobile {
+        margin-top: 12px;
+        min-width: 180px;
+        padding: 6px;
+
+        .icon {
+          height: 18px;
+        }
+        h3 {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .your-work {
+    width: 35%;
+    background: var(--secondary-color);
+    padding: 0 30px;
+    border-radius: 14px;
+
+    .topDiv {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+
+      h5 {
+        color: var(--text-color2);
+      }
+    }
+
+    .workinfo {
+      color: var(--text-color2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+
+      h3 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 15px;
+        font-weight: 500;
+      }
+    }
+
+    button {
+      margin-top: 10px;
+      width: 100%;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      height: 46px;
+
+      @include mobile {
+        height: 40px;
+      }
+    }
+
+    .add-btn {
+      display: flex;
+      justify-content: center;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      padding: 8px;
+      align-items: center;
+      background: var(--secondary-color);
+
+      .icon {
+        margin-right: 3px;
+      }
+    }
+
+    .mark-btn {
+      color: var(--secondary-color);
+      padding: 12px;
+      border: none;
+      background: var(--primary-color);
+    }
+
+    @include tablet {
+      width: 50%;
+      margin-top: 40px;
+      padding: 0;
+
+      .workinfo {
+        h3 {
+          font-size: 20px;
+        }
+      }
+    }
+
+    @include mobile {
+      padding: 0px 20px;
+      margin-top: 30px;
+      width: 100%;
+    }
+  }
+
+  &.doubt,
+  &.doubtResponse {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px;
+
+    .votes {
+      margin-right: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      top: -3px;
+
+      .icon {
+        font-weight: bolder;
+        color: var(--primary-color);
+        cursor: pointer;
+      }
+
+      p {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-color2);
+        margin: 5px 0;
+      }
+    }
+
+    .itemContent {
+      width: 90%;
+
+      .topSection {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+
+        .subject {
+          font-size: 14px;
+          font-weight: 500;
+          padding: 1px 12px;
+          border-radius: 50px;
+          border: 2px solid var(--primary-color);
+          color: var(--primary-color);
+          margin-right: 20px;
+        }
+
+        .dueDate {
+          font-size: 13px;
+          color: var(--text-color2);
+          font-weight: 500;
+
+          &.submitted {
+            color: var(--extra-color1);
+          }
+        }
+      }
+
+      .bottomSection {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+
+        img {
+          width: 48px;
+          height: 48px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+
+        .textContent {
+          width: 86%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-left: 20px;
+          margin-bottom: 2px;
+
+          .titleSection {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+
+            .itemTitle {
+              font-size: 15px;
+              font-weight: 600;
+              color: var(--text-color2);
+              margin: 0;
+            }
+
+            p {
+              font-size: 13px;
+              font-weight: normal;
+              color: var(--text-color1);
+            }
+          }
+
+          .doubtDesc {
+            font-size: 14px;
+            line-height: 1.4;
+            color: var(--text-color1);
+          }
+        }
+      }
+    }
+
+    @include tablet {
+      flex-direction: column-reverse;
+
+      .votes {
+        height: 33px;
+        flex-direction: row;
+        position: unset;
+        margin-top: 15px;
+        padding: 0px 10px;
+        border-radius: 50px;
+        box-shadow: 0px 0px 3px 3px #eeeeee;
+
+        p {
+          margin: 5px 10px;
+        }
+
+        .icon:last-of-type {
+          padding-left: 10px;
+          border-left: 2px solid var(--extra-color4);
+          font-size: 33px;
+        }
+      }
+
+      .itemContent {
+        .bottomSection {
+          .textContent {
+            margin-left: 12px;
+            width: 83%;
+
+            .titleSection {
+              flex-direction: column;
+              align-items: start;
+
+              .itemTitle {
+                width: 100%;
+                margin-bottom: 5px;
+                font-size: 14px;
+              }
+            }
+
+            .doubtDesc {
+              margin-top: 8px;
+              position: relative;
+              left: -55px;
+              width: 130%;
+              font-size: 13.9px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.doubtResponse {
+    padding-top: 20px;
+  }
+
+  @include mobile {
+    &.doubt,
+    &.doubtResponse {
+      .itemContent {
+        .bottomSection {
+          .textContent {
+            .doubtDesc {
+              margin-top: 0px;
+              width: 142%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include xs {
+    &.doubt,
+    &.doubtResponse {
+      .itemContent {
+        .bottomSection {
+          .textContent {
+            .doubtDesc {
+              width: 145%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .moreBtn {
+    align-self: start;
+    position: relative;
+    top: -10px;
+
+    @include tablet {
+      position: absolute;
+      top: 8px;
+      right: 15px;
+    }
+
+    @include mobile {
+      position: absolute;
+      top: 6px;
+      right: 8px;
+    }
+  }
+}

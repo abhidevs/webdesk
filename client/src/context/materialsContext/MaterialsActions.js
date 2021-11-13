@@ -42,3 +42,33 @@ export const createNewMaterialFailure = (error) => ({
   type: "CREATE_NEW_MATERIAL_FAILURE",
   payload: error,
 });
+
+// Update Material Actions
+export const updateMaterialStart = () => ({
+  type: "UPDATE_MATERIAL_START",
+});
+
+export const updateMaterialSuccess = (material) => ({
+  type: "UPDATE_MATERIAL_SUCCESS",
+  payload: material,
+});
+
+export const updateMaterialFailure = (error) => ({
+  type: "UPDATE_MATERIAL_FAILURE",
+  payload: error,
+});
+
+// Delete Material Actions
+export const deleteMaterialStart = () => ({
+  type: "DELETE_MATERIAL_START",
+});
+
+export const deleteMaterialSuccess = (materialId) => ({
+  type: "DELETE_MATERIAL_SUCCESS",
+  payload: materialId,
+});
+
+export const deleteMaterialFailure = (error) => ({
+  type: "DELETE_MATERIAL_FAILURE",
+  payload: error,
+});

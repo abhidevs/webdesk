@@ -66,4 +66,17 @@
       }
     }
   }
+
+  &.editForm {
+    width: 100%;
+    margin: 0;
+
+    .beforeFocus {
+      display: none;
+    }
+
+    &.ofFocus {
+      display: none;
+    }
+  }
 }

@@ -42,3 +42,33 @@ export const createNewDoubtFailure = (error) => ({
   type: "CREATE_NEW_DOUBT_FAILURE",
   payload: error,
 });
+
+// Update Doubt Actions
+export const updateDoubtStart = () => ({
+  type: "UPDATE_DOUBT_START",
+});
+
+export const updateDoubtSuccess = (doubt) => ({
+  type: "UPDATE_DOUBT_SUCCESS",
+  payload: doubt,
+});
+
+export const updateDoubtFailure = (error) => ({
+  type: "UPDATE_DOUBT_FAILURE",
+  payload: error,
+});
+
+// Delete Doubt Actions
+export const deleteDoubtStart = () => ({
+  type: "DELETE_DOUBT_START",
+});
+
+export const deleteDoubtSuccess = (doubtId) => ({
+  type: "DELETE_DOUBT_SUCCESS",
+  payload: doubtId,
+});
+
+export const deleteDoubtFailure = (error) => ({
+  type: "DELETE_DOUBT_FAILURE",
+  payload: error,
+});

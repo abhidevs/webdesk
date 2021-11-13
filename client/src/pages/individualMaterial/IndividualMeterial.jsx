@@ -3,24 +3,20 @@ import "./style.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import ClassComment from "../../components/classComment/ClassComment";
-import DetailedMaterial from "../../components/detailedMeterial/DetailedMaterial";
 import QuestionAnswerRoundedIcon from "@material-ui/icons/QuestionAnswerRounded";
+import { useLocation } from "react-router-dom";
+import DetailedItem from "../../components/detailedItem/DetailedItem";
 
 function IndividualMeterial() {
+  const { itemData, openEdit } = useLocation();
+
   return (
     <div className="individual-material">
       <Navbar />
       <Sidebar />
       <div className="container">
         <div className="wrapper">
-          <DetailedMaterial
-            type="material"
-            title="Graph theory notes"
-            postedBy="Debnarayan Khatua"
-            timeOfPosting="9:30 am"
-            subject="Discrete Math"
-            filename="Graph_theory.pdf"
-          />
+          <DetailedItem type="material" data={itemData} openEdit={openEdit} />
 
           <div className="comment-heading">
             <QuestionAnswerRoundedIcon className="icon" />

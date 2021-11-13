@@ -42,19 +42,19 @@ function App() {
               <Route path="/materials/:subject">
                 <Materials dept="BCA" sem="5th" />
               </Route>
-              <Route path="/material">
+              <Route path="/material/:id">
                 <IndividualMeterial />
               </Route>
               <Route path="/tasks/:subject">
                 <Tasks dept="BCA" sem="5th" />
               </Route>
-              <Route path="/task">
+              <Route path="/task/:id">
                 <IndividualTask />
               </Route>
               <Route path="/doubts/:subject">
                 <Doubts dept="BCA" sem="5th" />
               </Route>
-              <Route path="/doubt">
+              <Route path="/doubt/:id">
                 <IndividualDoubt />
               </Route>
               <Route path="/class/join">

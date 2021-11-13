@@ -3,12 +3,18 @@ import {
   createNewMaterialFailure,
   createNewMaterialStart,
   createNewMaterialSuccess,
+  deleteMaterialFailure,
+  deleteMaterialStart,
+  deleteMaterialSuccess,
   getAllMaterialsFailure,
   getAllMaterialsStart,
   getAllMaterialsSuccess,
   getRecentMaterialsFailure,
   getRecentMaterialsStart,
   getRecentMaterialsSuccess,
+  updateMaterialFailure,
+  updateMaterialStart,
+  updateMaterialSuccess,
 } from "./MaterialsActions";
 
 export const getAllMaterials = async (user, dispatch) => {
@@ -59,5 +65,39 @@ export const createNewMaterial = async (material, user, dispatch) => {
     dispatch(createNewMaterialSuccess(res.data));
   } catch (err) {
     dispatch(createNewMaterialFailure(err));
+  }
+};
+
+export const updateMaterial = async (material, user, dispatch) => {
+  dispatch(updateMaterialStart());
+
+  try {
+    const res = await axios.put(`/material/${material._id}`, material, {
+      headers: {
+        token: "Bearer " + user.accessToken,
+      },
+    });
+
+    // console.log(res.status);
+    dispatch(updateMaterialSuccess(res.data));
+  } catch (err) {
+    dispatch(updateMaterialFailure(err));
+  }
+};
+
+export const deleteMaterial = async (materialId, user, dispatch) => {
+  dispatch(deleteMaterialStart());
+
+  try {
+    const res = await axios.delete(`/material/${materialId}`, {
+      headers: {
+        token: "Bearer " + user.accessToken,
+      },
+    });
+
+    // console.log(res.status);
+    if (res.status === 200) dispatch(deleteMaterialSuccess(materialId));
+  } catch (err) {
+    dispatch(deleteMaterialFailure(err));
   }
 };

@@ -32,7 +32,7 @@ const HomeWidget = ({
       {forLargeItems &&
         type === "all-classes" &&
         itemList?.map((item, index) => (
-          <ItemMd type="class" key={index} index={index} data={item} />
+          <ItemMd type="class" key={item._id} index={index} data={item} />
         ))}
 
       {forLargeItems &&
@@ -41,7 +41,7 @@ const HomeWidget = ({
           <ItemMd
             index={index}
             type={type.slice(0, -1)}
-            key={index}
+            key={item._id}
             data={item}
           />
         ))}
@@ -51,7 +51,7 @@ const HomeWidget = ({
           <ItemSm
             index={index}
             type={type.slice(0, -1)}
-            key={index}
+            key={item._id}
             data={item}
             noLink={type === "schedules"}
           />

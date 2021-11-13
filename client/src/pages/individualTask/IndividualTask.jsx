@@ -2,25 +2,21 @@ import React from "react";
 import "./style.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import DetailedMaterial from "../../components/detailedMeterial/DetailedMaterial";
 import ClassComment from "../../components/classComment/ClassComment";
 import QuestionAnswerRoundedIcon from "@material-ui/icons/QuestionAnswerRounded";
+import { useLocation } from "react-router-dom";
+import DetailedItem from "../../components/detailedItem/DetailedItem";
 
 function IndividualTask() {
+  const { itemData, openEdit } = useLocation();
+
   return (
     <div className="individual-task">
       <Navbar />
       <Sidebar />
       <div className="container">
         <div className="wrapper">
-          <DetailedMaterial
-            type="task"
-            title="Ca1 Assignment"
-            postedBy="Debnarayan Khatua"
-            timeOfPosting="9:30 am"
-            subject="Data Structure & Algorithms"
-            filename="Stack assignment.pdf"
-          />
+          <DetailedItem type="task" data={itemData} openEdit={openEdit} />
 
           <div className="comment-heading">
             <QuestionAnswerRoundedIcon className="icon" />

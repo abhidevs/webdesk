@@ -5,16 +5,16 @@
   // height: 100px;
   background: var(--secondary-color);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: start;
   padding: 16px 25px;
   box-shadow: 2px 2px 20px #d1d1d1;
   border-radius: 12px;
   margin-top: 20px;
 
   .itemContent {
-    width: 100%;
+    width: 90%;
 
     .topSection {
       display: flex;
@@ -81,8 +81,13 @@
     }
   }
 
-  &.doubt,
-  &.doubtResponse {
+  .moreBtn {
+    margin-left: auto;
+    justify-self: flex-end;
+    align-self: flex-start;
+  }
+
+  &.doubt {
     flex-direction: row;
     align-items: flex-start;
     padding-left: 18px;
@@ -140,10 +145,6 @@
     }
   }
 
-  &.doubtResponse {
-    padding-top: 20px;
-  }
-
   &:hover {
     transform: scale3d(1.006, 1.006, 1);
     box-shadow: 2px 2px 20px 6px #d1d1d1;
@@ -161,8 +162,11 @@
     padding: 12px 18px;
     column-gap: 15px;
 
-    &.doubt,
-    &.doubtResponse {
+    .itemContent {
+      width: 85%;
+    }
+
+    &.doubt {
       flex-direction: column-reverse;
 
       .votes {
@@ -192,8 +196,12 @@
             width: 83%;
 
             .titleSection {
+              flex-direction: column;
+              align-items: start;
+
               .itemTitle {
-                width: 80%;
+                width: 100%;
+                margin-bottom: 5px;
               }
             }
 
@@ -201,11 +209,17 @@
               margin-top: 8px;
               position: relative;
               left: -55px;
-              width: 110%;
+              width: 130%;
               font-size: 13.9px;
             }
           }
         }
+      }
+
+      .moreBtn {
+        position: absolute;
+        right: 45px;
+        padding: 20px;
       }
     }
   }
@@ -254,29 +268,32 @@
       }
     }
 
-    &.doubt,
-    &.doubtResponse {
+    &.doubt {
       .itemContent {
         .bottomSection {
           .textContent {
             .doubtDesc {
               margin-top: 0px;
               left: -50px;
-              width: 115%;
+              width: 142%;
             }
           }
         }
+      }
+
+      .moreBtn {
+        margin-top: -15px;
+        right: 12px;
       }
     }
   }
 
   @include xs {
-    &.doubt,
-    &.doubtResponse {
+    &.doubt {
       .itemContent {
         .bottomSection {
           .textContent {
-            width: 80%;
+            width: 148%;
           }
         }
       }

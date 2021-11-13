@@ -6,6 +6,11 @@
       width: 66%;
       margin-left: 13px;
 
+      @include tablet {
+        width: 100%;
+        margin: 0;
+      }
+
       .comment-heading {
         margin: 32px 0 20px;
         display: flex;

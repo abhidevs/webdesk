@@ -55,13 +55,17 @@ const Doubts = ({ dept, sem }) => {
           ?.map((item) => (
             <ItemLg
               type="doubt"
+              key={item._id}
+              itemId={item._id}
               itemTitle={item.title}
+              posterId={item.poster?._id}
               postedBy={item.poster?.fullname}
               subject={item.subject?.name}
               timeOfposting={formatDatetime(item.createdAt)}
               profilePicOfPoster={item.poster?.profilePic}
               votes={item.votes}
               doubtDesc={item.description}
+              data={item}
             />
           ))}
       </div>

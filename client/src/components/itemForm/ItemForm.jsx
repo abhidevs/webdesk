@@ -11,25 +11,36 @@ import { SubjectsContext } from "../../context/subjectsContext/SubjectsContext";
 import { MaterialsContext } from "../../context/materialsContext/MaterialsContext";
 import { TasksContext } from "../../context/tasksContext/TasksContext";
 import { DoubtsContext } from "../../context/doubtsContext/DoubtsContext";
-import { createNewMaterial } from "../../context/materialsContext/apiCalls";
-import { createNewTask } from "../../context/tasksContext/apiCalls";
-import { createNewDoubt } from "../../context/doubtsContext/apiCalls";
+import {
+  createNewMaterial,
+  updateMaterial,
+} from "../../context/materialsContext/apiCalls";
+import { createNewTask, updateTask } from "../../context/tasksContext/apiCalls";
+import { createNewDoubt, updateDoubt } from "../../context/doubtsContext/apiCalls";
 
-const ItemForm = ({ type, profilePic, currentSubject }) => {
+const ItemForm = ({
+  type,
+  profilePic,
+  currentSubject,
+  editForm,
+  open,
+  setOpenEditForm,
+  data,
+}) => {
   const placeholders = {
     material: "Create new material",
     task: "Assign new task",
     doubt: "Ask your doubt",
   };
 
-  const [onFocus, setOnFocus] = useState(false);
+  const [onFocus, setOnFocus] = useState(open || false);
   const [formdata, setFormdata] = useState({
-    title: "",
-    description: "",
-    subject: currentSubject,
-    attachments: [],
-    dueDatetime: null,
-    points: null,
+    title: data?.title || "",
+    description: data?.description || "",
+    subject: data?.subject?.name || currentSubject,
+    attachments: data?.attachments || [],
+    dueDatetime: data?.dueDatetime || null,
+    points: data?.points || null,
   });
   const [formErrors, setFormErrors] = useState({
     title: "",
@@ -48,8 +59,10 @@ const ItemForm = ({ type, profilePic, currentSubject }) => {
   const { dispatch: doubtsDispatch } = useContext(DoubtsContext);
 
   useEffect(() => {
-    setFormdata({ ...formdata, subject: currentSubject });
-    setFormErrors({ ...formErrors, subject: "" });
+    if (currentSubject) {
+      setFormdata({ ...formdata, subject: currentSubject });
+      setFormErrors({ ...formErrors, subject: "" });
+    }
   }, [currentSubject]);
 
   const handleChange = ({ target: { name, value } }) => {
@@ -94,7 +107,10 @@ const ItemForm = ({ type, profilePic, currentSubject }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (formdata.title === "") {
+    if (type === "doubtResponse" && formdata.description === "") {
+      setFormErrors({ ...formErrors, description: "Answer can't be empty" });
+      return;
+    } else if (formdata.title === "") {
       setFormErrors({ ...formErrors, title: `${type} title can't be empty` });
       return;
     } else if (formdata.subject === "") {
@@ -117,18 +133,31 @@ const ItemForm = ({ type, profilePic, currentSubject }) => {
     )[0];
     [item.subject, item.course, item.semester] = [_id, course, semester];
 
-    if (type === "material" || type === "doubt") {
+    if (type === "material" || type === "doubt" || type === "doubtResponse") {
       delete item.dueDatetime;
       delete item.points;
     }
-    if (type === "doubt") {
+    if (type === "doubt" || type === "doubtResponse") {
       delete item.attachments;
+    }
+    if (type === "doubtResponse") {
+      delete item.title;
+      delete item.subject;
+      delete item.course;
+      delete item.semester;
     }
 
     console.log(item);
-    if (type === "material") createNewMaterial(item, user, materialsDispatch);
-    else if (type === "task") createNewTask(item, user, tasksDispatch);
-    else if (type === "doubt") createNewDoubt(item, user, doubtsDispatch);
+    if (editForm) {
+      item._id = data._id;
+      if (type === "material") updateMaterial(item, user, materialsDispatch);
+      else if (type === "task") updateTask(item, user, tasksDispatch);
+      else if (type === "doubt") updateDoubt(item, user, doubtsDispatch);
+    } else {
+      if (type === "material") createNewMaterial(item, user, materialsDispatch);
+      else if (type === "task") createNewTask(item, user, tasksDispatch);
+      else if (type === "doubt") createNewDoubt(item, user, doubtsDispatch);
+    }
 
     setFormdata({
       title: "",
@@ -140,8 +169,19 @@ const ItemForm = ({ type, profilePic, currentSubject }) => {
     });
   };
 
+  const handleClose = (e) => {
+    if (editForm) setOpenEditForm(false);
+    else setOnFocus(false);
+  };
+
   return (
-    <div className={"itemForm " + (onFocus ? "onFocus" : "")}>
+    <div
+      className={
+        "itemForm " +
+        (onFocus ? "onFocus" : "ofFocus") +
+        (editForm ? " editForm" : "")
+      }
+    >
       <div className="beforeFocus">
         <img src={profilePic || dummyProfilePic} alt="profile" />
         <input
@@ -154,79 +194,111 @@ const ItemForm = ({ type, profilePic, currentSubject }) => {
       <div className="afterFocus">
         <Box component="form" noValidate onSubmit={handleSubmit}>
           <Grid container spacing={2}>
-            <Grid item xs={12} lg={8}>
-              <TextField
-                autoComplete="title"
-                name="title"
-                required
-                fullWidth
-                label={`${type.charAt(0).toUpperCase() + type.slice(1)} title`}
-                value={formdata.title}
-                onChange={handleChange}
-                autoFocus
-                variant="outlined"
-                error={formErrors.title}
-                helperText={formErrors.title || `Give title for your ${type}`}
-                FormHelperTextProps={{
-                  style: {
-                    fontFamily: "Inter",
-                    fontSize: 13,
-                    fontWeight: "500",
-                  },
-                }}
-              />
-            </Grid>
-            <Grid item xs={12} lg={4}>
-              <TextField
-                label="Subject"
-                name="subject"
-                value={formdata.subject}
-                onChange={handleChange}
-                select
-                required
-                fullWidth
-                variant="outlined"
-                defaultValue={currentSubject}
-                error={formErrors.subject}
-                helperText={formErrors.subject || "Select subject"}
-                FormHelperTextProps={{
-                  style: {
-                    fontFamily: "Inter",
-                    fontSize: 13,
-                    fontWeight: "500",
-                  },
-                }}
-              >
-                {subjects.map((option) => (
-                  <MenuItem key={option._id} value={option.name}>
-                    {option.name}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                label="Description"
-                name="description"
-                value={formdata.description}
-                onChange={handleChange}
-                autoComplete="description"
-                multiline
-                variant="filled"
-                rows={3}
-                fullWidth
-                required
-                error={formErrors.description}
-                helperText={formErrors.description || "Add a description"}
-                FormHelperTextProps={{
-                  style: {
-                    fontFamily: "Inter",
-                    fontSize: 13,
-                    fontWeight: "500",
-                  },
-                }}
-              />
-            </Grid>
+            {type === "doubtResponse" ? (
+              <Grid item xs={12}>
+                <TextField
+                  label="Answer"
+                  name="description"
+                  value={formdata.description}
+                  onChange={handleChange}
+                  autoComplete="answer"
+                  multiline
+                  variant="filled"
+                  rows={3}
+                  fullWidth
+                  required
+                  error={formErrors.description}
+                  helperText={formErrors.description || "Write your answer"}
+                  FormHelperTextProps={{
+                    style: {
+                      fontFamily: "Inter",
+                      fontSize: 13,
+                      fontWeight: "500",
+                    },
+                  }}
+                />
+              </Grid>
+            ) : (
+              <>
+                <Grid item xs={12} lg={8}>
+                  <TextField
+                    autoComplete="title"
+                    name="title"
+                    required
+                    fullWidth
+                    label={`${
+                      type.charAt(0).toUpperCase() + type.slice(1)
+                    } title`}
+                    value={formdata.title}
+                    onChange={handleChange}
+                    autoFocus
+                    variant="outlined"
+                    error={formErrors.title}
+                    helperText={
+                      formErrors.title || `Give title for your ${type}`
+                    }
+                    FormHelperTextProps={{
+                      style: {
+                        fontFamily: "Inter",
+                        fontSize: 13,
+                        fontWeight: "500",
+                      },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} lg={4}>
+                  <TextField
+                    label="Subject"
+                    name="subject"
+                    defaultValue={formdata.subject}
+                    value={formdata.subject}
+                    onChange={handleChange}
+                    select
+                    required
+                    fullWidth
+                    variant="outlined"
+                    error={formErrors.subject}
+                    helperText={formErrors.subject || "Select subject"}
+                    FormHelperTextProps={{
+                      style: {
+                        fontFamily: "Inter",
+                        fontSize: 13,
+                        fontWeight: "500",
+                      },
+                    }}
+                  >
+                    {subjects.map((option) => (
+                      <MenuItem key={option._id} value={option.name}>
+                        {option.name}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    label="Description"
+                    name="description"
+                    value={formdata.description}
+                    onChange={handleChange}
+                    autoComplete="description"
+                    multiline
+                    variant="filled"
+                    rows={3}
+                    fullWidth
+                    required
+                    error={formErrors.description}
+                    helperText={formErrors.description || "Add a description"}
+                    FormHelperTextProps={{
+                      style: {
+                        fontFamily: "Inter",
+                        fontSize: 13,
+                        fontWeight: "500",
+                      },
+                    }}
+                  />
+                </Grid>
+              </>
+            )}
 
             {(type === "material" || type === "task") && (
               <Grid container item xs={12} lg={5} spacing={2}>
@@ -330,7 +402,7 @@ const ItemForm = ({ type, profilePic, currentSubject }) => {
                 type="button"
                 variant="contained"
                 style={{ marginRight: "20px", textTransform: "capitalize" }}
-                onClick={() => setOnFocus(false)}
+                onClick={handleClose}
               >
                 Cancel
               </Button>
@@ -344,7 +416,7 @@ const ItemForm = ({ type, profilePic, currentSubject }) => {
                   textTransform: "capitalize",
                 }}
               >
-                Submit
+                {editForm ? "Update" : "Create"}
               </LoadingButton>
             </Grid>
           </Grid>

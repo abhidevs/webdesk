@@ -55,13 +55,17 @@ const Tasks = ({ dept, sem }) => {
           ?.map((item) => (
             <ItemLg
               type="task"
+              key={item._id}
+              itemId={item._id}
               itemTitle={item.title}
+              posterId={item.poster?._id}
               postedBy={item.poster?.fullname}
               subject={item.subject?.name}
               timeOfposting={formatDatetime(item.createdAt)}
               profilePicOfPoster={item.poster?.profilePic}
               dueDate={formatDatetime(item.dueDatetime)}
               status={"pending"}
+              data={item}
             />
           ))}
       </div>
