@@ -4,12 +4,18 @@ import { classesArray } from "../../dummydata";
 import formatDatetime from "../../utils/formatDatetime";
 import "./style.scss";
 
-const ItemSm = ({
-  type,
-  index,
-  data: { title, subject, poster, teachers, createdAt, day, time },
-  noLink,
-}) => {
+const ItemSm = ({ type, index, data, noLink }) => {
+  let {
+    _id: itemId,
+    title,
+    subject,
+    poster,
+    teachers,
+    createdAt,
+    day,
+    time,
+  } = data;
+
   const [status, setStatus] = useState("");
 
   const history = useHistory();
@@ -64,7 +70,13 @@ const ItemSm = ({
           </div>
         </div>
       ) : (
-        <Link to={`/${type !== "schedule" ? type : "#"}`} className="link">
+        <Link
+          to={{
+            pathname: `/${type}/${itemId}`,
+            itemData: data,
+          }}
+          className="link"
+        >
           <div
             className={
               "itemSm " + type + (type === "schedule" ? ` ${status}` : "")
@@ -93,7 +105,10 @@ const ItemSm = ({
             <div className="column4">
               {status === "ongoing" || type === "doubt" ? (
                 <Link
-                  to={`/${type === "schedule" ? "class/join" : type}`}
+                  to={{
+                    pathname: `/${type}/${itemId}`,
+                    itemData: data,
+                  }}
                   className="link"
                 >
                   <button>{type === "schedule" ? "Join" : "View"}</button>

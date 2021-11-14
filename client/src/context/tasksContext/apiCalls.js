@@ -80,6 +80,7 @@ export const updateTask = async (task, user, dispatch) => {
 
     // console.log(res.status);
     dispatch(updateTaskSuccess(res.data));
+    return res.data;
   } catch (err) {
     dispatch(updateTaskFailure(err));
   }

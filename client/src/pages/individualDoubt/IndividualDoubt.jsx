@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./style.scss";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import CreateRoundedIcon from "@material-ui/icons/CreateRounded";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import DetailedItem from "../../components/detailedItem/DetailedItem";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { getItemdata } from "../../utils/fetchData";
 
 const IndividualDoubt = () => {
   const { itemData, openEdit } = useLocation();
+
+  const [data, setData] = useState(itemData);
+
+  const { id: itemId } = useParams();
+  const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (!data) {
+      getItemdata("doubt", itemId, user)
+        .then((response) => {
+          setData(response);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, []);
 
   const adjustTextarea = ({ target }) => {
     target.style.height = target.scrollHeight + "px";
@@ -21,7 +38,7 @@ const IndividualDoubt = () => {
 
       <div className="container">
         <div className="wrapper">
-          <DetailedItem type="doubt" data={itemData} openEdit={openEdit} />
+          <DetailedItem type="doubt" data={data} openEdit={openEdit} />
 
           <div className="writeAnswer">
             <img
@@ -44,8 +61,8 @@ const IndividualDoubt = () => {
             <h3>Responses</h3>
           </div>
 
-          {itemData?.responses?.length === 0 && (
-            <DetailedItem type="doubtResponse" data={itemData} />
+          {data?.responses?.length === 0 && (
+            <DetailedItem type="doubtResponse" data={data} />
           )}
         </div>
       </div>

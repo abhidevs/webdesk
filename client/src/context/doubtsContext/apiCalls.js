@@ -80,6 +80,7 @@ export const updateDoubt = async (doubt, user, dispatch) => {
 
     // console.log(res.status);
     dispatch(updateDoubtSuccess(res.data));
+    return res.data;
   } catch (err) {
     dispatch(updateDoubtFailure(err));
   }

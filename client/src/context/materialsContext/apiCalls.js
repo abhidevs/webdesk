@@ -80,6 +80,7 @@ export const updateMaterial = async (material, user, dispatch) => {
 
     // console.log(res.status);
     dispatch(updateMaterialSuccess(res.data));
+    return res.data;
   } catch (err) {
     dispatch(updateMaterialFailure(err));
   }

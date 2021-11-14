@@ -42,33 +42,14 @@ const DetailedItem = ({ type, data, openEdit }) => {
   const history = useHistory();
 
   const { user } = useContext(AuthContext);
-  const { allMaterials, dispatch: materialsDispatch } =
+  const { dispatch: materialsDispatch } =
     useContext(MaterialsContext);
-  const { allTasks, dispatch: tasksDispatch } = useContext(TasksContext);
-  const { allDoubts, dispatch: doubtsDispatch } = useContext(DoubtsContext);
+  const { dispatch: tasksDispatch } = useContext(TasksContext);
+  const { dispatch: doubtsDispatch } = useContext(DoubtsContext);
 
   useEffect(() => {
-    if (type === "material") {
-      const currMaterial = allMaterials.filter(
-        (material) => material._id === itemId
-      )[0];
-      setItem(currMaterial);
-    }
-  }, [allMaterials]);
-
-  useEffect(() => {
-    if (type === "task") {
-      const currTask = allTasks.filter((task) => task._id === itemId)[0];
-      setItem(currTask);
-    }
-  }, [allTasks]);
-
-  useEffect(() => {
-    if (type === "doubt") {
-      const currDoubt = allDoubts.filter((doubt) => doubt._id === itemId)[0];
-      setItem(currDoubt);
-    }
-  }, [allDoubts]);
+    setItem(data);
+  }, [data]);
 
   if (user._id === item?.poster._id || user.isAdmin) {
     moreOptions = ["Edit", "Delete", "Copy link"];
@@ -82,8 +63,6 @@ const DetailedItem = ({ type, data, openEdit }) => {
   useEffect(() => {
     if (moreOptions.length === 0) moreBtn.current.style.display = "none";
   }, []);
-
-  console.log(item);
 
   const handleMoreBtnClick = (e) => {
     e.stopPropagation();
@@ -299,7 +278,8 @@ const DetailedItem = ({ type, data, openEdit }) => {
               editForm
               open={openEditForm}
               setOpenEditForm={setOpenEditForm}
-              data={data}
+              data={item || data}
+              setData={setItem}
             />
           )}
         </>

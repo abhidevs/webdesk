@@ -11,7 +11,10 @@ const ItemMd = ({
   type,
   status = "pending",
   classTime = "9:30 am",
-  data: {
+  data,
+}) => {
+  let {
+    _id: itemId,
     title,
     subject,
     poster,
@@ -21,8 +24,8 @@ const ItemMd = ({
     dueDatetime,
     teachers,
     name: subjectName,
-  },
-}) => {
+  } = data;
+
   const [bgColor, setBgColor] = useState("");
   const [textColor, setTextColor] = useState("");
 
@@ -89,7 +92,13 @@ const ItemMd = ({
               </>
             )}
             {(type === "material" || status === "pending") && (
-              <Link to={`/${type}`} className="link">
+              <Link
+                to={{
+                  pathname: `/${type}/${itemId}`,
+                  itemData: data,
+                }}
+                className="link"
+              >
                 <button>View</button>
               </Link>
             )}

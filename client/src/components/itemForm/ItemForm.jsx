@@ -16,7 +16,10 @@ import {
   updateMaterial,
 } from "../../context/materialsContext/apiCalls";
 import { createNewTask, updateTask } from "../../context/tasksContext/apiCalls";
-import { createNewDoubt, updateDoubt } from "../../context/doubtsContext/apiCalls";
+import {
+  createNewDoubt,
+  updateDoubt,
+} from "../../context/doubtsContext/apiCalls";
 
 const ItemForm = ({
   type,
@@ -26,6 +29,7 @@ const ItemForm = ({
   open,
   setOpenEditForm,
   data,
+  setData,
 }) => {
   const placeholders = {
     material: "Create new material",
@@ -150,13 +154,25 @@ const ItemForm = ({
     console.log(item);
     if (editForm) {
       item._id = data._id;
-      if (type === "material") updateMaterial(item, user, materialsDispatch);
-      else if (type === "task") updateTask(item, user, tasksDispatch);
-      else if (type === "doubt") updateDoubt(item, user, doubtsDispatch);
+      if (type === "material") {
+        updateMaterial(item, user, materialsDispatch).then((updatedData) =>
+          setData(updatedData)
+        );
+      } else if (type === "task") {
+        updateTask(item, user, tasksDispatch).then((updatedData) =>
+          setData(updatedData)
+        );
+      } else if (type === "doubt") {
+        updateDoubt(item, user, doubtsDispatch).then((updatedData) =>
+          setData(updatedData)
+        );
+      }
+      setOpenEditForm(false);
     } else {
       if (type === "material") createNewMaterial(item, user, materialsDispatch);
       else if (type === "task") createNewTask(item, user, tasksDispatch);
       else if (type === "doubt") createNewDoubt(item, user, doubtsDispatch);
+      setOnFocus(false);
     }
 
     setFormdata({
