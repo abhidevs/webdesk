@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import "./style.scss";
 import Navbar from "../../components/navbar/Navbar";
 import HeroSection from "../../components/heroSection/HeroSection";

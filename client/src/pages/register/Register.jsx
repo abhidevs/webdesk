@@ -23,8 +23,6 @@ const Register = () => {
   const history = useHistory();
 
   const handleRegister = () => {
-    console.log(email, password);
-
     if (!(fullname && email && password && course && semester)) {
       alert("Please fillup all fields");
     } else if (password !== confirmPass) {

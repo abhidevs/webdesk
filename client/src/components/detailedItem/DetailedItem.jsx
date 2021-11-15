@@ -51,7 +51,7 @@ const DetailedItem = ({ type, data, openEdit }) => {
     setItem(data);
   }, [data]);
 
-  if (user._id === item?.poster._id || user.isAdmin) {
+  if (user?._id === item?.poster?._id || user.isAdmin) {
     moreOptions = ["Edit", "Delete", "Copy link"];
   } else {
     moreOptions = ["Copy link"];
@@ -62,7 +62,7 @@ const DetailedItem = ({ type, data, openEdit }) => {
 
   useEffect(() => {
     if (moreOptions.length === 0) moreBtn.current.style.display = "none";
-  }, []);
+  }, [moreOptions.length]);
 
   const handleMoreBtnClick = (e) => {
     e.stopPropagation();

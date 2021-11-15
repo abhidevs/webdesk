@@ -21,7 +21,7 @@ export const getAllDoubts = async (user, dispatch) => {
   dispatch(getAllDoubtsStart());
 
   try {
-    const res = await axios.get("/doubt/all", {
+    const res = await axios.get("/api/doubt/all", {
       headers: {
         token: "Bearer " + user.accessToken,
       },
@@ -38,7 +38,7 @@ export const getRecentDoubts = async (user, dispatch) => {
   dispatch(getRecentDoubtsStart());
 
   try {
-    const res = await axios.get("/doubt/recent", {
+    const res = await axios.get("/api/doubt/recent", {
       headers: {
         token: "Bearer " + user.accessToken,
       },
@@ -55,7 +55,7 @@ export const createNewDoubt = async (doubt, user, dispatch) => {
   dispatch(createNewDoubtStart());
 
   try {
-    const res = await axios.post("/doubt", doubt, {
+    const res = await axios.post("/api/doubt", doubt, {
       headers: {
         token: "Bearer " + user.accessToken,
       },
@@ -72,7 +72,7 @@ export const updateDoubt = async (doubt, user, dispatch) => {
   dispatch(updateDoubtStart());
 
   try {
-    const res = await axios.put(`/doubt/${doubt._id}`, doubt, {
+    const res = await axios.put(`/api/doubt/${doubt._id}`, doubt, {
       headers: {
         token: "Bearer " + user.accessToken,
       },
@@ -90,7 +90,7 @@ export const deleteDoubt = async (doubtId, user, dispatch) => {
   dispatch(deleteDoubtStart());
 
   try {
-    const res = await axios.delete(`/doubt/${doubtId}`, {
+    const res = await axios.delete(`/api/doubt/${doubtId}`, {
       headers: {
         token: "Bearer " + user.accessToken,
       },

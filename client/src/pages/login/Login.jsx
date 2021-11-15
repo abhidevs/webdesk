@@ -16,8 +16,6 @@ const Login = ({ setLoginUser }) => {
   const history = useHistory();
 
   const handleLogin = () => {
-    console.log(email, password);
-
     if (email && password) {
       loginUser({ email, password }, dispatch);
     } else {
