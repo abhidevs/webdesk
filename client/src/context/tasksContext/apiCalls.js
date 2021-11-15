@@ -102,3 +102,63 @@ export const deleteTask = async (taskId, user, dispatch) => {
     dispatch(deleteTaskFailure(err));
   }
 };
+
+export const createCommentInTask = async (comment, user, dispatch) => {
+  dispatch(updateTaskStart());
+
+  try {
+    const res = await axios.post("/task/comment", comment, {
+      headers: {
+        token: "Bearer " + user.accessToken,
+      },
+    });
+
+    // console.log(res.data);
+    dispatch(updateTaskSuccess(res.data));
+    return res.data;
+  } catch (err) {
+    dispatch(updateTaskFailure(err));
+  }
+};
+
+export const updateCommentInTask = async (comment, user, dispatch) => {
+  dispatch(updateTaskStart());
+
+  try {
+    const res = await axios.put(`/task/comment/${comment.commentId}`, comment, {
+      headers: {
+        token: "Bearer " + user.accessToken,
+      },
+    });
+
+    // console.log(res.data);
+    dispatch(updateTaskSuccess(res.data));
+    return res.data;
+  } catch (err) {
+    dispatch(updateTaskFailure(err));
+  }
+};
+
+export const deleteCommentInTask = async (comment, user, dispatch) => {
+  dispatch(updateTaskStart());
+
+  try {
+    const res = await axios.put(
+      `/task/deletecomment/${comment.commentId}`,
+      comment,
+      {
+        headers: {
+          token: "Bearer " + user.accessToken,
+        },
+      }
+    );
+
+    // console.log(res.data);
+    if (res.status === 200) {
+      dispatch(updateTaskSuccess(res.data));
+      return res.data;
+    }
+  } catch (err) {
+    dispatch(updateTaskFailure(err));
+  }
+};

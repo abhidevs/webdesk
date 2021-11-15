@@ -79,8 +79,10 @@ export const updateMaterial = async (material, user, dispatch) => {
     });
 
     // console.log(res.status);
-    dispatch(updateMaterialSuccess(res.data));
-    return res.data;
+    if (res.status === 200) {
+      dispatch(updateMaterialSuccess(res.data));
+      return res.data;
+    }
   } catch (err) {
     dispatch(updateMaterialFailure(err));
   }
@@ -100,5 +102,73 @@ export const deleteMaterial = async (materialId, user, dispatch) => {
     if (res.status === 200) dispatch(deleteMaterialSuccess(materialId));
   } catch (err) {
     dispatch(deleteMaterialFailure(err));
+  }
+};
+
+export const createCommentInMaterial = async (comment, user, dispatch) => {
+  dispatch(updateMaterialStart());
+
+  try {
+    const res = await axios.post("/material/comment", comment, {
+      headers: {
+        token: "Bearer " + user.accessToken,
+      },
+    });
+
+    // console.log(res.data);
+    if (res.status === 201) {
+      dispatch(updateMaterialSuccess(res.data));
+      return res.data;
+    }
+  } catch (err) {
+    dispatch(updateMaterialFailure(err));
+  }
+};
+
+export const updateCommentInMaterial = async (comment, user, dispatch) => {
+  dispatch(updateMaterialStart());
+
+  try {
+    const res = await axios.put(
+      `/material/comment/${comment.commentId}`,
+      comment,
+      {
+        headers: {
+          token: "Bearer " + user.accessToken,
+        },
+      }
+    );
+
+    // console.log(res.data);
+    if (res.status === 200) {
+      dispatch(updateMaterialSuccess(res.data));
+      return res.data;
+    }
+  } catch (err) {
+    dispatch(updateMaterialFailure(err));
+  }
+};
+
+export const deleteCommentInMaterial = async (comment, user, dispatch) => {
+  dispatch(updateMaterialStart());
+
+  try {
+    const res = await axios.put(
+      `/material/deletecomment/${comment.commentId}`,
+      comment,
+      {
+        headers: {
+          token: "Bearer " + user.accessToken,
+        },
+      }
+    );
+
+    // console.log(res.data);
+    if (res.status === 200) {
+      dispatch(updateMaterialSuccess(res.data));
+      return res.data;
+    }
+  } catch (err) {
+    dispatch(updateMaterialFailure(err));
   }
 };

@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const ClassComment = require("../models/ClassComment");
 const Material = require("../models/Material");
 const Subject = require("../models/Subject");
 const verify = require("../verifyToken");
@@ -200,3 +201,133 @@ router.delete("/:id", verify, async (req, res) => {
 });
 
 module.exports = router;
+
+// Create comment
+router.post("/comment", verify, async (req, res) => {
+  const newComment = new ClassComment({
+    comment: req.body.comment,
+    poster: req.user.id,
+  });
+
+  await newComment.save(function (err) {
+    if (err) res.status(500).json(err);
+    else {
+      Material.findByIdAndUpdate(
+        req.body.itemId,
+        {
+          $push: { comments: newComment._id },
+        },
+        { new: true }
+      )
+        .populate({
+          path: "subject",
+          select: "name",
+        })
+        .populate({
+          path: "poster",
+          select: ["fullname", "profilePic"],
+        })
+        .populate({
+          path: "comments",
+          populate: {
+            path: "poster",
+            select: ["fullname", "profilePic"],
+          },
+          select: ["comment", "poster", "createdAt"],
+        })
+        .exec((err, doc) => {
+          if (err) res.status(500).json(err);
+          else res.status(201).json(doc);
+        });
+    }
+  });
+});
+
+// Update comment
+router.put("/comment/:id", verify, async (req, res) => {
+  if (req.user.id === req.body.posterId || req.user.isAdmin) {
+    try {
+      await ClassComment.findByIdAndUpdate(
+        req.params.id,
+        {
+          $set: { comment: req.body.comment },
+        },
+        { new: true },
+        function (err, doc) {
+          if (err) res.status(500).json(err);
+          else {
+            Material.findById(req.body.itemId)
+              .populate({
+                path: "subject",
+                select: "name",
+              })
+              .populate({
+                path: "poster",
+                select: ["fullname", "profilePic"],
+              })
+              .populate({
+                path: "comments",
+                populate: {
+                  path: "poster",
+                  select: ["fullname", "profilePic"],
+                },
+                select: ["comment", "poster", "createdAt"],
+              })
+              .exec((err, doc) => {
+                if (err) res.status(500).json(err);
+                else res.status(200).json(doc);
+              });
+          }
+        }
+      );
+    } catch (err) {
+      // do nothing
+    }
+  } else {
+    res.status(403).json("You're not allowed to do this!");
+  }
+});
+
+// Delete comment
+router.put("/deletecomment/:id", verify, async (req, res) => {
+  if (req.user.id === req.body.posterId || req.user.isAdmin) {
+    try {
+      await ClassComment.findByIdAndDelete(req.params.id, function (err, doc) {
+        if (err) res.status(500).json(err);
+        else {
+          Material.findByIdAndUpdate(
+            req.body.itemId,
+            {
+              $pull: { comments: req.params.id },
+            },
+            { new: true }
+          )
+            .populate({
+              path: "subject",
+              select: "name",
+            })
+            .populate({
+              path: "poster",
+              select: ["fullname", "profilePic"],
+            })
+            .populate({
+              path: "comments",
+              populate: {
+                path: "poster",
+                select: ["fullname", "profilePic"],
+              },
+              select: ["comment", "poster", "createdAt"],
+            })
+            .exec((err, doc) => {
+              if (err) res.status(500).json(err);
+              else res.status(200).json(doc);
+            });
+        }
+      });
+    } catch (err) {
+      // do nothing
+    }
+  } else {
+    res.status(403).json("You're not allowed to do this!");
+  }
+});
