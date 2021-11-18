@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import "./style.scss";
-import registerimg from "../../assets/reg-side-img.svg";
 import { useHistory } from "react-router-dom";
 import Person from "@material-ui/icons/Person";
 import Email from "@material-ui/icons/Email";
@@ -34,9 +33,6 @@ const Register = () => {
 
   return (
     <div className="register">
-      <div className="side-img">
-        <img src={registerimg} alt="" />
-      </div>
       <div className="register-page">
         <h1>Register</h1>
         <div className="register-input">

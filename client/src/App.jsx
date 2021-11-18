@@ -19,7 +19,7 @@ import IndividualTask from "./pages/individualTask/IndividualTask";
 import Doubts from "./pages/doubts/Doubts";
 import IndividualDoubt from "./pages/individualDoubt/IndividualDoubt";
 import { AuthContext } from "./context/authContext/AuthContext";
-
+import UserUpdate from "./pages/userUpdate/userUpdate"
 function App() {
   const { user } = useContext(AuthContext);
 
@@ -65,6 +65,9 @@ function App() {
               </Route>
               <Route path="/class/create">
                 <CreateClass />
+              </Route>
+              <Route path="/userupdate">
+                <UserUpdate />
               </Route>
             </>
           ) : (

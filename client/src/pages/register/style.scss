@@ -5,36 +5,20 @@
   top: 0px;
   left: 0px;
   margin: auto;
-  background: url(../../assets/Wave.png) no-repeat;
+  background: var(--primary-gradient);
   display: flex;
   width: 100%;
   height: 100%;
   z-index: -1;
-  transform: rotate(180deg);
-
-  .side-img {
-    margin: auto;
-
-    img {
-      width: 750px;
-      transform: rotate(180deg);
-      transition: all 0.3s ease-out;
-    }
-
-    img:hover {
-      width: 770px;
-    }
-  }
 
   .register-page {
-    transform: rotate(180deg);
     margin: auto;
-    width: 400px;
-    height: 550px;
+    width: 23%;
+    min-height: 70%;
+    max-height: 100%;
     display: flex;
     background: var(--secondary-color);
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 12px rgb(0 0 0 / 10%);
     border-radius: 8px;

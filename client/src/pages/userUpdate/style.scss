@@ -1,0 +1,162 @@
+@import "../../App.scss";
+.container {
+  
+  .user-page {
+    border-radius: 20px;
+    margin: auto;
+    padding-top: 40px;
+    display: block;
+    width: 50%;
+    background: var(--secondary-color);
+
+    h2 {
+      margin-top: 20px;
+      text-align: center;
+      color: var(--primary-color);
+    }
+
+    .userimg {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      img {
+        object-fit: cover;
+        transition: 0.5s ease;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+      }
+      .upload {
+        transition: 0.5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      .cam {
+        height: 70px;
+        width: 70px;
+        color: var(--primary-color);
+      }
+    }
+
+    .userimg:hover {
+      img {
+        opacity: 0.3;
+      }
+      .upload {
+        opacity: 1;
+      }
+    }
+
+    .edit-user {
+      margin: auto;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      .user-input {
+        margin: 20px;
+        border-bottom: 2px solid var(--primary-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+        text-align: center;
+        input {
+          border-radius: 8px;
+          border: none;
+          outline: none;
+          color: var(--text-color2);
+          margin: 0.5rem 0;
+          padding: 0.5rem 0.75rem;
+          font-size: 18px;
+          width: 100%;
+        }
+        .icon {
+          color: var(--primary-color);
+        }
+      }
+    }
+
+    .show-passwd {
+      padding-top: 10px;
+      margin: auto;
+      display: block;
+      width: 350px;
+      .box {
+        margin-bottom: 5px;
+        width: 15%;
+        height: 15px;
+      }
+      label {
+        font-size: 20px;
+        color: var(--primary-color);
+      }
+    }
+
+    .save-psswd {
+      margin: auto;
+      padding-top: 10px;
+      display: block;
+      width: 350px;
+      padding-bottom: 20px;
+
+      .btn {
+        width: 100%;
+        background: var(--primary-color);
+        color: #fff;
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+        border: none;
+        border-radius: 18px;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+      }
+      .btn:hover {
+        box-shadow: 2px 2px 6px var(--text-color1);
+      }
+    }
+  }
+
+  @include tablet {
+    .user-page {
+      width: 100%;
+      padding-top: 100px;
+      .save-psswd {
+        padding-bottom: 60px;
+      }
+    }
+  }
+
+  @include mobile {
+    .user-page {
+      padding-top: 40px;
+      width: 90%;
+
+      .userimg {
+        width: 180px;
+        height: 180px;
+        .cam {
+          height: 60px;
+          width: 60px;
+        }
+      }
+
+      .save-psswd {
+        padding-bottom: 20px;
+      }
+      .edit-user {
+        .user-input {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
