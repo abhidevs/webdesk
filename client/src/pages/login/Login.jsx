@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import Email from "@material-ui/icons/Email";
 import Lock from "@material-ui/icons/Lock";
-import loginimg from "../../assets/login-side-img.svg";
 import { useHistory } from "react-router-dom";
 import "./style.scss";
 import { AuthContext } from "../../context/authContext/AuthContext";
@@ -25,9 +24,6 @@ const Login = ({ setLoginUser }) => {
 
   return (
     <div className="login">
-      <div className="image">
-        <img src={loginimg} alt="" />
-      </div>
       <div className="login-page">
         <h1>Login</h1>
         <div className="login-input">
