@@ -57,13 +57,13 @@ function App() {
               <Route path="/doubt/:id">
                 <IndividualDoubt />
               </Route>
-              <Route path="/class/join">
+              <Route exact path="/class/join/:classId">
                 <JoinClass />
               </Route>
-              <Route exact path="/class">
+              <Route exact path="/class/:classId">
                 <Onlinemeet />
               </Route>
-              <Route path="/class/create">
+              <Route path="/createclass">
                 <CreateClass />
               </Route>
               <Route path="/userupdate">

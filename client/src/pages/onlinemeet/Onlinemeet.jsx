@@ -1,8 +1,5 @@
-import React from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./style.scss";
-import image1 from "../../assets/image1.jpg";
-import image2 from "../../assets/image2.jpg";
-import image3 from "../../assets/image3.jpg";
 import MicRoundedIcon from "@material-ui/icons/MicRounded";
 import VideocamRoundedIcon from "@material-ui/icons/VideocamRounded";
 import PresentToAllIcon from "@material-ui/icons/PresentToAll";
@@ -12,17 +9,154 @@ import SendIcon from "@material-ui/icons/Send";
 import VideoChat from "../../components/videoChat/VideoChat";
 import CallEndIcon from "@material-ui/icons/CallEnd";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import { useParams } from "react-router-dom";
+import {io} from "socket.io-client";
+import Peer from "simple-peer";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { FormControlLabel } from "@material-ui/core";
+
+const Video = ({ peer, userVideo, videoRef }) => {
+  const ref = useRef();
+
+  useEffect(() => {
+    if(!userVideo) {
+      peer.on("stream", (stream) => {
+        ref.current.srcObject = stream;
+      });
+    }
+  }, []);
+
+  return userVideo ? <video playsInline autoPlay ref={videoRef} /> : <video playsInline autoPlay ref={ref} />;
+};
+
+const videoConstraints = {
+  height: window.innerHeight / 2,
+  width: window.innerWidth / 2,
+};
 
 const Onlinemeet = () => {
+  const [peers, setPeers] = useState([]);
+  const [message, setMessage] = useState("");
+  const [allMessages, setAllMessages] = useState([]);
+  const socketRef = useRef();
+  const userVideo = useRef();
+  const peersRef = useRef([]);
+  const {classId} = useParams();
+
+  const { user } = useContext(AuthContext);
+  
+  useEffect(() => {
+    const roomID = classId;
+    console.log(roomID);
+    socketRef.current = io("http://localhost:5000/");
+    navigator.mediaDevices
+      .getUserMedia({ video: videoConstraints, audio: true })
+      .then((stream) => {
+        userVideo.current.srcObject = stream;
+        console.log("initiated socket", roomID);
+        socketRef.current.emit("join room", {roomID, username: user.fullname, userProfilePic: user.profilePic });
+        socketRef.current.on("all users", (users) => {
+          const peers = [];
+          users.forEach((user) => {
+            const peer = createPeer(user.socketID, socketRef.current.id, stream);
+            peersRef.current.push({
+              peerID: user.socketID,
+              peer,
+            });
+            peers.push({...user, peer});
+          });
+
+          setPeers(peers);
+        });
+
+        socketRef.current.on("user joined", (payload) => {
+          const peer = addPeer(payload.signal, payload.callerID, stream);
+
+          peersRef.current.push({
+            peerID: payload.callerID,
+            peer,
+          });
+
+          setPeers((users) => [...users, {peer, ...payload.userInfo}]);
+        });
+
+        socketRef.current.on("receiving returned signal", (payload) => {
+          const item = peersRef.current.find((p) => p.peerID === payload.id);
+          item.peer.signal(payload.signal);
+        });
+
+        socketRef.current.on("received message", (payload) => {
+          setAllMessages((msgs) => [...msgs, payload.message]);
+        });
+      });
+  }, []);
+
+  console.log(peers, peersRef);
+
+  function createPeer(userToSignal, callerID, stream) {
+    const peer = new Peer({
+      initiator: true,
+      trickle: false,
+      stream,
+    });
+
+    peer.on("signal", (signal) => {
+      socketRef.current.emit("sending signal", {
+        userToSignal,
+        callerID,
+        signal,
+      });
+    });
+
+    return peer;
+  }
+
+  function addPeer(incomingSignal, callerID, stream) {
+    const peer = new Peer({
+      initiator: false,
+      trickle: false,
+      stream,
+    });
+
+    peer.on("signal", (signal) => {
+      socketRef.current.emit("returning signal", { signal, callerID });
+    });
+
+    peer.signal(incomingSignal);
+
+    return peer;
+  }
+
+  const sendMessage = (e) => {
+    e.preventDefault();
+    
+    const msgInfo = {
+      message,
+      type: "sent",
+      senderName: user.fullname,
+      senderProfilePic: user.profilePic,
+      timeOfSending: new Date(),
+    }
+    
+    setMessage("");
+    setAllMessages((msgs) => [...msgs, {...msgInfo}]);
+    // msgInfo.type = "received";
+
+    peersRef.current.forEach((peer) => {
+      socketRef.current.emit("sending message", {
+        message: {...msgInfo, type: "received"},
+        userToSignal: peer.peerID,
+        senderID: "Abhik",
+      });
+    });
+
+  };
+
   return (
     <div className="onlinemeet">
       <div className="wrapper">
         <div className="video-section">
-          <img
-            className="display-image"
-            src="https://static.acer.com/up/Resource/Acer/windows-11/20210622/WIN_Start_Productivity_Light_16x9_en-US.jpg"
-            alt="present screen"
-          />
+          <Video userVideo muted videoRef={userVideo} autoPlay playsInline />
 
           <div className="controls">
             <button className="btn">
@@ -56,22 +190,12 @@ const Onlinemeet = () => {
           </div>
 
           <div className="participants">
-            <div className="participant">
-              <img src={image1} alt="image1" />
-              <p>You</p>
-            </div>
-            <div className="participant">
-              <img src={image2} alt="image1" />
-              <p>Rabbil</p>
-            </div>
-            <div className="participant">
-              <img src={image3} alt="image1" />
-              <p>Bisu</p>
-            </div>
-            <div className="participant">
-              <img src={image1} alt="image1" />
-              <p>Soumen</p>
-            </div>
+            {peers.map(({username, peer}, index) => (
+              <div className="participant">
+                <Video key={index} peer={peer} />
+                <p>{username.split(" ")[0]}</p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -84,57 +208,24 @@ const Onlinemeet = () => {
 
           <div className="middleSection">
             <div className="chats">
-              <VideoChat
-                type="received"
-                senderName="Soumen Jana"
-                senderProfilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStKLhhPTTq_dJ5Hf7w4jMZlst9-UfadOVhSgxI8ftfyhsxlpjWNeRAV0q996Y6_YCdHnE&usqp=CAU"
-                message="Good morning all"
-                timeOfSending="9:31 am"
-              />
-              <VideoChat
-                type="received"
-                senderName="Abhik Das"
-                senderProfilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStKLhhPTTq_dJ5Hf7w4jMZlst9-UfadOVhSgxI8ftfyhsxlpjWNeRAV0q996Y6_YCdHnE&usqp=CAU"
-                message="Morning guys"
-                timeOfSending="9:31 am"
-              />
-              <VideoChat
-                type="sent"
-                senderName="Soumen Sau"
-                senderProfilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStKLhhPTTq_dJ5Hf7w4jMZlst9-UfadOVhSgxI8ftfyhsxlpjWNeRAV0q996Y6_YCdHnE&usqp=CAU"
-                message="Good morning😃"
-                timeOfSending="9:31 am"
-              />
-              <VideoChat
-                type="received"
-                senderName="Rabbil Khan"
-                senderProfilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStKLhhPTTq_dJ5Hf7w4jMZlst9-UfadOVhSgxI8ftfyhsxlpjWNeRAV0q996Y6_YCdHnE&usqp=CAU"
-                message="How are you doing everyone?"
-                timeOfSending="9:32 am"
-              />
-              <VideoChat
-                type="sent"
-                senderName="Soumen Sau"
-                senderProfilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStKLhhPTTq_dJ5Hf7w4jMZlst9-UfadOVhSgxI8ftfyhsxlpjWNeRAV0q996Y6_YCdHnE&usqp=CAU"
-                message="I'm fine."
-                timeOfSending="9:32 am"
-              />
-              <VideoChat
-                type="received"
-                senderName="Biswanath Bera"
-                senderProfilePic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStKLhhPTTq_dJ5Hf7w4jMZlst9-UfadOVhSgxI8ftfyhsxlpjWNeRAV0q996Y6_YCdHnE&usqp=CAU"
-                message="All good😎"
-                timeOfSending="9:33 am"
-              />
+              {allMessages?.map((m) => (
+                <VideoChat
+                  type={m.type}
+                  senderName={m.senderName}
+                  senderProfilePic={m.senderProfilePic}
+                  message={m.message}
+                  timeOfSending={m.timeOfSending}
+                />
+              ))}
             </div>
           </div>
 
-          <div className="bottomSection">
-            <input type="text" placeholder="type message" />
+          <form className="bottomSection" onSubmit={sendMessage}>
+            <input type="text" placeholder="type message" value={message} onChange={(e) => setMessage(e.target.value)} />
             <button>
               <SendIcon />
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>

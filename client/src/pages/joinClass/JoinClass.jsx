@@ -4,10 +4,12 @@ import MicNoneRoundedIcon from "@material-ui/icons/MicNoneRounded";
 import VideocamOutlinedIcon from "@material-ui/icons/VideocamOutlined";
 import PresentToAllRoundedIcon from "@material-ui/icons/PresentToAllRounded";
 import VideoCallOutlinedIcon from "@material-ui/icons/VideoCallOutlined";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./style.scss";
 
 const JoinClass = () => {
+  const { classId } = useParams();
+
   return (
     <div> 
       <Navbar />
@@ -41,12 +43,12 @@ const JoinClass = () => {
           <h1>Join meeting ?</h1>
 
           <div className="btn-container">
-            <Link to="/class" className="link">
+            <Link to={`/class/${classId}`} className="link">
               <button>Ask to join</button>
             </Link>
             <h3>or</h3>
 
-            <Link to="/class/create" className="link">
+            <Link to="/createclass" className="link">
               <button className="createBtn">
                 <VideoCallOutlinedIcon className="icon" /> New meeting
               </button>

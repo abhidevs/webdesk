@@ -35,7 +35,7 @@ const ItemSm = ({ type, index, data, noLink }) => {
             "itemSm " + type + (type === "schedule" ? ` ${status}` : "")
           }
           onClick={
-            status === "ongoing" ? () => history.push("/class/join") : () => {}
+            status === "ongoing" ? () => history.push("/class/join/91c40469-3a0c-4672-8695-9274537e1bbd") : () => {}
           }
         >
           <div className="column1">
@@ -57,12 +57,12 @@ const ItemSm = ({ type, index, data, noLink }) => {
             </div>
           )}
           <div className="column4">
-            {status === "ongoing" || type === "doubt" ? (
+            {status === "ongoing" ? (
               <Link
-                to={`/${type === "schedule" ? "class/join" : type}`}
+                to="class/join/91c40469-3a0c-4672-8695-9274537e1bbd"
                 className="link"
               >
-                <button>{type === "schedule" ? "Join" : "View"}</button>
+                <button>Join</button>
               </Link>
             ) : (
               <p className={status}>{status?.replace("-", " ")}</p>
