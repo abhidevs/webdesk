@@ -1,8 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import "./style.scss";
 import MicRoundedIcon from "@material-ui/icons/MicRounded";
+import MicOffRoundedIcon from "@material-ui/icons/MicOffRounded";
 import VideocamRoundedIcon from "@material-ui/icons/VideocamRounded";
-import PresentToAllIcon from "@material-ui/icons/PresentToAll";
+import VideocamOffRoundedIcon from "@material-ui/icons/VideocamOffRounded";
+import PresentToAllRoundedIcon from "@material-ui/icons/PresentToAllRounded";
+import CancelPresentationRoundedIcon from "@material-ui/icons/CancelPresentationRounded";
 import CommentIcon from "@material-ui/icons/Comment";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import SendIcon from "@material-ui/icons/Send";
@@ -38,8 +41,12 @@ const Onlinemeet = () => {
   const [peers, setPeers] = useState([]);
   const [message, setMessage] = useState("");
   const [allMessages, setAllMessages] = useState([]);
+  const [audioEnabled, setAudioEnabled] = useState(true);
+  const [videoEnabled, setVideoEnabled] = useState(true);
+  const [screenShareEnabled, setScreenShareEnabled] = useState(false)
   const socketRef = useRef();
   const userVideo = useRef();
+  const screenCapture = useRef();
   const peersRef = useRef([]);
   const {classId} = useParams();
 
@@ -149,8 +156,63 @@ const Onlinemeet = () => {
         senderID: "Abhik",
       });
     });
-
   };
+
+  const muteUnmuteAudio = () => {
+    const enabled = userVideo.current.srcObject.getAudioTracks()[0].enabled;
+    if(enabled) {
+      userVideo.current.srcObject.getAudioTracks()[0].enabled = false;
+      setAudioEnabled(false);
+    } else {
+      userVideo.current.srcObject.getAudioTracks()[0].enabled = true;
+      setAudioEnabled(true);
+    }
+  }
+
+  const muteUnmuteVideo = () => {
+    const enabled = userVideo.current.srcObject.getVideoTracks()[0].enabled;
+    if(enabled) {
+      userVideo.current.srcObject.getVideoTracks()[0].enabled = false;
+      setVideoEnabled(false);
+    } else {
+      userVideo.current.srcObject.getVideoTracks()[0].enabled = true;
+      setVideoEnabled(true);
+    }
+  }
+
+  const toggleScreenSharing = async () => {
+    if (!screenShareEnabled) {
+      try {
+        screenCapture.current = await navigator.mediaDevices.getDisplayMedia({ video: true });
+        screenCapture.current.getTracks()[0].onended = switchBackToUserVideo;
+        userVideo.current.srcObject = screenCapture.current;
+        setScreenShareEnabled(true);
+
+        peersRef.current.forEach(({peer}) => {
+          peer.streams[0].getVideoTracks()[0].stop();
+          console.log(peer.streams[0].getVideoTracks()[0], screenCapture.current.getVideoTracks()[0]);
+          peer.replaceTrack(peer.streams[0].getVideoTracks()[0], screenCapture.current.getVideoTracks()[0], peer.streams[0]);
+        })
+      } catch (err) {
+        console.error('error occured when trying to get screen sharing stream', err);
+      }
+    } else {
+      screenCapture.current.getTracks().forEach(track => track.stop());
+      switchBackToUserVideo();
+    }
+  };
+  
+  const switchBackToUserVideo = async () => {
+    setScreenShareEnabled(false);
+    userVideo.current.srcObject = await navigator.mediaDevices.getUserMedia({ video: videoConstraints, audio: true });
+    if(!audioEnabled) userVideo.current.srcObject.getAudioTracks()[0].enabled = false;
+    if(!videoEnabled) userVideo.current.srcObject.getVideoTracks()[0].enabled = false;
+    
+    peersRef.current.forEach(({peer}) => {
+      peer.streams[0].getVideoTracks()[0].stop();
+      peer.replaceTrack(peer.streams[0].getVideoTracks()[0], userVideo.current.srcObject.getVideoTracks()[0], peer.streams[0]);
+    })
+  }
 
   return (
     <div className="onlinemeet">
@@ -159,14 +221,14 @@ const Onlinemeet = () => {
           <Video userVideo muted videoRef={userVideo} autoPlay playsInline />
 
           <div className="controls">
-            <button className="btn">
-              <MicRoundedIcon />
+            <button className="btn" onClick={muteUnmuteAudio}>
+              {audioEnabled ? <MicRoundedIcon /> : <MicOffRoundedIcon />}
             </button>
-            <button className="btn">
-              <VideocamRoundedIcon />
+            <button className="btn" onClick={muteUnmuteVideo}>
+              { videoEnabled ? <VideocamRoundedIcon /> : <VideocamOffRoundedIcon />}
             </button>
-            <button className="btn mobile-hide">
-              <PresentToAllIcon />
+            <button className="btn mobile-hide" onClick={toggleScreenSharing}>
+              { screenShareEnabled ? <CancelPresentationRoundedIcon /> : <PresentToAllRoundedIcon />}
             </button>
             <button className="btn mobile-hide">
               <CommentIcon />
