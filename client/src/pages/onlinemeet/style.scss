@@ -89,7 +89,7 @@
       }
     }
 
-    .participants-section {
+    .screens-section {
       width: 15%;
       height: 100%;
       display: flex;
@@ -106,12 +106,12 @@
         color: var(--text-color2);
       }
 
-      .participants {
+      .screens {
         width: 90%;
         display: flex;
         flex-direction: column;
 
-        .participant {
+        .screen {
           width: 100%;
           height: 140px;
           display: flex;
@@ -137,7 +137,7 @@
       }
     }
 
-    .chat-section {
+    .right-panel {
       width: 22%;
       height: 100%;
       display: flex;
@@ -148,7 +148,7 @@
 
       .topSection {
         width: 100%;
-        height: 7%;
+        height: 8%;
         background: var(--secondary-color);
         display: flex;
         align-items: center;
@@ -156,55 +156,121 @@
         border-bottom: 2px solid var(--primary-color);
         border-top-right-radius: 15px;
 
-        p.chatNavLink {
+        .backBtn {
+          display: none;
+        }
+
+        p.rightNavLink {
           font-size: 15px;
           font-weight: 500;
           color: var(--text-color2);
           cursor: pointer;
         }
 
-        p.chatNavLink:first-of-type {
+        p.rightNavLink.active {
           color: var(--primary-color);
         }
       }
 
       .middleSection {
         width: 100%;
-        height: 86%;
-        margin-top: 15px;
-        padding-right: 15px;
+        height: 92%;
+        // margin-top: 15px;
+        // padding-right: 15px;
 
         .chats {
+          width: 100%;
+          height: 92%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 15px;
+          padding-right: 15px;
+        }
+
+        .msgForm {
+          width: 100%;
+          height: 8%;
+          background: var(--secondary-color);
+          display: flex;
+          align-items: center;
+          border-top: 2px solid var(--primary-color);
+          border-bottom-right-radius: 15px;
+
+          input {
+            width: 85%;
+            height: 100%;
+            padding: 5px 20px 5px 25px;
+            border: none;
+            outline: none;
+          }
+
+          button {
+            background: none;
+            border: none;
+            color: var(--text-color2);
+            cursor: pointer;
+
+            &:disabled {
+              cursor: initial;
+              color: var(--text-color1);
+            }
+          }
+        }
+
+        .participants {
           width: 100%;
           height: 100%;
           display: flex;
           flex-direction: column;
           align-items: center;
+          padding-top: 15px;
+          padding-right: 15px;
+
+          .participant {
+            width: 82%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+
+            img {
+              height: 42px;
+              width: 42px;
+              border-radius: 50px;
+              object-fit: cover;
+            }
+
+            h6 {
+              font-size: 14px;
+              font-weight: 600;
+              color: var(--text-color2);
+              margin-left: 20px;
+              margin-right: auto;
+            }
+          }
         }
-      }
 
-      .bottomSection {
-        width: 100%;
-        height: 7%;
-        background: var(--secondary-color);
-        display: flex;
-        align-items: center;
-        border-top: 2px solid var(--primary-color);
-        border-bottom-right-radius: 15px;
-
-        input {
-          width: 85%;
+        .meeting-info {
+          width: 100%;
           height: 100%;
-          padding: 5px 20px 5px 25px;
-          border: none;
-          outline: none;
-        }
+          padding-top: 15px;
+          padding-right: 15px;
+          padding-left: 20px;
 
-        button {
-          background: none;
-          border: none;
-          color: var(--text-color2);
-          cursor: pointer;
+          h6 {
+            font-size: 16px;
+            color: var(--text-color2);
+            font-weight: 600;
+            margin-bottom: 15px;
+          }
+
+          p {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-color1);
+            margin-bottom: 15px;
+          }
         }
       }
     }
@@ -262,7 +328,7 @@
         }
       }
 
-      .participants-section {
+      .screens-section {
         width: 100%;
         height: 13%;
         margin-bottom: 15%;
@@ -271,13 +337,13 @@
           display: none;
         }
 
-        .participants {
+        .screens {
           width: 100%;
           height: 100%;
           flex-direction: row;
           overflow: auto;
 
-          .participant {
+          .screen {
             min-width: 22vw;
             max-width: 22vw;
             height: 96%;
@@ -300,8 +366,32 @@
         }
       }
 
-      .chat-section {
+      .right-panel {
         display: none;
+
+        &.fullscreen {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: white;
+
+          .topSection {
+            padding-left: 10px;
+            padding-right: 60px;
+            justify-content: space-between;
+
+            .backBtn {
+              display: block;
+              background: none;
+              border: none;
+              color: var(--text-color2);
+              width: 40px;
+            }
+          }
+        }
       }
     }
   }
@@ -316,7 +406,7 @@
         }
       }
 
-      .participants-section {
+      .screens-section {
         height: 13vh;
         margin-bottom: 20%;
       }
@@ -325,7 +415,7 @@
 
   @include xs {
     .wrapper {
-      .participants-section {
+      .screens-section {
         margin-bottom: 21%;
       }
     }
