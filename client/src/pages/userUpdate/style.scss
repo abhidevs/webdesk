@@ -1,6 +1,5 @@
 @import "../../App.scss";
 .container {
-  
   .user-page {
     border-radius: 20px;
     margin: auto;
@@ -138,23 +137,39 @@
   @include mobile {
     .user-page {
       padding-top: 40px;
-      width: 90%;
+      width: 95%;
 
       .userimg {
-        width: 180px;
-        height: 180px;
+        width: 150px;
+        height: 150px;
         .cam {
           height: 60px;
           width: 60px;
         }
       }
+      
+      .show-passwd {
+        padding-top: 10px;
+        margin: auto;
+        display: block;
+        width: 250px;
+      }
 
       .save-psswd {
+        width: 80%;
         padding-bottom: 20px;
+        .btn {
+          width: 100%;
+        }
       }
+
       .edit-user {
         .user-input {
           width: 80%;
+          input {
+            font-size: 15px;
+            
+          }
         }
       }
     }
