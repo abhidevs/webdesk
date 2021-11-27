@@ -16,7 +16,7 @@ import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import VideoChat from "../../components/videoChat/VideoChat";
 import CallEndIcon from "@material-ui/icons/CallEnd";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { io } from "socket.io-client";
 import Peer from "simple-peer";
 import { AuthContext } from "../../context/authContext/AuthContext";
@@ -90,21 +90,19 @@ const Onlinemeet = () => {
   const [screenShareEnabled, setScreenShareEnabled] = useState(false);
   const [activeRightPanelTab, setActiveRightPanelTab] = useState("chats");
   const [moreControlsOpened, setMoreControlsOpened] = useState(false);
-  const [fullScreenRightPanelOpened, setFullScreenRightPanelOpened] =
-    useState(false);
   const socketRef = useRef();
   const userVideo = useRef();
   const screenCapture = useRef();
   const peersRef = useRef([]);
   const { classId } = useParams();
+  const history = useHistory();
 
   const { user } = useContext(AuthContext);
   const classes = useStyles();
 
   useEffect(() => {
     const roomID = classId;
-    console.log(roomID);
-    socketRef.current = io("http://localhost:5000/");
+    socketRef.current = io(process.env.REACT_APP_SOCKET_SERVER_URL);
     navigator.mediaDevices
       .getUserMedia({ video: videoConstraints, audio: true })
       .then((stream) => {
@@ -151,6 +149,22 @@ const Onlinemeet = () => {
 
         socketRef.current.on("received message", (payload) => {
           setAllMessages((msgs) => [...msgs, payload.message]);
+        });
+
+        socketRef.current.on("user left", (socketID) => {
+          const peerToRemove = peersRef.current.find(
+            (p) => p.peerID === socketID
+          );
+          if (peerToRemove) peerToRemove.peer.destroy();
+
+          const updatedPeersRef = peersRef.current.filter(
+            (p) => p.peerID !== socketID
+          );
+          peersRef.current = updatedPeersRef;
+
+          setPeers((currentArr) => [
+            ...currentArr.filter((p) => p.socketID !== socketID),
+          ]);
         });
       });
 
@@ -269,10 +283,6 @@ const Onlinemeet = () => {
 
         peersRef.current.forEach(({ peer }) => {
           peer.streams[0].getVideoTracks()[0].stop();
-          console.log(
-            peer.streams[0].getVideoTracks()[0],
-            screenCapture.current.getVideoTracks()[0]
-          );
           peer.replaceTrack(
             peer.streams[0].getVideoTracks()[0],
             screenCapture.current.getVideoTracks()[0],
@@ -312,6 +322,14 @@ const Onlinemeet = () => {
     });
   };
 
+  const leaveMeeting = () => {
+    socketRef.current.disconnect();
+    userVideo.current.srcObject.getTracks().forEach(function (track) {
+      track.stop();
+    });
+    history.push("/createclass");
+  };
+
   return (
     <div className="onlinemeet">
       <div className="wrapper">
@@ -336,10 +354,16 @@ const Onlinemeet = () => {
                 <PresentToAllRoundedIcon />
               )}
             </button>
-            <button className="btn mobile-hide">
+            <button
+              className="btn mobile-hide"
+              onClick={() => changeactiveRightPanelTab(null, "chats")}
+            >
               <CommentIcon />
             </button>
-            <button className="btn mobile-hide">
+            <button
+              className="btn mobile-hide"
+              onClick={() => changeactiveRightPanelTab(null, "participants")}
+            >
               <SupervisorAccountIcon />
             </button>
             <button
@@ -348,7 +372,7 @@ const Onlinemeet = () => {
             >
               <MoreVertIcon />
             </button>
-            <button className="leaveBtn">
+            <button className="leaveBtn" onClick={leaveMeeting}>
               <CallEndIcon />
             </button>
 
@@ -411,14 +435,13 @@ const Onlinemeet = () => {
 
         <div className="screens-section">
           <div className="heading">
-            <SupervisorAccountIcon />
-            ({peers.length}) All Screens
+            <SupervisorAccountIcon />({peers.length}) All Screens
           </div>
 
           <div className="screens">
-            {peers.map(({ username, peer }, index) => (
+            {peers.map(({ username, socketID, peer }) => (
               <div className="screen">
-                <Video key={index} peer={peer} />
+                <Video key={socketID} peer={peer} />
                 <p>{username.split(" ")[0]}</p>
               </div>
             ))}
