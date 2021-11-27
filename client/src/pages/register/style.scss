@@ -1,97 +1,98 @@
 @import "../../App.scss";
-.register {
-  overflow: hidden;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  margin: auto;
-  background: var(--primary-gradient);
-  display: flex;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
 
-  .register-page {
-    margin: auto;
-    width: 23%;
-    min-height: 70%;
-    max-height: 100%;
+  
+  .register {
+    transform: rotate(180deg);
+    position: fixed;
+    top: 0px;
+    left: 0px;
     display: flex;
-    background: var(--secondary-color);
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 12px rgb(0 0 0 / 10%);
-    border-radius: 8px;
-    padding: 1rem;
-    align-items: center;
-    text-align: center;
-
-    h1 {
-      color: var(--primary-color);
-      margin-bottom: 50px;
-    }
-
-    .register-input {
-      margin-bottom: 10px;
-      border-bottom: 2px solid var(--primary-color);
+    width: 100%;
+    height: 100%;
+    background:var(--primary-gradient);
+    .register-page {
+      transform: rotate(180deg);
+      margin: auto;
+      width: 23%;
+      min-height: 70%;
+      max-height: 100%;
       display: flex;
+      background: var(--secondary-color);
+      flex-direction: column;
       justify-content: center;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 12px rgb(0 0 0 / 10%);
+      border-radius: 8px;
+      padding: 1rem;
       align-items: center;
-      width: 92%;
-      input {
-        border-radius: 8px;
-        border: none;
-        outline: none;
-        color: var(--text-color2);
-        margin: 0.5rem 0;
-        padding: 0.5rem 0.75rem;
-        width: 92%;
-        font-size: 13px;
-      }
+      text-align: center;
 
-      .icon {
+      h1 {
         color: var(--primary-color);
+        margin-bottom: 50px;
+      }
+
+      .register-input {
+        margin-bottom: 10px;
+        border-bottom: 2px solid var(--primary-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 92%;
+        input {
+          border-radius: 8px;
+          border: none;
+          outline: none;
+          color: var(--text-color2);
+          margin: 0.5rem 0;
+          padding: 0.5rem 0.75rem;
+          width: 92%;
+          font-size: 13px;
+        }
+
+        .icon {
+          color: var(--primary-color);
+        }
+      }
+
+      .btn {
+        width: 92%;
+        background: var(--primary-color);
+        color: #fff;
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+        border: none;
+        border-radius: 18px;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+      }
+
+      .btn:hover {
+        box-shadow: 2px 2px 6px var(--text-color1);
       }
     }
 
-    .btn {
-      width: 92%;
-      background: var(--primary-color);
-      color: #fff;
-      font-size: 1.25rem;
-      padding: 0.5rem;
-      margin: 0.5rem 0;
-      border: none;
-      border-radius: 18px;
-      outline: none;
-      cursor: pointer;
-      transition: all 0.3s ease-out;
-    }
+    @include tablet {
+      display: block;
+      background: var(--primary-gradient);
 
-    .btn:hover {
-      box-shadow: 2px 2px 6px var(--text-color1);
-    }
-  }
+      .side-img {
+        img {
+          display: none;
+        }
+      }
 
-  @include tablet {
-    display: block;
-    background: var(--primary-gradient);
-
-    .side-img {
-      img {
-        display: none;
+      .register-page {
+        margin-top: 35%;
       }
     }
 
-    .register-page {
-      margin-top: 35%;
+    @include mobile {
+      .register-page {
+        margin-top: 15%;
+        width: 300px;
+      }
     }
   }
 
-  @include mobile {
-    .register-page {
-      margin-top: 15%;
-      width: 300px;
-    }
-  }
-}
