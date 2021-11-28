@@ -3,6 +3,7 @@ import {
   loginFailure,
   loginStart,
   loginSuccess,
+  logout,
   RegisterFailure,
   RegisterStart,
   RegisterSuccess,
@@ -47,3 +48,7 @@ export const updateUser = async (user, userInfo, dispatch) => {
     dispatch(UpdateUserFailure(err));
   }
 };
+
+export const logoutUser = (dispatch) => {
+  dispatch(logout());
+}
