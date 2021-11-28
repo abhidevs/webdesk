@@ -19,6 +19,7 @@
       width: 200px;
       height: 200px;
       margin: auto;
+      
       img {
         object-fit: cover;
         transition: 0.5s ease;
@@ -26,6 +27,7 @@
         height: 100%;
         border-radius: 100%;
       }
+
       .upload {
         transition: 0.5s ease;
         opacity: 0;
@@ -35,10 +37,16 @@
         transform: translate(-50%, -50%);
         text-align: center;
       }
+
       .cam {
         height: 70px;
         width: 70px;
         color: var(--primary-color);
+      }
+      
+      .MuiButton-endIcon {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
       }
     }
 
@@ -58,6 +66,7 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+
       .user-input {
         margin: 20px;
         border-bottom: 2px solid var(--primary-color);
@@ -79,6 +88,11 @@
         .icon {
           color: var(--primary-color);
         }
+      }
+
+      .changePassCheck {
+        width: 100%;
+        margin: 20px 30px 10px;
       }
     }
 
@@ -108,15 +122,17 @@
       .btn {
         width: 100%;
         background: var(--primary-color);
-        color: #fff;
-        font-size: 1.25rem;
-        padding: 0.5rem;
+        // color: #fff;
+        // outline: none;
+        // cursor: pointer;
+        font-size: 1.1rem;
         margin: 0.5rem 0;
-        border: none;
         border-radius: 18px;
-        outline: none;
-        cursor: pointer;
         transition: all 0.3s ease-out;
+
+        &:disabled {
+          background: var(--backgroud-color);
+        }
       }
       .btn:hover {
         box-shadow: 2px 2px 6px var(--text-color1);
@@ -142,12 +158,13 @@
       .userimg {
         width: 150px;
         height: 150px;
+
         .cam {
           height: 60px;
           width: 60px;
         }
       }
-      
+
       .show-passwd {
         padding-top: 10px;
         margin: auto;
@@ -168,7 +185,6 @@
           width: 80%;
           input {
             font-size: 15px;
-            
           }
         }
       }

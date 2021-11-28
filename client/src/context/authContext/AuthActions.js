@@ -29,6 +29,21 @@ export const RegisterFailure = (error) => ({
   payload: error,
 });
 
+// Update Actions
+export const UpdateUserStart = () => ({
+  type: "UPDATE_USER_START",
+});
+
+export const UpdateUserSuccess = (updatedUser) => ({
+  type: "UPDATE_USER_SUCCESS",
+  payload: updatedUser,
+});
+
+export const UpdateUserFailure = (error) => ({
+  type: "UPDATE_USER_FAILURE",
+  payload: error,
+});
+
 
 // Logout Actions
 export const logout = () => ({

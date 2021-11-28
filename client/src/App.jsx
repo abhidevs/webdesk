@@ -21,7 +21,7 @@ import IndividualDoubt from "./pages/individualDoubt/IndividualDoubt";
 import { AuthContext } from "./context/authContext/AuthContext";
 import UserUpdate from "./pages/userUpdate/userUpdate"
 function App() {
-  const { user } = useContext(AuthContext);
+  const { user, isFetching } = useContext(AuthContext);
 
   return (
     <div className="app">
@@ -37,7 +37,7 @@ function App() {
             {!user ? <Register /> : <Redirect to="/" />}
           </Route>
 
-          {user ? (
+          {user || isFetching ? (
             <>
               <Route path="/materials/:subject">
                 <Materials dept="BCA" sem="5th" />

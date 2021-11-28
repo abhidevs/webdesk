@@ -59,10 +59,10 @@ const Navbar = () => {
 
         <div className="right">
           <div className="profile">
-            <img src={user.profilePic || dummyProfilePic} alt="profileimg" />
+            <img src={user?.profilePic || dummyProfilePic} alt="profileimg" />
             <div className="userDetails">
-              <span>{user.fullname}</span>
-              <span>{user.isTeacher ? "Teacher" : "Student"}</span>
+              <span>{user?.fullname}</span>
+              <span>{user?.isTeacher ? "Teacher" : "Student"}</span>
             </div>
 
             <ArrowDropDownIcon className="icon" />

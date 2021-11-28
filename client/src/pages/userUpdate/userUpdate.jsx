@@ -1,19 +1,64 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./style.scss";
 import Navbar from "../../components/navbar/Navbar";
-import Lock from "@material-ui/icons/Lock";
 import Person from "@material-ui/icons/Person";
 import SchoolRounded from "@material-ui/icons/SchoolRounded";
 import MenuBookRounded from "@material-ui/icons/MenuBookRounded";
 import Email from "@material-ui/icons/Email";
 import PhotoCamera from "@material-ui/icons/PhotoCamera";
-import { blue } from "@mui/material/colors";
-import Checkbox from "@mui/material/Checkbox";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import dummyProfilePic from "../../assets/dummyProfilePic.png";
+import { Button } from "@material-ui/core";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import storage from "../../firebase";
+import { updateUser } from "../../context/authContext/apiCalls";
+import { LoadingButton } from "@mui/lab";
 
 function UserUpdate() {
-  const [passwordShown, setPasswordShown] = useState(false);
-  const togglePassword = () => {
-    setPasswordShown(!passwordShown);
+  const { user, isFetching, dispatch } = useContext(AuthContext);
+  const [userInfo, setUserInfo] = useState({
+    fullname: user?.fullname || "",
+    email: user?.email || "",
+    course: user?.course || "",
+    semester: user?.semester || "",
+    profilePic: user?.profilePic || "",
+  });
+  const [newProfilePic, setNewProfilePic] = useState(null);
+  const [updateLoading, setUpdateLoading] = useState(false);
+
+  const handleChange = ({ target: { name, value } }) => {
+    setUserInfo({ ...userInfo, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    setUpdateLoading(true);
+    let tempData = { ...userInfo };
+
+    if (newProfilePic) {
+      const filename = new Date().getTime() + newProfilePic.name;
+      const storageRef = ref(storage, `/files/${filename}`);
+
+      uploadBytes(storageRef, newProfilePic).then((snapshot) => {
+        console.log(`${newProfilePic.name} file succesfully uploaded`);
+
+        getDownloadURL(snapshot.ref).then((downloadURL) => {
+          tempData.profilePic = downloadURL;
+          updateUser(user, tempData, dispatch);
+          setUpdateLoading(false);
+        });
+      });
+    } else {
+      updateUser(user, tempData, dispatch);
+      setUpdateLoading(false);
+    }
+    console.log(tempData);
+  };
+
+  const handleProfilePicChange = ({ target: { files } }) => {
+    if (files[0]) {
+      setNewProfilePic(files[0]);
+      setUserInfo({ ...userInfo, profilePic: URL.createObjectURL(files[0]) });
+    }
   };
 
   return (
@@ -21,12 +66,16 @@ function UserUpdate() {
       <Navbar />
       <div className="user-page">
         <div className="userimg">
-          <img
-            src="https://images.unsplash.com/photo-1544168190-79c17527004f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bWFsZSUyMHRlYWNoZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-            alt=""
-          />
+          <img src={userInfo.profilePic || dummyProfilePic} alt="profile" />
           <div class="upload">
-            <PhotoCamera className="cam" />
+            <Button
+              variant="text"
+              component="label"
+              disableElevation
+              endIcon={<PhotoCamera className="cam" />}
+            >
+              <input type="file" hidden onChange={handleProfilePicChange} />
+            </Button>
           </div>
         </div>
 
@@ -37,6 +86,8 @@ function UserUpdate() {
               type="text"
               name="fullname"
               placeholder="Enter your full name"
+              value={userInfo.fullname}
+              onChange={handleChange}
             ></input>
             <Person className="icon" />
           </div>
@@ -46,6 +97,8 @@ function UserUpdate() {
               type="text"
               name="email"
               placeholder="Enter your email"
+              value={userInfo.email}
+              onChange={handleChange}
             ></input>
             <Email className="icon" />
           </div>
@@ -55,6 +108,8 @@ function UserUpdate() {
               type="text"
               name="course"
               placeholder="Enter your course"
+              value={userInfo.course}
+              onChange={handleChange}
             ></input>
             <SchoolRounded className="icon" />
           </div>
@@ -64,54 +119,24 @@ function UserUpdate() {
               type="text"
               name="semester"
               placeholder="Enter your semester"
+              value={userInfo.semester}
+              onChange={handleChange}
             ></input>
             <MenuBookRounded className="icon" />
           </div>
-
-          <div className="user-input">
-            <input
-              type={passwordShown ? "text" : "password"}
-              name="password"
-              placeholder="Enter old password"
-            ></input>
-            <Lock className="icon" />
-          </div>
-
-          <div className="user-input">
-            <input
-              type={passwordShown ? "text" : "password"}
-              name="password"
-              placeholder="Enter new password"
-            ></input>
-            <Lock className="icon" />
-          </div>
-
-          <div className="user-input">
-            <input
-              type={passwordShown ? "text" : "password"}
-              name="confirmPassword"
-              placeholder="Confirm password"
-            ></input>
-            <Lock className="icon" />
-          </div>
-        </div>
-
-        <div className="show-passwd">
-          <Checkbox
-            className="box"
-            onClick={togglePassword}
-            sx={{
-              color: blue[800],
-              "&.Mui-unchecked": {
-                color: blue[800],
-              },
-            }}
-          />
-          <label>Show Password</label>
         </div>
 
         <div className="save-psswd">
-          <button className="btn">save</button>
+          <LoadingButton
+            variant="contained"
+            className="btn"
+            onClick={handleSubmit}
+            style={{ textTransform: "none" }}
+            loading={updateLoading || isFetching}
+            loadingPosition="center"
+          >
+            Save
+          </LoadingButton>
         </div>
       </div>
     </div>

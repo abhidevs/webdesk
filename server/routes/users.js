@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const CryptoJS = require("crypto-js");
 const User = require("../models/User");
+const jwt = require("jsonwebtoken");
 const verify = require("../verifyToken");
 
 // Get
@@ -32,7 +33,15 @@ router.put("/:id", verify, async (req, res) => {
         },
         { new: true }
       );
-      res.status(200).json(updatedUser);
+
+      const accessToken = jwt.sign(
+        { id: updatedUser._id, isTeacher: updatedUser.isTeacher, isAdmin: updatedUser.isAdmin },
+        process.env.JWT_SECRET_KEY,
+        { expiresIn: "30d" }
+      );
+
+      const { password, ...userInfo } = updatedUser._doc;
+      res.status(200).json({ ...userInfo, accessToken });
     } catch (err) {
       res.status(500).json(err);
     }
