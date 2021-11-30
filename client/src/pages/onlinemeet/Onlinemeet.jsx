@@ -494,7 +494,7 @@ const Onlinemeet = () => {
                 {peers?.map((p) => (
                   <div className="participant">
                     <img
-                      src={p.profilePic || dummyProfilePic}
+                      src={p.userProfilePic || dummyProfilePic}
                       alt="user profile"
                     />
                     <h6>{p.username}</h6>
