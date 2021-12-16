@@ -83,7 +83,7 @@ Downloadable PWA <br/>
 
 ## 🐱‍👤 Contributors:
 
-- [Abhik Das](https://github.com/abhik007)
+- [Abhik Das](https://github.com/abhidevs)
 - [Bisu03](https://github.com/Bisu03)
 - [Rabbkhan](https://github.com/Rabbkhan)
 - [ Soumen2022 ](https://github.com/Soumen2022)
