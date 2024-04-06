@@ -31,9 +31,9 @@ this issue to a large extend by enabling a single window for teachers and facult
 <a id="Screenshots"></a>
 <h3>📷 Screenshots</h3>
 
-<img src='https://media.discordapp.net/attachments/841547652402249768/920654852495933461/login.PNG?width=1366&height=677' align='centre' width='80%'>
-<img src='https://media.discordapp.net/attachments/841547652402249768/920654878790017074/register.PNG?width=1363&height=678' align='centre' width='80%'>
-<img src='https://media.discordapp.net/attachments/841547652402249768/920654853057957888/dashbord.PNG?width=1344&height=678' align='centre' width='80%'>
+<img src='https://drive.google.com/file/d/1obGZ6FDJq2xK_1LDRsd92Zcr6NozaGkw/view?usp=sharing' align='centre' width='80%'>
+<img src='https://drive.google.com/file/d/1rWWxDR8SKa40WRZQ-1pSTltNlMFz45NO/view?usp=sharing' align='centre' width='80%'>
+<img src='https://drive.google.com/file/d/1rVuklDaXX3FEAHgTdKbtrNvFw_2x6M6W/view?usp=sharing' align='centre' width='80%'>
 <img src='https://media.discordapp.net/attachments/841547652402249768/920654852240048128/doubt.PNG?width=1344&height=678' align='centre' width='80%'>
 <img src='https://media.discordapp.net/attachments/841547652402249768/920654879050051635/submit.PNG?width=1374&height=678' align='centre' width='80%'>
 <img src='https://media.discordapp.net/attachments/841547652402249768/920654852818890802/meeting.PNG?width=1369&height=677' align='centre' width='80%'>
